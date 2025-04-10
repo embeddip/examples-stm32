@@ -1,0 +1,310 @@
+[1/379] Building ASM object CMakeFiles/dip-vs.dir/startup_stm32f746xx.s.obj
+[2/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/sysmem.c.obj
+[3/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/syscalls.c.obj
+[4/379] Building C object CMakeFiles/dip-vs.dir/LIBJPEG/App/libjpeg.c.obj
+[5/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/compress.c.obj
+[6/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f7xx.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/system_stm32f7xx.c:47:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[7/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c:24:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[8/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/stm32f7xx_it.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/stm32f7xx_it.c:21:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[9/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c:126:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[10/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/stm32f7xx_hal_msp.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/stm32f7xx_hal_msp.c:21:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[11/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c:67:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[12/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c:23:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[13/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c:82:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[14/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c:83:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[15/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c:108:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[16/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c:55:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[17/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c:39:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[18/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/main.c.obj
+FAILED: CMakeFiles/dip-vs.dir/Core/Src/main.c.obj 
+/home/odurgut/st/stm32cubeclt_1.19.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc -DARM_MATH_CM7 -DDEBUG -DENABLE_CAMERA_INPUT=1 -DENABLE_DISPLAY_OUTPUT=1 -DENABLE_IMAGE_PROCESSING=1 -DENABLE_UART_LOGGING=1 -DSTM32F746xx -DSTM32F7xx -DTARGET_BOARD_STM32F7=1 -DUSE_EMBED_DIP -DUSE_HAL_DRIVER -D__FPU_PRESENT=1 -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/CMSIS/DSP/Include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../LIBJPEG/App -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../LIBJPEG/Target -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Middlewares/Third_Party/LibJPEG/include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/core -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/imgproc -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/board -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/device/camera -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/device/display -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/device/serial -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/wrapper -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Core/Include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/DSP/Include -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Core/Inc -I/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/board/stm32f7 -mcpu=cortex-m7 -mfpu=fpv5-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m7 -mfpu=fpv5-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -O0 -g3 -std=gnu11 -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wall -Wextra -Wno-unused-parameter -ffunction-sections -fdata-sections -MD -MT CMakeFiles/dip-vs.dir/Core/Src/main.c.obj -MF CMakeFiles/dip-vs.dir/Core/Src/main.c.obj.d -o CMakeFiles/dip-vs.dir/Core/Src/main.c.obj -c /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:22:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c: In function 'main':
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:127:23: warning: passing argument 3 of 'dist' makes pointer from integer without a cast [-Wint-conversion]
+  127 |   dist(inImg, outImg, 255, 0, 0);
+      |                       ^~~
+      |                       |
+      |                       int
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/embedDIP.h:82,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:26:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/imgproc/misc.h:48:69: note: expected 'Image *' but argument is of type 'int'
+   48 | embeddip_status_t dist(const Image *src1, const Image *src2, Image *dst);
+      |                                                              ~~~~~~~^~~
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:127:3: error: too many arguments to function 'dist'
+  127 |   dist(inImg, outImg, 255, 0, 0);
+      |   ^~~~
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/imgproc/misc.h:48:19: note: declared here
+   48 | embeddip_status_t dist(const Image *src1, const Image *src2, Image *dst);
+      |                   ^~~~
+[19/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c:98:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[20/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c:25:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[21/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c:24:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[22/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c:46:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[23/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c:86:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[24/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c:107:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[25/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c:58:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[26/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c:116:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[27/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c:164:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[28/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c:36:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[29/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c:110:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[30/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c:115:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[31/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c:323:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+ninja: build stopped: subcommand failed.

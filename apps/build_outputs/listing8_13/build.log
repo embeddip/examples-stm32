@@ -1,0 +1,731 @@
+[1/379] Building ASM object CMakeFiles/dip-vs.dir/startup_stm32f746xx.s.obj
+[2/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/sysmem.c.obj
+[3/379] Building C object CMakeFiles/dip-vs.dir/LIBJPEG/App/libjpeg.c.obj
+[4/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/syscalls.c.obj
+[5/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/compress.c.obj
+[6/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c:24:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[7/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c:55:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[8/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c:67:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[9/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c:126:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[10/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c:108:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[11/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/stm32f7xx_it.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/stm32f7xx_it.c:21:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[12/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c:23:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[13/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c:82:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[14/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/stm32f7xx_hal_msp.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/stm32f7xx_hal_msp.c:21:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[15/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f7xx.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/system_stm32f7xx.c:47:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[16/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c:83:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[17/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c:98:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[18/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c:39:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[19/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c:25:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[20/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c:24:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[21/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c:86:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[22/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c:36:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[23/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c:58:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[24/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c:107:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[25/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c:116:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[26/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c:46:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[27/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c:110:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[28/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c:164:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[29/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c:115:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[30/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcapimin.c.obj
+[31/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcomapi.c.obj
+[32/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdapimin.c.obj
+[33/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcapistd.c.obj
+[34/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdapistd.c.obj
+[35/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c:163:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[36/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jctrans.c.obj
+[37/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdtrans.c.obj
+[38/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcparam.c.obj
+[39/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcinit.c.obj
+[40/379] Building C object CMakeFiles/dip-vs.dir/Core/Src/main.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:23:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[41/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c:20:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[42/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcprepct.c.obj
+[43/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jccoefct.c.obj
+[44/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c:157:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[45/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcmainct.c.obj
+[46/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c:323:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[47/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcmaster.c.obj
+[48/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcsample.c.obj
+[49/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jccolor.c.obj
+[50/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c.obj
+[51/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c:38:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[52/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c.obj
+[53/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c.obj
+[54/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdatadst.c.obj
+[55/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdmaster.c.obj
+[56/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdmainct.c.obj
+[57/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcmarker.c.obj
+[58/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdpostct.c.obj
+[59/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdinput.c.obj
+[60/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jchuff.c.obj
+[61/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jcarith.c.obj
+[62/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c.obj
+[63/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jidctfst.c.obj
+[64/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c.obj
+[65/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jidctflt.c.obj
+[66/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdsample.c.obj
+[67/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdcolor.c.obj
+[68/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdhuff.c.obj
+[69/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdarith.c.obj
+[70/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdmerge.c.obj
+[71/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jaricom.c.obj
+[72/379] Building C object cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c:158:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[73/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdmarker.c.obj
+[74/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c.obj
+[75/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jerror.c.obj
+[76/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/core/error.c.obj
+[77/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jquant1.c.obj
+[78/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jutils.c.obj
+[79/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c.obj
+[80/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jquant2.c.obj
+[81/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c.obj
+[82/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/thresh.c.obj
+[83/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/drawing.c.obj
+[84/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/histogram.c.obj
+[85/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/connectedcomponents.c.obj
+[86/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/morph.c.obj
+[87/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/imgwarp.c.obj
+[88/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/hough.c.obj
+[89/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/color.c.obj
+[90/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jfdctint.c.obj
+[91/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/board/stm32f7/board_stm32f7_memory.c.obj
+[92/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/board/common.c.obj
+[93/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/misc.c.obj
+[94/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/filter.c.obj
+[95/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_abs_q15.c.obj
+[96/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_abs_f32.c.obj
+[97/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_abs_q31.c.obj
+[98/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/imgproc/segmentation.c.obj
+[99/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/board/stm32f7/board_stm32f7_fft.c.obj
+[100/379] Building C object cmake/stm32cubemx/CMakeFiles/LibJPEG.dir/__/__/Middlewares/Third_Party/LibJPEG/source/jidctint.c.obj
+[101/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_add_q15.c.obj
+[102/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_add_f32.c.obj
+[103/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_abs_q7.c.obj
+[104/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/board/stm32f7/board_stm32f7_common.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/board/stm32f7/board_stm32f7_common.c:13:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[105/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_add_q31.c.obj
+[106/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_add_q7.c.obj
+[107/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/device/camera/ov5640/stm32_ov5640.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/device/camera/ov5640/stm32_ov5640.c:18:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[108/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_dot_prod_f32.c.obj
+[109/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_dot_prod_q31.c.obj
+[110/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_dot_prod_q7.c.obj
+[111/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_dot_prod_q15.c.obj
+[112/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/device/display/rk043fn48h/stm32_rk043fn48h.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/device/display/rk043fn48h/stm32_rk043fn48h.c:16:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[113/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_mult_q15.c.obj
+[114/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/device/serial/stm32_uart/stm32_uart.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/device/serial/stm32_uart/stm32_uart.c:14:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/embedDIP/../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+[115/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_mult_f32.c.obj
+[116/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_mult_q7.c.obj
+[117/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_negate_f32.c.obj
+[118/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_negate_q15.c.obj
+[119/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_negate_q31.c.obj
+[120/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_mult_q31.c.obj
+[121/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_offset_f32.c.obj
+[122/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_negate_q7.c.obj
+[123/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_offset_q15.c.obj
+[124/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_scale_f32.c.obj
+[125/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_offset_q31.c.obj
+[126/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_offset_q7.c.obj
+[127/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_scale_q15.c.obj
+[128/379] Building CXX object embedDIP/CMakeFiles/embedDIP.dir/wrapper/SerialWrapper.cpp.obj
+[129/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_scale_q31.c.obj
+[130/379] Building CXX object embedDIP/CMakeFiles/embedDIP.dir/wrapper/CameraWrapper.cpp.obj
+[131/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_shift_q31.c.obj
+[132/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_scale_q7.c.obj
+[133/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_shift_q15.c.obj
+[134/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_shift_q7.c.obj
+[135/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_sub_f32.c.obj
+[136/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_sub_q7.c.obj
+[137/379] Building CXX object embedDIP/CMakeFiles/embedDIP.dir/wrapper/DisplayWrapper.cpp.obj
+[138/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_sub_q15.c.obj
+[139/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/BasicMathFunctions/arm_sub_q31.c.obj
+[140/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/CommonTables/arm_const_structs.c.obj
+[141/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_conj_f32.c.obj
+[142/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_conj_q15.c.obj
+[143/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_dot_prod_f32.c.obj
+[144/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_conj_q31.c.obj
+[145/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mag_q15.c.obj
+[146/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c.obj
+[147/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q15.c.obj
+[148/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q31.c.obj
+[149/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mag_q31.c.obj
+[150/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mag_squared_f32.c.obj
+[151/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_f32.c.obj
+[152/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q15.c.obj
+[153/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q15.c.obj
+[154/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mult_real_f32.c.obj
+[155/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q31.c.obj
+[156/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q31.c.obj
+[157/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mult_real_q31.c.obj
+[158/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_pid_init_f32.c.obj
+[159/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ComplexMathFunctions/arm_cmplx_mult_real_q15.c.obj
+[160/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_pid_reset_q31.c.obj
+[161/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_pid_init_q15.c.obj
+[162/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_pid_init_q31.c.obj
+[163/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_sin_cos_f32.c.obj
+[164/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_cos_q15.c.obj
+[165/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_pid_reset_q15.c.obj
+[166/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_pid_reset_f32.c.obj
+[167/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_cos_q31.c.obj
+[168/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/ControllerFunctions/arm_sin_cos_q31.c.obj
+[169/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_sin_q15.c.obj
+[170/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_cos_f32.c.obj
+[171/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_sin_q31.c.obj
+[172/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_sin_f32.c.obj
+[173/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q15.c.obj
+[174/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_sqrt_q31.c.obj
+[175/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q31.c.obj
+[176/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm_sqrt_q15.c.obj
+[177/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c.obj
+[178/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q31.c.obj
+[179/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c.obj
+[180/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q15.c.obj
+[181/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/CommonTables/arm_common_tables.c.obj
+[182/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_q31.c.obj
+[183/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_q31.c.obj
+[184/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_q15.c.obj
+[185/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f64.c.obj
+[186/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_init_q31.c.obj
+[187/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c.obj
+[188/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_init_f32.c.obj
+[189/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_f32.c.obj
+[190/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c.obj
+[191/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_opt_q15.c.obj
+[192/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_fast_opt_q15.c.obj
+[193/379] Building CXX object embedDIP/CMakeFiles/embedDIP.dir/wrapper/ImageWrapper.cpp.obj
+[194/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_opt_q7.c.obj
+[195/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_f32.c.obj
+[196/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_f32.c.obj
+[197/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_fast_q31.c.obj
+[198/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_fast_q15.c.obj
+[199/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_biquad_cascade_df2T_f64.c.obj
+[200/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_opt_q7.c.obj
+[201/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_fast_q15.c.obj
+[202/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_fast_opt_q15.c.obj
+[203/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_opt_q15.c.obj
+[204/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_fast_q31.c.obj
+[205/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_fast_opt_q15.c.obj
+[206/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_q7.c.obj
+[207/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_q15.c.obj
+[208/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_partial_q31.c.obj
+[209/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_opt_q15.c.obj
+[210/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_opt_q7.c.obj
+[211/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_f32.c.obj
+[212/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_fast_q15.c.obj
+[213/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_q7.c.obj
+[214/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_q15.c.obj
+[215/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_conv_q31.c.obj
+[216/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_fast_q31.c.obj
+[217/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_q31.c.obj
+[218/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_q15.c.obj
+[219/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_correlate_q7.c.obj
+[220/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_f32.c.obj
+[221/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_fast_q15.c.obj
+[222/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_init_q15.c.obj
+[223/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_init_f32.c.obj
+[224/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_q31.c.obj
+[225/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_init_f32.c.obj
+[226/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_q15.c.obj
+[227/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_init_q31.c.obj
+[228/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_f32.c.obj
+[229/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_fast_q15.c.obj
+[230/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_decimate_fast_q31.c.obj
+[231/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_init_q7.c.obj
+[232/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_init_q15.c.obj
+[233/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_fast_q31.c.obj
+[234/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_init_q31.c.obj
+[235/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_interpolate_f32.c.obj
+[236/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_interpolate_init_q15.c.obj
+[237/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_interpolate_init_q31.c.obj
+[238/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_interpolate_init_f32.c.obj
+[239/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_lattice_init_q15.c.obj
+[240/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_interpolate_q31.c.obj
+[241/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_interpolate_q15.c.obj
+[242/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_lattice_init_q31.c.obj
+[243/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_lattice_f32.c.obj
+[244/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_q7.c.obj
+[245/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_lattice_init_f32.c.obj
+[246/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_q31.c.obj
+[247/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_lattice_q31.c.obj
+[248/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_lattice_q15.c.obj
+[249/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_init_f32.c.obj
+[250/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_init_q15.c.obj
+[251/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_init_q31.c.obj
+[252/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_q15.c.obj
+[253/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_f32.c.obj
+[254/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_init_q7.c.obj
+[255/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_iir_lattice_init_q15.c.obj
+[256/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_iir_lattice_f32.c.obj
+[257/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_q15.c.obj
+[258/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_q7.c.obj
+[259/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_iir_lattice_init_q31.c.obj
+[260/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_iir_lattice_init_f32.c.obj
+[261/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_fir_sparse_q31.c.obj
+[262/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_iir_lattice_q15.c.obj
+[263/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_f32.c.obj
+[264/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_init_f32.c.obj
+[265/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_init_q15.c.obj
+[266/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_init_q31.c.obj
+[267/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_iir_lattice_q31.c.obj
+[268/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_norm_f32.c.obj
+[269/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_norm_init_q15.c.obj
+[270/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_norm_init_f32.c.obj
+[271/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_q31.c.obj
+[272/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_q15.c.obj
+[273/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_norm_q31.c.obj
+[274/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_norm_q15.c.obj
+[275/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/FilteringFunctions/arm_lms_norm_init_q31.c.obj
+[276/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_add_q15.c.obj
+[277/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_add_f32.c.obj
+[278/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_cmplx_mult_f32.c.obj
+[279/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_cmplx_mult_q15.c.obj
+[280/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_add_q31.c.obj
+[281/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_init_q15.c.obj
+[282/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_init_q31.c.obj
+[283/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_init_f32.c.obj
+[284/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_inverse_f64.c.obj
+[285/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_mult_f32.c.obj
+[286/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_cmplx_mult_q31.c.obj
+[287/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_mult_fast_q15.c.obj
+[288/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_mult_q15.c.obj
+[289/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_mult_q31.c.obj
+[290/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_inverse_f32.c.obj
+[291/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_scale_q15.c.obj
+[292/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_scale_f32.c.obj
+[293/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_mult_fast_q31.c.obj
+[294/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_sub_f32.c.obj
+[295/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_sub_q31.c.obj
+[296/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_sub_q15.c.obj
+[297/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_scale_q31.c.obj
+[298/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_trans_q15.c.obj
+[299/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_trans_f32.c.obj
+[300/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_trans_q31.c.obj
+[301/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_max_f32.c.obj
+[302/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_max_q31.c.obj
+[303/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_mean_q15.c.obj
+[304/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_max_q15.c.obj
+[305/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_mean_q31.c.obj
+[306/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_mean_f32.c.obj
+[307/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_min_q15.c.obj
+[308/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_min_f32.c.obj
+[309/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_max_q7.c.obj
+[310/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_mean_q7.c.obj
+[311/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_power_f32.c.obj
+[312/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_min_q7.c.obj
+[313/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_power_q15.c.obj
+[314/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_rms_f32.c.obj
+[315/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_power_q31.c.obj
+[316/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_min_q31.c.obj
+[317/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_power_q7.c.obj
+[318/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_rms_q15.c.obj
+[319/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_std_f32.c.obj
+[320/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_std_q15.c.obj
+[321/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_var_f32.c.obj
+[322/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_std_q31.c.obj
+[323/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_rms_q31.c.obj
+[324/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_var_q31.c.obj
+[325/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm_var_q15.c.obj
+[326/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_fill_q15.c.obj
+[327/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_copy_f32.c.obj
+[328/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_copy_q15.c.obj
+[329/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_copy_q7.c.obj
+[330/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_copy_q31.c.obj
+[331/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_fill_f32.c.obj
+[332/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_fill_q31.c.obj
+[333/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_fill_q7.c.obj
+[334/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_float_to_q15.c.obj
+[335/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_float_to_q7.c.obj
+[336/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q15_to_float.c.obj
+[337/379] Building ASM object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_bitreversal2.S.obj
+[338/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q15_to_q7.c.obj
+[339/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q31_to_q7.c.obj
+[340/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_float_to_q31.c.obj
+[341/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q31_to_float.c.obj
+[342/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q31_to_q15.c.obj
+[343/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q7_to_q15.c.obj
+[344/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q15_to_q31.c.obj
+[345/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q7_to_float.c.obj
+[346/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_q15.c.obj
+[347/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_bitreversal.c.obj
+[348/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/SupportFunctions/arm_q7_to_q31.c.obj
+[349/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_f32.c.obj
+[350/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_q31.c.obj
+[351/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix2_init_q15.c.obj
+[352/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c.obj
+[353/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix2_f32.c.obj
+[354/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix2_init_q31.c.obj
+[355/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_q31.c.obj
+[356/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix2_init_f32.c.obj
+[357/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_f32.c.obj
+[358/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_q15.c.obj
+[359/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix2_q31.c.obj
+[360/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_dct4_f32.c.obj
+[361/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix2_q15.c.obj
+[362/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj
+[363/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_dct4_q15.c.obj
+[364/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_q31.c.obj
+[365/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_f32.c.obj
+[366/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_dct4_q31.c.obj
+[367/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_fast_init_f32.c.obj
+[368/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_fast_f32.c.obj
+[369/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_q15.c.obj
+[370/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_q15.c.obj
+[371/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_dct4_init_q15.c.obj
+[372/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_init_f32.c.obj
+[373/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_q31.c.obj
+[374/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_init_q15.c.obj
+[375/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_rfft_init_q31.c.obj
+[376/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_dct4_init_f32.c.obj
+[377/379] Building C object embedDIP/CMakeFiles/embedDIP.dir/__/Drivers/CMSIS/DSP/Source/TransformFunctions/arm_dct4_init_q31.c.obj
+[378/379] Linking CXX static library embedDIP/libembedDIP.a
+[379/379] Linking C executable dip-vs.elf
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2720 B       320 KB      0.83%
+           FLASH:       48416 B         1 MB      4.62%

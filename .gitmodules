@@ -1,0 +1,3 @@
+[submodule "embedDIP"]
+	path = embedDIP
+	url = git@github.com:EmbedDIP/embedDIP.git

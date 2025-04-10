@@ -1,0 +1,14 @@
+===========================================
+Build Information: listing6_3
+===========================================
+
+Build Date: Sat 11 Apr 2026 12:37:37 AM CEST
+Build Preset: Debug
+Build Status: SUCCESS
+Artifacts Saved: 2
+
+Size Information:
+   text	   data	    bss	    dec	    hex	filename
+  26832	     68	   2284	  29184	   7200	/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/listing6_3/listing6_3.elf
+
+Build Location: /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/listing6_3

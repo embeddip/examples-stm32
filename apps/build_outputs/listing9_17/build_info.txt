@@ -1,0 +1,14 @@
+===========================================
+Build Information: listing9_17
+===========================================
+
+Build Date: Sat 11 Apr 2026 12:40:11 AM CEST
+Build Preset: Debug
+Build Status: SUCCESS
+Artifacts Saved: 2
+
+Size Information:
+   text	   data	    bss	    dec	    hex	filename
+  31440	    124	   2596	  34160	   8570	/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/listing9_17/listing9_17.elf
+
+Build Location: /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/listing9_17

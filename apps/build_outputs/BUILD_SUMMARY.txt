@@ -1,0 +1,23 @@
+===========================================
+        BUILD ALL APPS - SUMMARY
+===========================================
+
+Build Date: Sat 11 Apr 2026 12:40:39 AM CEST
+Build Preset: Debug
+
+Total Apps: 54
+Successful Builds: 52
+Failed Builds: 2
+
+Success Rate: 96.3%
+
+-------------------------------------------
+Failed Apps:
+-------------------------------------------
+  - listing7_27
+  - listing7_5
+
+-------------------------------------------
+Build Output Location: /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs
+Original main.c Backup: /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c.backup.20260411_003632
+-------------------------------------------
