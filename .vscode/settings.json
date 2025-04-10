@@ -1,0 +1,26 @@
+{
+    "files.associations": {
+        "stm32f7xx_hal_conf.h": "c",
+        "xutility": "c",
+        "initializer_list": "c",
+        "type_traits": "c",
+        "image.h": "c",
+        "pixel.h": "c",
+        "serial.h": "c",
+        "camera.h": "c",
+        "stdint.h": "c",
+        "fonts.h": "c",
+        "main.h": "c",
+        "ov5640.h": "c",
+        "stdio.h": "c",
+        "embeddip.h": "c",
+        "rk043fn48h.h": "c",
+        "display.h": "c",
+        "stddef.h": "c",
+        "stm32f7xx_hal.h": "c",
+        "stm32f7xx_hal_ltdc.h": "c",
+        "string.h": "c",
+        "math.h": "c"
+    },
+    "cortex-debug.variableUseNaturalFormat": false
+}
