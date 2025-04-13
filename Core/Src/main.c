@@ -123,45 +123,44 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   display->init();
-  camera->init();
+  camera->init(IMAGE_RES_WQVGA);
 
-  Image *inImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
-
-  // camera->capture(SINGLE, inImg);
+  Image *inImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888);
+  Image *outImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888);
 
   serial->capture(inImg);
 
-  display->show(inImg);
+  float lowPass[3][3] = {
+      {1.0f / 9, 1.0f / 9, 1.0f / 9},
+      {1.0f / 9, 1.0f / 9, 1.0f / 9},
+      {1.0f / 9, 1.0f / 9, 1.0f / 9}};
 
-  serial->send(inImg);
+  float highPass[3][3] = {
+      {-1, -1, -1},
+      {-1, 8, -1},
+      {-1, -1, -1}};
 
-  display->clear(DISPLAY_COLOR_GREEN);
-
-  HAL_Delay(1000);
-
-  display->clear(DISPLAY_COLOR_BLUE);
-
-  HAL_Delay(1000);
-
-  display->clear(DISPLAY_COLOR_YELLOW);
-
-  HAL_Delay(1000);
-
-  Image *outImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-
-  cvtColor(inImg, outImg, CVT_RGB5652GRAY);
-
+  // Apply low-pass and high-pass filters
+  filter2D(inImg, outImg, 3, lowPass);
+  convertTo(outImg);
   display->show(outImg);
-
-  HAL_Delay(1000);
-
-  display->show(inImg);
-
-  HAL_Delay(1000);
-
   serial->send(outImg);
 
-  // serial->send(outImg);
+  filter2D(inImg, outImg, 3, highPass);
+  convertTo(outImg);
+  display->show(outImg);
+  serial->send(outImg);
+
+  /*
+
+  float gaussX[3] = {0.25f, 0.5f, 0.25f};
+  float gaussY[3] = {0.25f, 0.5f, 0.25f};
+
+  // sepFilter2D(inImg, outImg, 3, gaussX, 3, gaussY, 0.0f);
+  convertTo(outImg);
+  display->show(outImg);
+
+  */
 
   /* USER CODE END 2 */
 

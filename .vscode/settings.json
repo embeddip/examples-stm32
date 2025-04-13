@@ -20,7 +20,17 @@
         "stm32f7xx_hal.h": "c",
         "stm32f7xx_hal_ltdc.h": "c",
         "string.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "color.h": "c",
+        "cstdint": "c",
+        "ov5640_reg.h": "c",
+        "assert.h": "c",
+        "stdarg.h": "c",
+        "memory_manager.h": "c",
+        "filter.h": "c",
+        "common.h": "c",
+        "dip.h": "c",
+        "cstdlib": "c"
     },
-    "cortex-debug.variableUseNaturalFormat": false
+    "cortex-debug.variableUseNaturalFormat": true
 }
