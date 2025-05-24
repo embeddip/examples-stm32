@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "libjpeg.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -58,10 +59,11 @@ UART_HandleTypeDef huart1;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
-
+int COMMAND;
+int button_flag;
 serial_t *serial = &stm32_uart;
 camera_t *camera = &stm32_ov5640;
-display_t *display = &stm32_rk043fn48h;
+display_t *display = &stm32_ota5180a;
 
 /* USER CODE END PV */
 
@@ -81,6 +83,80 @@ static void MX_I2C3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+int jpeg_compress_rgb888(uint8_t *rgb_data, uint16_t width, uint16_t height, uint8_t *jpeg_out, size_t *jpeg_size, int quality)
+{
+  struct jpeg_compress_struct cinfo;
+  struct jpeg_error_mgr jerr;
+
+  JSAMPROW row_pointer[1];
+  int row_stride = width * 3;
+
+  cinfo.err = jpeg_std_error(&jerr);
+  jpeg_create_compress(&cinfo);
+  jpeg_mem_dest(&cinfo, &jpeg_out, jpeg_size);
+
+  cinfo.image_width = width;
+  cinfo.image_height = height;
+  cinfo.input_components = 3;
+  cinfo.in_color_space = JCS_RGB;
+
+  jpeg_set_defaults(&cinfo);
+  jpeg_set_quality(&cinfo, quality, TRUE);
+  jpeg_start_compress(&cinfo, TRUE);
+
+  while (cinfo.next_scanline < cinfo.image_height)
+  {
+    row_pointer[0] = &rgb_data[cinfo.next_scanline * row_stride];
+    jpeg_write_scanlines(&cinfo, row_pointer, 1);
+  }
+
+  jpeg_finish_compress(&cinfo);
+  jpeg_destroy_compress(&cinfo);
+  return 0;
+}
+
+int current_mode = 1;
+uint32_t last_press_time = 0;
+int press_count = 0;
+int ready_to_send = 0;
+
+#define USER_BUTTON_PIN GPIO_PIN_11
+#define USER_BUTTON_PORT GPIOI
+#define MODE_COUNT 4
+#define DOUBLE_CLICK_TIME 300 // ms
+
+uint32_t millis()
+{
+  return HAL_GetTick();
+}
+
+void check_button_event()
+{
+  static uint8_t last_state = 1;
+  uint8_t current_state = HAL_GPIO_ReadPin(USER_BUTTON_PORT, USER_BUTTON_PIN);
+
+  if (last_state == 1 && current_state == 0)
+  {
+    uint32_t now = millis();
+    if (now - last_press_time < DOUBLE_CLICK_TIME)
+    {
+      ready_to_send = 1;
+      press_count = 0;
+    }
+    else
+    {
+      current_mode = (current_mode % MODE_COUNT) + 1;
+    }
+    last_press_time = now;
+  }
+
+  last_state = current_state;
+}
+
+void EXTI15_10_IR1Handler(void)
+{
+}
 
 /* USER CODE END 0 */
 
@@ -120,54 +196,72 @@ int main(void)
   MX_LTDC_Init();
   MX_USART1_UART_Init();
   MX_I2C3_Init();
+  MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
-
-  display->init();
+  memory_init();
   camera->init(IMAGE_RES_WQVGA);
+  display->init();
 
-  Image *inImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888);
-  Image *outImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888);
+  Image *inImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+
+  Image *filtered = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+
+  Image *outImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
   serial->capture(inImg);
-
-  float lowPass[3][3] = {
-      {1.0f / 9, 1.0f / 9, 1.0f / 9},
-      {1.0f / 9, 1.0f / 9, 1.0f / 9},
-      {1.0f / 9, 1.0f / 9, 1.0f / 9}};
-
-  float highPass[3][3] = {
-      {-1, -1, -1},
-      {-1, 8, -1},
-      {-1, -1, -1}};
-
-  // Apply low-pass and high-pass filters
-  filter2D(inImg, outImg, 3, lowPass);
-  convertTo(outImg);
-  display->show(outImg);
-  serial->send(outImg);
-
-  filter2D(inImg, outImg, 3, highPass);
-  convertTo(outImg);
-  display->show(outImg);
-  serial->send(outImg);
-
-  /*
-
-  float gaussX[3] = {0.25f, 0.5f, 0.25f};
-  float gaussY[3] = {0.25f, 0.5f, 0.25f};
-
-  // sepFilter2D(inImg, outImg, 3, gaussX, 3, gaussY, 0.0f);
-  convertTo(outImg);
-  display->show(outImg);
-
-  */
+  int histogram[256] = {0};
+  int totalPixels = histForm(inImg, histogram);
+  serial->send1D(histogram, sizeof(int), 256, SERIAL_DATA_HISTOGRAM);
 
   /* USER CODE END 2 */
 
-  /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
+    ;
+
+  while (1)
   {
+
+    if (button_flag)
+    {
+      button_flag = 0;
+      if (COMMAND == 0x01)
+      {
+        current_mode++;
+        current_mode = current_mode % 4;
+      }
+      else
+      {
+        camera->stop();
+        switch (current_mode)
+        {
+        case 0: // HistEq + Median
+          histEq(inImg, filtered);
+          medianFilter(filtered, outImg, 3);
+          normalize(outImg);
+          convertTo(outImg);
+          break;
+        case 1: // Negative
+          negative(inImg, outImg);
+          break;
+        case 2: // Gamma correction
+          powerTransform(inImg, outImg, 1.5f, 1.0f);
+          normalize(outImg);
+          convertTo(outImg);
+          break;
+        case 3: // Sharpen
+          // filter2D(inImg, filtered, 3, highPassFilter3x3);
+          add(inImg, filtered, outImg);
+          convertTo(outImg);
+          break;
+        default:
+          break;
+        }
+        serial->send(outImg);
+        camera->capture(CONTINUOUS, inImg);
+      }
+    }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -482,17 +576,17 @@ static void MX_FMC_Init(void)
   hsdram1.Init.RowBitsNumber = FMC_SDRAM_ROW_BITS_NUM_12;
   hsdram1.Init.MemoryDataWidth = FMC_SDRAM_MEM_BUS_WIDTH_16;
   hsdram1.Init.InternalBankNumber = FMC_SDRAM_INTERN_BANKS_NUM_4;
-  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_3;
+  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_2;
   hsdram1.Init.WriteProtection = FMC_SDRAM_WRITE_PROTECTION_DISABLE;
   hsdram1.Init.SDClockPeriod = FMC_SDRAM_CLOCK_PERIOD_2;
   hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
   hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
   /* SdramTiming */
   SdramTiming.LoadToActiveDelay = 2;
-  SdramTiming.ExitSelfRefreshDelay = 7;
+  SdramTiming.ExitSelfRefreshDelay = 6;
   SdramTiming.SelfRefreshTime = 4;
-  SdramTiming.RowCycleDelay = 7;
-  SdramTiming.WriteRecoveryTime = 3;
+  SdramTiming.RowCycleDelay = 6;
+  SdramTiming.WriteRecoveryTime = 2;
   SdramTiming.RPDelay = 2;
   SdramTiming.RCDDelay = 2;
 
@@ -502,6 +596,39 @@ static void MX_FMC_Init(void)
   }
 
   /* USER CODE BEGIN FMC_Init 2 */
+
+  static FMC_SDRAM_TimingTypeDef Timing;
+  static FMC_SDRAM_CommandTypeDef Command;
+  __IO uint32_t tmpmrd = 0;
+  Command.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
+  Command.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+  Command.AutoRefreshNumber = 1;
+  Command.ModeRegisterDefinition = 0;
+  HAL_SDRAM_SendCommand(&hsdram1, &Command, (uint32_t)0xFFFF);
+
+  HAL_Delay(1);
+  Command.CommandMode = FMC_SDRAM_CMD_PALL;
+  Command.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+  Command.AutoRefreshNumber = 1;
+  Command.ModeRegisterDefinition = 0;
+  HAL_SDRAM_SendCommand(&hsdram1, &Command, (uint32_t)0xFFFF);
+
+  Command.CommandMode = FMC_SDRAM_CMD_AUTOREFRESH_MODE;
+  Command.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+  Command.AutoRefreshNumber = 8;
+  Command.ModeRegisterDefinition = 0;
+  HAL_SDRAM_SendCommand(&hsdram1, &Command, (uint32_t)0xFFFF);
+  tmpmrd = (uint32_t)SDRAM_MODEREG_BURST_LENGTH_1 | SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2 | SDRAM_MODEREG_OPERATING_MODE_STANDARD | SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+
+  Command.CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
+  Command.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+  Command.AutoRefreshNumber = 1;
+  Command.ModeRegisterDefinition = tmpmrd;
+  HAL_SDRAM_SendCommand(&hsdram1, &Command, (uint32_t)0xFFFF);
+
+  hsdram1.Instance->SDRTR |= ((uint32_t)((1292) << 1));
+
+  // BSP_SDRAM_Initialization_sequence(((uint32_t)0x0603));
 
   /* USER CODE END FMC_Init 2 */
 }
@@ -735,6 +862,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF2_TIM5;
   HAL_GPIO_Init(ARDUINO_PWM_CS_D5_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PI11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
+
   /*Configure GPIO pin : ARDUINO_PWM_D10_Pin */
   GPIO_InitStruct.Pin = ARDUINO_PWM_D10_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -854,6 +987,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

@@ -10,15 +10,19 @@ set(MX_Defines_Syms
 
 # STM32CubeMX generated include paths
 set(MX_Include_Dirs
+    ${CMAKE_SOURCE_DIR}/LIBJPEG/App
+    ${CMAKE_SOURCE_DIR}/LIBJPEG/Target
     ${CMAKE_SOURCE_DIR}/Core/Inc
     ${CMAKE_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/Inc
     ${CMAKE_SOURCE_DIR}/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/include
     ${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32F7xx/Include
     ${CMAKE_SOURCE_DIR}/Drivers/CMSIS/Include
 )
 
 # STM32CubeMX generated application sources
 set(MX_Application_Src
+    ${CMAKE_SOURCE_DIR}/LIBJPEG/App/libjpeg.c
     ${CMAKE_SOURCE_DIR}/Core/Src/main.c
     ${CMAKE_SOURCE_DIR}/Core/Src/stm32f7xx_it.c
     ${CMAKE_SOURCE_DIR}/Core/Src/stm32f7xx_hal_msp.c
@@ -62,6 +66,54 @@ set(STM32_Drivers_Src
 # Drivers Midllewares
 
 
+set(LibJPEG_Src
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcapimin.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcapistd.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdapimin.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdapistd.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcomapi.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcparam.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jctrans.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdtrans.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcinit.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcmaster.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcmainct.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcprepct.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jccoefct.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jccolor.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcsample.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jfdctint.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jchuff.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcarith.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jcmarker.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdatadst.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdmaster.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdinput.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdmainct.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdpostct.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdmarker.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdhuff.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdarith.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jidctint.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jidctfst.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jidctflt.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdsample.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdcolor.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdmerge.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jquant1.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jquant2.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jaricom.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jerror.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jutils.c
+    ${CMAKE_SOURCE_DIR}/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c
+)
 
 # Link directories setup
 set(MX_LINK_DIRS
@@ -70,7 +122,7 @@ set(MX_LINK_DIRS
 # Project static libraries
 set(MX_LINK_LIBS 
     STM32_Drivers
-    
+    LibJPEG	
 )
 # Interface library for includes and symbols
 add_library(stm32cubemx INTERFACE)
@@ -82,6 +134,11 @@ add_library(STM32_Drivers OBJECT)
 target_sources(STM32_Drivers PRIVATE ${STM32_Drivers_Src})
 target_link_libraries(STM32_Drivers PUBLIC stm32cubemx)
 
+
+# Create LibJPEG static library
+add_library(LibJPEG OBJECT)
+target_sources(LibJPEG PRIVATE ${LibJPEG_Src})
+target_link_libraries(LibJPEG PUBLIC stm32cubemx)
 
 # Add STM32CubeMX generated application sources to the project
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${MX_Application_Src})

@@ -2,6 +2,7 @@ C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/CMakeFiles/dip-vs.di
 C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/CMakeFiles/edit_cache.dir
 C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/CMakeFiles/rebuild_cache.dir
 C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/cmake/stm32cubemx/CMakeFiles/LibJPEG.dir
 C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
 C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
 C:/Users/ozand/OneDrive/Desktop/PROJECTS/dip-vs/build/Debug/embedDIP/CMakeFiles/embedDIP.dir

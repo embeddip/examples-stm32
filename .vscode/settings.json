@@ -30,7 +30,28 @@
         "filter.h": "c",
         "common.h": "c",
         "dip.h": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "utility": "c",
+        "histogram.h": "c",
+        "histogram.H": "cpp",
+        "stdbool.h": "c",
+        "float.h": "c",
+        "limits.h": "c",
+        "complex": "c",
+        "fft.h": "c",
+        "xlocale": "c",
+        "array": "c",
+        "deque": "c",
+        "list": "c",
+        "queue": "c",
+        "random": "c",
+        "ranges": "c",
+        "span": "c",
+        "vector": "c",
+        "xhash": "c",
+        "xstring": "c",
+        "string_view": "c",
+        "xiosbase": "c"
     },
-    "cortex-debug.variableUseNaturalFormat": true
+    "cortex-debug.variableUseNaturalFormat": false
 }
