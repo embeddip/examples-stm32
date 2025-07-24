@@ -18,13 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "libjpeg.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <embedDIP.h>
-#include <stdio.h>
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,10 +57,6 @@ SDRAM_HandleTypeDef hsdram1;
 /* USER CODE BEGIN PV */
 int COMMAND;
 int button_flag;
-serial_t *serial = &stm32_uart;
-camera_t *camera = &stm32_ov5640;
-display_t *display = &stm32_ota5180a;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -83,38 +75,6 @@ static void MX_I2C3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-int jpeg_compress_rgb888(uint8_t *rgb_data, uint16_t width, uint16_t height, uint8_t *jpeg_out, size_t *jpeg_size, int quality)
-{
-  struct jpeg_compress_struct cinfo;
-  struct jpeg_error_mgr jerr;
-
-  JSAMPROW row_pointer[1];
-  int row_stride = width * 3;
-
-  cinfo.err = jpeg_std_error(&jerr);
-  jpeg_create_compress(&cinfo);
-  jpeg_mem_dest(&cinfo, &jpeg_out, jpeg_size);
-
-  cinfo.image_width = width;
-  cinfo.image_height = height;
-  cinfo.input_components = 3;
-  cinfo.in_color_space = JCS_RGB;
-
-  jpeg_set_defaults(&cinfo);
-  jpeg_set_quality(&cinfo, quality, TRUE);
-  jpeg_start_compress(&cinfo, TRUE);
-
-  while (cinfo.next_scanline < cinfo.image_height)
-  {
-    row_pointer[0] = &rgb_data[cinfo.next_scanline * row_stride];
-    jpeg_write_scanlines(&cinfo, row_pointer, 1);
-  }
-
-  jpeg_finish_compress(&cinfo);
-  jpeg_destroy_compress(&cinfo);
-  return 0;
-}
 
 int current_mode = 1;
 uint32_t last_press_time = 0;
@@ -198,70 +158,13 @@ int main(void)
   MX_I2C3_Init();
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
-  memory_init();
-  camera->init(IMAGE_RES_WQVGA);
-  display->init();
 
-  Image *inImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-
-  Image *filtered = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-
-  Image *outImg = createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-
-  serial->capture(inImg);
-  int histogram[256] = {0};
-  int totalPixels = histForm(inImg, histogram);
-  serial->send1D(histogram, sizeof(int), 256, SERIAL_DATA_HISTOGRAM);
-
+  mainCPP();
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN WHILE */
   while (1)
-    ;
-
-  while (1)
   {
-
-    if (button_flag)
-    {
-      button_flag = 0;
-      if (COMMAND == 0x01)
-      {
-        current_mode++;
-        current_mode = current_mode % 4;
-      }
-      else
-      {
-        camera->stop();
-        switch (current_mode)
-        {
-        case 0: // HistEq + Median
-          histEq(inImg, filtered);
-          medianFilter(filtered, outImg, 3);
-          normalize(outImg);
-          convertTo(outImg);
-          break;
-        case 1: // Negative
-          negative(inImg, outImg);
-          break;
-        case 2: // Gamma correction
-          powerTransform(inImg, outImg, 1.5f, 1.0f);
-          normalize(outImg);
-          convertTo(outImg);
-          break;
-        case 3: // Sharpen
-          // filter2D(inImg, filtered, 3, highPassFilter3x3);
-          add(inImg, filtered, outImg);
-          convertTo(outImg);
-          break;
-        default:
-          break;
-        }
-        serial->send(outImg);
-        camera->capture(CONTINUOUS, inImg);
-      }
-    }
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
