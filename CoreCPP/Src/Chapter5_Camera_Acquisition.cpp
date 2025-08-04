@@ -1,0 +1,20 @@
+#include "main.h"
+#include <embedDIP.hpp>
+
+using namespace std;
+
+int application()
+{
+    embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888);
+
+    embedDIP::Camera camera(&stm32_ov5640);
+
+    camera.init(IMAGE_RES_WQVGA);
+
+    camera.capture(SINGLE, inImg);
+
+    while (1)
+    {
+        ;
+    }
+}

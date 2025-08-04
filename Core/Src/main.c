@@ -55,8 +55,6 @@ UART_HandleTypeDef huart1;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
-int COMMAND;
-int button_flag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -75,8 +73,6 @@ static void MX_I2C3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-int current_mode = 1;
 uint32_t last_press_time = 0;
 int press_count = 0;
 int ready_to_send = 0;
@@ -90,29 +86,8 @@ uint32_t millis()
 {
   return HAL_GetTick();
 }
-
-void check_button_event()
-{
-  static uint8_t last_state = 1;
-  uint8_t current_state = HAL_GPIO_ReadPin(USER_BUTTON_PORT, USER_BUTTON_PIN);
-
-  if (last_state == 1 && current_state == 0)
-  {
-    uint32_t now = millis();
-    if (now - last_press_time < DOUBLE_CLICK_TIME)
-    {
-      ready_to_send = 1;
-      press_count = 0;
-    }
-    else
-    {
-      current_mode = (current_mode % MODE_COUNT) + 1;
-    }
-    last_press_time = now;
-  }
-
-  last_state = current_state;
-}
+int COMMAND;
+int button_flag;
 
 void EXTI15_10_IR1Handler(void)
 {
@@ -156,10 +131,10 @@ int main(void)
   MX_LTDC_Init();
   MX_USART1_UART_Init();
   MX_I2C3_Init();
-  MX_LIBJPEG_Init();
+  //MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
 
-  mainCPP();
+  application();
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN WHILE */
@@ -499,8 +474,6 @@ static void MX_FMC_Init(void)
   }
 
   /* USER CODE BEGIN FMC_Init 2 */
-
-  static FMC_SDRAM_TimingTypeDef Timing;
   static FMC_SDRAM_CommandTypeDef Command;
   __IO uint32_t tmpmrd = 0;
   Command.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;

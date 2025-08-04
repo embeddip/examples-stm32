@@ -1,3 +1,3 @@
 #include <image_data.h>
 
-int mainCPP();
+int application();

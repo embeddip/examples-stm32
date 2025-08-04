@@ -1,46 +1,33 @@
 #include "main.h"
-
-#include "libjpeg.h"
 #include <embedDIP.hpp>
-#include <image_data.h>
-#include <stdio.h>
-#include <string.h>
+#include <image_data_rgb.h>
 
 using namespace std;
 
-int mainCPP()
+int application()
 {
-    memory_init();
-
-    embedDIP::Image yuvImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_YUV);
-    embedDIP::Image grayImg(256, 256, IMAGE_FORMAT_GRAYSCALE);
-    embedDIP::Image magnitude(256, 256, IMAGE_FORMAT_GRAYSCALE);
+    embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
+    embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
     embedDIP::Serial serial(&stm32_uart);
 
+    embedDIP::Display display(&stm32_ota5180a);
+
+    embedDIP::Camera camera(&stm32_ov5640);
+
     serial.init();
+    display.init();
 
-    serial.capture(yuvImg);
-    yuvImg.cvtColor(grayImg, );
+    serial.capture(inImg);
+    camera.init(IMAGE_RES_WQVGA);
+    camera.capture(CONTINUOUS, inImg);
+
+    // inImg.logFilter(outImg, 1.0f);
+
+    // outImg.convertTo();
+
     serial.send(inImg);
-
-
-    /*
-    inImg.fft(fftImg);
-    fftImg.fftshift();
-
-    fftImg._abs(magnitude);
-
-    filter.getFilter(FREQ_FILTER_GAUSSIAN_LOWPASS, 40.0f, 0.0f);
-
-    magnitude.multiply(filter, output);
-
-    output._add(1);
-    output._log();
-
-    output.convertTo();
-    serial.send(output);
-    */
+    display.show(inImg);
 
     while (1)
     {

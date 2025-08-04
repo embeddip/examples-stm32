@@ -72,7 +72,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-int mainCPP();
+int application();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
