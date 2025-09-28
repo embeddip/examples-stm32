@@ -504,8 +504,6 @@ static void MX_FMC_Init(void)
 
   hsdram1.Instance->SDRTR |= ((uint32_t)((1292) << 1));
 
-  // BSP_SDRAM_Initialization_sequence(((uint32_t)0x0603));
-
   /* USER CODE END FMC_Init 2 */
 }
 

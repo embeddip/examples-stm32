@@ -1,33 +1,40 @@
 #include "main.h"
 #include <embedDIP.hpp>
-#include <image_data_rgb.h>
 
 using namespace std;
 
 int application()
 {
-    embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
+    embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+    embedDIP::Image maskImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+
     embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
     embedDIP::Serial serial(&stm32_uart);
 
-    embedDIP::Display display(&stm32_ota5180a);
-
-    embedDIP::Camera camera(&stm32_ov5640);
-
     serial.init();
-    display.init();
 
     serial.capture(inImg);
-    camera.init(IMAGE_RES_WQVGA);
-    camera.capture(CONTINUOUS, inImg);
 
-    // inImg.logFilter(outImg, 1.0f);
+    Rectangle roi;
+    roi.x = 87;
+    roi.y = 43;
+    roi.width = 350;
+    roi.height = 180;
 
-    // outImg.convertTo();
+    // tic();
 
-    serial.send(inImg);
-    display.show(inImg);
+    inImg.grabCutLite(maskImg, roi, 10);
+    // inImg.grabCut(maskImg, roi, 1);
+
+    // uint32_t cycleCount = toc();
+
+    maskImg.convertTo();
+    serial.send(maskImg);
+
+    maskImg.multiply(inImg, outImg);
+    outImg.convertTo();
+    serial.send(outImg);
 
     while (1)
     {
