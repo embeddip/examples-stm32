@@ -32,6 +32,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/DSP/Include
 )
 
+# Add Core/Inc to embedDIP (PRIVATE since it's internal to this project)
+target_include_directories(embedDIP PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
+)
+
 target_compile_options(${PROJECT_NAME} PRIVATE
     -mcpu=cortex-m7
     -mfpu=fpv5-d16

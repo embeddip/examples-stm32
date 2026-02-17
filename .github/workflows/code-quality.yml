@@ -1,0 +1,194 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # Cache ARM toolchain for header analysis
+      - name: Cache ARM Toolchain
+        uses: actions/cache@v3
+        id: cache-arm-toolchain
+        with:
+          path: ~/arm-toolchain
+          key: arm-gnu-toolchain-13.2.rel1-x86_64-${{ runner.os }}
+
+      - name: Download ARM Toolchain
+        if: steps.cache-arm-toolchain.outputs.cache-hit != 'true'
+        run: |
+          cd ~
+          wget -q https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
+          mkdir -p arm-toolchain
+          tar xf arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz -C arm-toolchain --strip-components=1
+
+      - name: Setup ARM Toolchain
+        run: echo "$HOME/arm-toolchain/bin" >> $GITHUB_PATH
+
+      # Install analysis tools
+      - name: Install Analysis Tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq cppcheck clang-format cmake ninja-build
+          echo "✅ Analysis tools installed"
+
+      # Configure project for analysis
+      - name: Configure Project
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -G Ninja -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      # Run cppcheck static analysis
+      - name: Run Cppcheck
+        run: |
+          echo "🔍 Running cppcheck static analysis..."
+          cppcheck \
+            --enable=warning,style,performance,portability \
+            --error-exitcode=0 \
+            --inline-suppr \
+            --suppress=missingIncludeSystem \
+            --suppress=unusedFunction \
+            --suppress=unmatchedSuppression \
+            --std=c11 --std=c++17 \
+            --platform=unix32 \
+            --force \
+            -I embedDIP/core \
+            -I embedDIP/imgproc \
+            -I embedDIP/board \
+            -I embedDIP/device \
+            -I embedDIP/wrapper \
+            -I Drivers/STM32F7xx_HAL_Driver/Inc \
+            -I Drivers/CMSIS/Device/ST/STM32F7xx/Include \
+            -I Drivers/CMSIS/Core/Include \
+            -I Core/Inc \
+            embedDIP/ CoreCPP/ \
+            --xml \
+            2> cppcheck-report.xml || true
+
+          echo "✅ Cppcheck analysis complete"
+
+      # Check code formatting (clang-format)
+      - name: Check Code Formatting
+        run: |
+          echo "🎨 Checking code formatting..."
+
+          # Create .clang-format if it doesn't exist
+          if [ ! -f .clang-format ]; then
+            cat > .clang-format << 'EOF'
+          ---
+          BasedOnStyle: LLVM
+          IndentWidth: 4
+          ColumnLimit: 100
+          PointerAlignment: Left
+          AllowShortIfStatementsOnASingleLine: false
+          AllowShortFunctionsOnASingleLine: Empty
+          IndentCaseLabels: true
+          BreakBeforeBraces: Allman
+          EOF
+          fi
+
+          # Find all C/C++ files and check formatting
+          NEEDS_FORMAT=0
+          for file in $(find embedDIP CoreCPP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | grep -v "Drivers/"); do
+            if ! clang-format --dry-run --Werror "$file" 2>/dev/null; then
+              echo "❌ $file needs formatting"
+              NEEDS_FORMAT=1
+            fi
+          done
+
+          if [ $NEEDS_FORMAT -eq 1 ]; then
+            echo ""
+            echo "⚠️  Some files need formatting. Run:"
+            echo "    find embedDIP CoreCPP -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' | xargs clang-format -i"
+            # Don't fail CI on formatting issues, just warn
+          else
+            echo "✅ All files are properly formatted"
+          fi
+
+      # Count lines of code
+      - name: Code Statistics
+        run: |
+          echo "📊 Code Statistics:"
+          echo ""
+          echo "embedDIP Library:"
+          find embedDIP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs wc -l | tail -1
+          echo ""
+          echo "Application Code:"
+          find CoreCPP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs wc -l | tail -1
+          echo ""
+
+      # Check for TODO/FIXME comments
+      - name: Check TODO/FIXME
+        run: |
+          echo "📝 Checking for TODO/FIXME comments..."
+          TODO_COUNT=$(grep -r "TODO\|FIXME" embedDIP CoreCPP --include="*.c" --include="*.cpp" --include="*.h" --include="*.hpp" | wc -l || echo "0")
+
+          if [ "$TODO_COUNT" -gt 0 ]; then
+            echo "⚠️  Found $TODO_COUNT TODO/FIXME comments:"
+            grep -rn "TODO\|FIXME" embedDIP CoreCPP --include="*.c" --include="*.cpp" --include="*.h" --include="*.hpp" || true
+          else
+            echo "✅ No TODO/FIXME comments found"
+          fi
+
+      # Check for common issues
+      - name: Check Common Issues
+        run: |
+          echo "🔎 Checking for common issues..."
+
+          # Check for assert usage (should use error codes instead)
+          ASSERT_COUNT=$(grep -r "assert(" embedDIP --include="*.c" --include="*.cpp" | wc -l || echo "0")
+          if [ "$ASSERT_COUNT" -gt 0 ]; then
+            echo "⚠️  Found $ASSERT_COUNT assert() calls (should use error codes)"
+            grep -rn "assert(" embedDIP --include="*.c" --include="*.cpp" || true
+          else
+            echo "✅ No assert() usage found"
+          fi
+
+          # Check for printf in library code (should use logging)
+          PRINTF_COUNT=$(grep -r "printf(" embedDIP --include="*.c" --include="*.cpp" | wc -l || echo "0")
+          if [ "$PRINTF_COUNT" -gt 0 ]; then
+            echo "⚠️  Found $PRINTF_COUNT printf() calls in library code"
+          else
+            echo "✅ No printf() usage in library"
+          fi
+
+          # Check for NULL vs nullptr consistency
+          NULL_COUNT=$(grep -r "== NULL\|!= NULL" embedDIP --include="*.cpp" | wc -l || echo "0")
+          if [ "$NULL_COUNT" -gt 0 ]; then
+            echo "⚠️  Found $NULL_COUNT uses of NULL in C++ (should use nullptr)"
+          else
+            echo "✅ Proper nullptr usage in C++"
+          fi
+
+      # Upload cppcheck report
+      - name: Upload Cppcheck Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cppcheck-report
+          path: cppcheck-report.xml
+          retention-days: 30
+          if-no-files-found: warn
+
+      # Summary
+      - name: Analysis Summary
+        if: always()
+        run: |
+          echo "✅ Static analysis complete!"
+          echo ""
+          echo "📋 Summary:"
+          echo "  - Cppcheck: Complete"
+          echo "  - Formatting: Checked"
+          echo "  - Code stats: Generated"
+          echo "  - Common issues: Scanned"

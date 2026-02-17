@@ -1,0 +1,110 @@
+name: STM32 Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-stm32:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # Cache the ARM toolchain (saves ~1 minute on subsequent runs)
+      - name: Cache ARM Toolchain
+        uses: actions/cache@v3
+        id: cache-arm-toolchain
+        with:
+          path: ~/arm-toolchain
+          key: arm-gnu-toolchain-13.2.rel1-x86_64-${{ runner.os }}
+
+      # Download ARM toolchain only if not cached (~1 minute first run, 0s cached)
+      - name: Download ARM Toolchain
+        if: steps.cache-arm-toolchain.outputs.cache-hit != 'true'
+        run: |
+          cd ~
+          echo "⬇️ Downloading ARM GNU Toolchain 13.2.rel1..."
+          wget -q --show-progress \
+            https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
+
+          echo "📦 Extracting toolchain..."
+          mkdir -p arm-toolchain
+          tar xf arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz \
+            -C arm-toolchain --strip-components=1
+
+          echo "✅ Toolchain ready"
+
+      # Add toolchain to PATH
+      - name: Setup ARM Toolchain
+        run: |
+          echo "$HOME/arm-toolchain/bin" >> $GITHUB_PATH
+          echo "✅ ARM toolchain added to PATH"
+
+      # Install minimal build tools (~10 seconds)
+      - name: Install Build Tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq cmake ninja-build
+          echo "✅ Build tools installed"
+
+      # Verify toolchain installation
+      - name: Verify Toolchain
+        run: |
+          arm-none-eabi-gcc --version
+          arm-none-eabi-g++ --version
+          cmake --version
+          ninja --version
+
+      # Configure CMake project
+      - name: Configure Project
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake
+          echo "✅ Project configured"
+
+      # Build the project
+      - name: Build Project
+        run: |
+          cmake --build build --verbose
+          echo "✅ Build complete"
+
+      # Show build artifacts
+      - name: List Build Artifacts
+        run: |
+          echo "📦 Build artifacts:"
+          ls -lh build/*.elf build/*.bin build/*.hex 2>/dev/null || echo "No artifacts found"
+
+      # Upload build artifacts (optional - useful for releases)
+      - name: Upload Build Artifacts
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: stm32-firmware-${{ github.sha }}
+          path: |
+            build/*.elf
+            build/*.bin
+            build/*.hex
+          retention-days: 30
+          if-no-files-found: warn
+
+      # Show build summary
+      - name: Build Summary
+        if: always()
+        run: |
+          if [ -f build/dip-vs.elf ]; then
+            echo "✅ Build succeeded!"
+            arm-none-eabi-size build/dip-vs.elf
+          else
+            echo "❌ Build failed!"
+            exit 1
+          fi
