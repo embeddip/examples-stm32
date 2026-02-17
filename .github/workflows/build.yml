@@ -18,7 +18,7 @@ jobs:
 
       # Cache the ARM toolchain (saves ~1 minute on subsequent runs)
       - name: Cache ARM Toolchain
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: cache-arm-toolchain
         with:
           path: ~/arm-toolchain
@@ -72,38 +72,75 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake
           echo "✅ Project configured"
 
-      # Build the project
-      - name: Build Project
+      # Build embedDIP library
+      - name: Build embedDIP Library
         run: |
-          cmake --build build --verbose
-          echo "✅ Build complete"
+          echo "🔧 Building embedDIP library..."
+          cmake --build build --target embedDIP -j$(nproc)
+          echo "✅ embedDIP library built"
+
+      # Build main executable
+      - name: Build Main Executable
+        run: |
+          echo "🔧 Building main executable (dip-vs)..."
+          cmake --build build --target dip-vs -j$(nproc)
+          echo "✅ Main executable built"
+
+      # Generate binary and hex files
+      - name: Generate Binary Files
+        run: |
+          echo "📦 Generating .bin and .hex files..."
+          cd build
+          if [ -f dip-vs.elf ]; then
+            arm-none-eabi-objcopy -O binary dip-vs.elf dip-vs.bin
+            arm-none-eabi-objcopy -O ihex dip-vs.elf dip-vs.hex
+            echo "✅ Binary files generated"
+          else
+            echo "❌ dip-vs.elf not found"
+            exit 1
+          fi
 
       # Show build artifacts
       - name: List Build Artifacts
         run: |
           echo "📦 Build artifacts:"
-          ls -lh build/*.elf build/*.bin build/*.hex 2>/dev/null || echo "No artifacts found"
+          ls -lh build/dip-vs.* 2>/dev/null || echo "No artifacts found"
+          echo ""
+          echo "📊 Firmware size:"
+          arm-none-eabi-size build/dip-vs.elf
 
-      # Upload build artifacts (optional - useful for releases)
-      - name: Upload Build Artifacts
+      # Upload firmware artifacts
+      - name: Upload Firmware Artifacts
         if: success()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: stm32-firmware-${{ github.sha }}
           path: |
-            build/*.elf
-            build/*.bin
-            build/*.hex
+            build/dip-vs.elf
+            build/dip-vs.bin
+            build/dip-vs.hex
+            build/embedDIP/libembedDIP.a
           retention-days: 30
-          if-no-files-found: warn
+          if-no-files-found: error
 
       # Show build summary
       - name: Build Summary
         if: always()
         run: |
+          echo "================================"
+          echo "📊 Build Summary"
+          echo "================================"
           if [ -f build/dip-vs.elf ]; then
-            echo "✅ Build succeeded!"
+            echo "✅ Main executable: dip-vs.elf"
+            echo "✅ Binary file: dip-vs.bin"
+            echo "✅ Hex file: dip-vs.hex"
+            echo "✅ Library: libembedDIP.a"
+            echo ""
+            echo "📏 Memory usage:"
             arm-none-eabi-size build/dip-vs.elf
+            echo ""
+            echo "📦 File sizes:"
+            ls -lh build/dip-vs.elf build/dip-vs.bin build/dip-vs.hex build/embedDIP/libembedDIP.a
           else
             echo "❌ Build failed!"
             exit 1

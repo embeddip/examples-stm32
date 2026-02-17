@@ -10,17 +10,21 @@ This directory contains automated CI/CD workflows for the STM32 examples project
 **What it does:**
 - ✅ Downloads and caches ARM GNU Toolchain (13.2.rel1)
 - ✅ Configures CMake project with Ninja generator
-- ✅ Builds firmware for STM32F7
-- ✅ Shows binary size analysis
-- ✅ Uploads build artifacts (.elf, .bin, .hex)
+- ✅ Builds embedDIP library
+- ✅ Builds main executable (dip-vs)
+- ✅ Generates binary and hex files
+- ✅ Shows memory usage and file sizes
+- ✅ Uploads firmware artifacts
 
 **Performance:**
 - First run: ~1.5 minutes
 - Cached runs: ~20 seconds
 
-**Artifacts:**
-- Available for 30 days after build
-- Download from Actions tab → Build run → Artifacts section
+**Artifacts:** (Available for 30 days)
+- `dip-vs.elf` - Main executable with debug symbols
+- `dip-vs.bin` - Raw binary for flashing
+- `dip-vs.hex` - Intel HEX format
+- `libembedDIP.a` - Static library
 
 ---
 
@@ -50,10 +54,21 @@ Go to: `https://github.com/YOUR_USERNAME/examples-stm32/actions`
 ```
 
 ### Download Build Artifacts
+
+**Via GitHub Web UI:**
 1. Go to Actions tab
 2. Click on a successful build run
 3. Scroll to "Artifacts" section
-4. Download `stm32-firmware-XXXXXX.zip`
+4. Download `stm32-firmware-<commit-sha>.zip`
+
+**Via GitHub CLI:**
+```bash
+# Download latest artifacts
+gh run download --name stm32-firmware-<commit-sha>
+
+# Flash to STM32
+st-flash write dip-vs.bin 0x8000000
+```
 
 ### Local Testing
 To test the same build locally:
