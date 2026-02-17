@@ -19,6 +19,8 @@ jobs:
   build-stm32-project:
     name: Build STM32F7 Project
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout repository
@@ -26,6 +28,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          token: ${{ secrets.GH_PAT || github.token }}
 
       - name: Install ARM toolchain
         run: |
@@ -220,12 +223,15 @@ jobs:
   test-examples-host:
     name: Test Examples on HOST
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          token: ${{ secrets.GH_PAT || github.token }}
 
       - name: Install dependencies
         run: |
