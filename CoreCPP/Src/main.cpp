@@ -1,41 +1,37 @@
 #include "main.h"
 #include <embedDIP.hpp>
 
-using namespace std;
+int application()
+{
+    embedDIP::Image inputImage(256, 256, IMAGE_FORMAT_GRAYSCALE);
+    embedDIP::Image outputImage(256, 256, IMAGE_FORMAT_GRAYSCALE);
+    embedDIP::Image filterMask(256, 256, IMAGE_FORMAT_GRAYSCALE);
 
-int application() {
-  embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image maskImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+    if (!inputImage.isValid() || !outputImage.isValid() || !filterMask.isValid()) {
+        Error_Handler();
+    }
 
-  embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+    embedDIP::Serial serial(&stm32_uart);
+    serial.init();
+    serial.flush();
 
-  embedDIP::Serial serial(&stm32_uart);
+    serial.capture(inputImage);
 
-  serial.init();
+    inputImage.fft(inputImage);
+    inputImage.fftshift();
 
-  serial.capture(inImg);
+    filterMask.getFilter(FREQ_FILTER_IDEAL_HIGHPASS, 30.0f);
+    inputImage.ffilter2D(filterMask, outputImage);
 
-  Rectangle roi;
-  roi.x = 87;
-  roi.y = 43;
-  roi.width = 350;
-  roi.height = 180;
+    outputImage.ifftshift();
+    outputImage.ifft(outputImage);
+    outputImage.convertTo();
 
-  // tic();
+    serial.send(outputImage);
 
-  inImg.grabCutLite(maskImg, roi, 10);
-  // inImg.grabCut(maskImg, roi, 1);
+    while (1) {
+        __NOP();
+    }
 
-  // uint32_t cycleCount = toc();
-
-  maskImg.convertTo();
-  serial.send(maskImg);
-
-  maskImg.multiply(inImg, outImg);
-  outImg.convertTo();
-  serial.send(outImg);
-
-  while (1) {
-    ;
-  }
+    return 0;
 }

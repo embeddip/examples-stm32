@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
 
-include("cmake/gcc-arm-none-eabi.cmake")
 project(dip-vs LANGUAGES C CXX ASM)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
