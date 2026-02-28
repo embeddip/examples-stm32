@@ -240,11 +240,6 @@ embedDIP/build*/
 embedDIP/.cache/
 embedDIP/Testing/
 
-# CoreCPP build artifacts
-CoreCPP/build*/
-CoreCPP/Debug/
-CoreCPP/Release/
-
 # Example builds
 examples-stm32/build*/
 build-examples*/

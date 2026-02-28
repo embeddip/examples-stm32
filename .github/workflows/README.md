@@ -93,8 +93,8 @@ To auto-format your code:
 # Install clang-format
 sudo apt-get install clang-format
 
-# Format all C/C++ files
-find embedDIP CoreCPP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \
+# Format all C files
+find embedDIP Core -name "*.c" -o -name "*.h" \
   | grep -v "Drivers/" \
   | xargs clang-format -i
 ```

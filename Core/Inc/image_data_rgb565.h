@@ -6,7 +6,7 @@
 #define IMAGE_WIDTH 480
 #define IMAGE_HEIGHT 272
 
-const uint16_t image_data_rgb565[] = {
+const uint16_t image_data[] = {
 0x29A1, 0x4A22, 0x20C1, 0x0861, 
 0x18C1, 0x39C2, 0x31E2, 0x2901, 
 0x2101, 0x2941, 0x10C1, 0x2162, 

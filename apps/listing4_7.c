@@ -23,7 +23,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
 #include "embedDIP.h"
 #include "image_data_rgb565.h"
 /* Private typedef -----------------------------------------------------------*/
@@ -77,7 +76,6 @@ static void MX_I2C3_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 serial_t *serial = &stm32_uart;
-camera_t *camera = &stm32_ov5640;
 
 /**
   * @brief  The application entry point.
@@ -117,35 +115,18 @@ int main(void)
   MX_I2C3_Init();
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
+
   serial->init();
 
-  Image *inImg = NULL;
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &inImg);
+  Image *rgbImg = NULL;
+  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &rgbImg);
 
-  /* Initialize camera */
-  int result = camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
-  if (result != 0)
-  {
-    HAL_UART_Transmit(&huart1, (uint8_t*)"Camera init FAILED!\r\n", 21, 1000);
-    Error_Handler();
-  }
+  // Copy the pre-generated image array data to the image buffer.
+  // Note: rgbImg->size is number of pixels, multiply by depth (2 bytes for RGB565)
+  memcpy(rgbImg->pixels, image_data, rgbImg->size * rgbImg->depth);
 
-  /* Capture image - this now waits internally for DMA completion */
-  result = camera->capture(SINGLE, inImg);
-  if (result != 0)
-  {
-    char msg[50];
-    snprintf(msg, sizeof(msg), "Capture FAILED with error %d!\r\n", result);
-    HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), 1000);
-    Error_Handler();
-  }
-
-  HAL_UART_Transmit(&huart1, (uint8_t*)"Capture successful! Sending...\r\n", 33, 1000);
-
-  /* Send image via serial */
-  serial->send(inImg);
-
-  HAL_UART_Transmit(&huart1, (uint8_t*)"Image sent!\r\n", 13, 1000);
+  // Transmit the processed image data over the serial interface.
+  serial->send(rgbImg);
   /* USER CODE END 2 */
 
   /* Infinite loop */

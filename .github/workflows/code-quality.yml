@@ -60,7 +60,7 @@ jobs:
             --suppress=missingIncludeSystem \
             --suppress=unusedFunction \
             --suppress=unmatchedSuppression \
-            --std=c11 --std=c++17 \
+            --std=c11 \
             --platform=unix32 \
             --force \
             -I embedDIP/core \
@@ -72,7 +72,7 @@ jobs:
             -I Drivers/CMSIS/Device/ST/STM32F7xx/Include \
             -I Drivers/CMSIS/Core/Include \
             -I Core/Inc \
-            embedDIP/ CoreCPP/ \
+            embedDIP/ Core/ \
             --xml \
             2> cppcheck-report.xml || true
 
@@ -100,7 +100,7 @@ jobs:
 
           # Find all C/C++ files and check formatting
           NEEDS_FORMAT=0
-          for file in $(find embedDIP CoreCPP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | grep -v "Drivers/"); do
+          for file in $(find embedDIP Core -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | grep -v "Drivers/"); do
             if ! clang-format --dry-run --Werror "$file" 2>/dev/null; then
               echo "❌ $file needs formatting"
               NEEDS_FORMAT=1
@@ -110,7 +110,7 @@ jobs:
           if [ $NEEDS_FORMAT -eq 1 ]; then
             echo ""
             echo "⚠️  Some files need formatting. Run:"
-            echo "    find embedDIP CoreCPP -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' | xargs clang-format -i"
+            echo "    find embedDIP Core -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' | xargs clang-format -i"
             # Don't fail CI on formatting issues, just warn
           else
             echo "✅ All files are properly formatted"
@@ -125,18 +125,18 @@ jobs:
           find embedDIP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs wc -l | tail -1
           echo ""
           echo "Application Code:"
-          find CoreCPP -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs wc -l | tail -1
+          find Core -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs wc -l | tail -1
           echo ""
 
       # Check for TODO/FIXME comments
       - name: Check TODO/FIXME
         run: |
           echo "📝 Checking for TODO/FIXME comments..."
-          TODO_COUNT=$(grep -r "TODO\|FIXME" embedDIP CoreCPP --include="*.c" --include="*.cpp" --include="*.h" --include="*.hpp" | wc -l || echo "0")
+          TODO_COUNT=$(grep -r "TODO\|FIXME" embedDIP Core --include="*.c" --include="*.cpp" --include="*.h" --include="*.hpp" | wc -l || echo "0")
 
           if [ "$TODO_COUNT" -gt 0 ]; then
             echo "⚠️  Found $TODO_COUNT TODO/FIXME comments:"
-            grep -rn "TODO\|FIXME" embedDIP CoreCPP --include="*.c" --include="*.cpp" --include="*.h" --include="*.hpp" || true
+            grep -rn "TODO\|FIXME" embedDIP Core --include="*.c" --include="*.cpp" --include="*.h" --include="*.hpp" || true
           else
             echo "✅ No TODO/FIXME comments found"
           fi

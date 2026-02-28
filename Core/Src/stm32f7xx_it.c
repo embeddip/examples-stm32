@@ -208,6 +208,8 @@ void SysTick_Handler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+
+/* TODO; FIX THIS APP SPECIFIC CODE
   button_flag = 1;
   static uint32_t last_press_time = 0;
   static uint8_t pending_press = 0;
@@ -226,6 +228,8 @@ void EXTI15_10_IRQHandler(void)
     pending_press = 1;
     COMMAND = 0x01;
   }
+
+  */
 
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);

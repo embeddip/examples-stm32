@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, develop ]
     paths:
-      - 'CoreCPP/**'
+      - 'Core/**'
       - 'examples-stm32/**'
       - 'embedDIP/**'
       - '.github/workflows/build-and-release.yml'
@@ -90,19 +90,19 @@ jobs:
           echo "🔨 Building example programs..."
           mkdir -p build-examples
 
-          # Compilation flags for C++
+          # Compilation flags for C
           FLAGS="-mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16"
-          FLAGS="$FLAGS -Wall -Wextra -Os -std=c++17 -fno-exceptions -fno-rtti"
+          FLAGS="$FLAGS -Wall -Wextra -Os -std=c11"
           FLAGS="$FLAGS -DSTM32F7xx -DARM_MATH_CM7 -D__FPU_PRESENT=1"
           FLAGS="$FLAGS -IembedDIP -IembedDIP/core -IembedDIP/imgproc -IembedDIP/board"
-          FLAGS="$FLAGS -IembedDIP/device -IembedDIP/wrapper -ICoreCPP/Inc"
+          FLAGS="$FLAGS -IembedDIP/device -IembedDIP/wrapper -ICore/Inc"
 
           # Compile examples (object files, demonstrating successful compilation)
-          for example in examples-stm32/examples/*.cpp; do
+          for example in examples-stm32/examples/*.c; do
             if [ -f "$example" ]; then
-              name=$(basename "$example" .cpp)
+              name=$(basename "$example" .c)
               echo "Compiling $name..."
-              arm-none-eabi-g++ $FLAGS -c "$example" -o "build-examples/${name}.o" || echo "⚠️  $name needs additional dependencies"
+              arm-none-eabi-gcc $FLAGS -c "$example" -o "build-examples/${name}.o" || echo "⚠️  $name needs additional dependencies"
             fi
           done
 
@@ -118,7 +118,7 @@ jobs:
           mkdir -p release-package/docs
 
           # Copy examples
-          cp -r examples-stm32/examples/*.cpp release-package/examples/ || true
+          cp -r examples-stm32/examples/*.c release-package/examples/ || true
           cp -r examples-stm32/examples/README.md release-package/examples/ || true
 
           # Copy compiled objects
@@ -153,10 +153,10 @@ jobs:
           • Documentation
 
           📂 Directory Structure:
-          ├── examples/          Example source code (.cpp files)
-          │   ├── 01_basic_image_creation.cpp
-          │   ├── 02_color_conversion.cpp
-          │   ├── 03_channel_management.cpp
+          ├── examples/          Example source code (.c files)
+          │   ├── 01_basic_image_creation.c
+          │   ├── 02_color_conversion.c
+          │   ├── 03_channel_management.c
           │   └── README.md      Detailed example documentation
           ├── library/
           │   ├── libembedDIP.a  Precompiled library (if available)
@@ -255,13 +255,13 @@ jobs:
           # Note: Examples are designed for STM32 hardware and use application() function
           # They require main.h and hardware-specific setup, so HOST compilation is skipped
           echo "⚠️  Examples use STM32-specific structure (application() function)"
-          echo "⚠️  They are designed to be copied to CoreCPP/Src/ and built with STM32 project"
+          echo "⚠️  They are designed to be copied to Core/Src/ and built with STM32 project"
           echo "✅ Skipping HOST build - examples are hardware-specific"
 
       - name: Verify examples
         run: |
           echo "✅ Verifying example files exist..."
-          ls -lh examples-stm32/examples/*.cpp
+          ls -lh examples-stm32/examples/*.c
           echo ""
           echo "📝 Example files ready for STM32 deployment"
-          echo "   To use: Copy .cpp file to CoreCPP/Src/ and rename to main.cpp"
+          echo "   To use: Copy .c file to Core/Src/ and rename to main.c"

@@ -1,14 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(dip-vs LANGUAGES C CXX ASM)
+project(dip-vs LANGUAGES C ASM)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Debug)
-
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 add_compile_definitions(STM32F746xx)
 
@@ -23,7 +19,7 @@ add_subdirectory(embedDIP)
 
 # Add sources to the executable
 target_sources(${PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.c
 )
 
 # Include CMSIS DSP headers
