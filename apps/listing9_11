@@ -18,14 +18,15 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "common.h"
 #include "compress.h"
-#include "image.h"
 #include "libjpeg.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "embedDIP.h"
 #include "image_data_rgb565.h"
+#include "pixel.h"
 #include <string.h>
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
@@ -59,6 +60,11 @@ UART_HandleTypeDef huart1;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
+volatile int COMMAND = 0;
+volatile int button_flag = 0;
+volatile int current_mode = 0;
+volatile uint32_t button_press_time = 0;
+volatile uint8_t button_press_count = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -119,25 +125,38 @@ int main(void) {
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
 
-  display->init();
-  camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
+  /* USER CODE BEGIN 2 */
 
-  Image *inImg_wqvga = NULL, *inImg_qvga = NULL;
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &inImg_wqvga);
-  createImage(IMAGE_RES_QVGA, IMAGE_FORMAT_RGB565, &inImg_qvga);
+  // Create images: grayscale input, mask for segmentation, grayscale output
+  Image *inImg = NULL, *outImg = NULL, *maskImg = NULL;
+  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &inImg);
+  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &outImg);
+  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_MASK, &maskImg);
 
-  camera->capture(SINGLE, inImg_wqvga);
-  display->show(inImg_wqvga);
-  HAL_Delay(1000);
-  camera->stop();
+  serial->init();
+  serial->capture(inImg);
 
-  camera->setRes(IMAGE_RES_QVGA);
-  camera->capture(SINGLE, inImg_qvga);
-  display->show(inImg_qvga);
+  Rectangle roi;
+  roi.x = 193;
+  roi.y = 24;
+  roi.width = 241;
+  roi.height = 244;
+
+  // tic();
+
+  grabCutLite(inImg, maskImg, roi, 1);
+  // grabCutLite(inImg, maskImg, roi, 1);
+
+  // uint32_t cycleCount = toc();
+  convertTo(maskImg);
+  serial->send(maskImg);
+
+  _and_(inImg, maskImg, outImg);
+  serial->send(outImg);
+  /* USER CODE END 2 */
 
   /* USER CODE END 2 */
 
-  /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
     /* USER CODE END WHILE */

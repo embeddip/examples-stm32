@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "compress.h"
 #include "image.h"
 #include "libjpeg.h"
 
@@ -119,21 +118,17 @@ int main(void) {
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
 
-  display->init();
+  Image *wqvgaImg = NULL, *qqvgaImg = NULL;
+  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &wqvgaImg);
+  createImage(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB565, &qqvgaImg);
+
   camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
+  camera->capture(SINGLE, wqvgaImg);
+  serial->send(wqvgaImg);
 
-  Image *inImg_wqvga = NULL, *inImg_qvga = NULL;
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &inImg_wqvga);
-  createImage(IMAGE_RES_QVGA, IMAGE_FORMAT_RGB565, &inImg_qvga);
-
-  camera->capture(SINGLE, inImg_wqvga);
-  display->show(inImg_wqvga);
-  HAL_Delay(1000);
-  camera->stop();
-
-  camera->setRes(IMAGE_RES_QVGA);
-  camera->capture(SINGLE, inImg_qvga);
-  display->show(inImg_qvga);
+  camera->setRes(IMAGE_RES_QQVGA);
+  camera->capture(SINGLE, qqvgaImg);
+  serial->send(qqvgaImg);
 
   /* USER CODE END 2 */
 
@@ -636,8 +631,7 @@ static void MX_GPIO_Init(void) {
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SAI2_MCLKA_Pin SAI2_SCKA_Pin SAI2_FSA_Pin
-   * SAI2_SDA_Pin
+  /*Configure GPIO pins : SAI2_MCLKA_Pin SAI2_SCKA_Pin SAI2_FSA_Pin SAI2_SDA_Pin
    */
   GPIO_InitStruct.Pin =
       SAI2_MCLKA_Pin | SAI2_SCKA_Pin | SAI2_FSA_Pin | SAI2_SDA_Pin;
@@ -871,8 +865,7 @@ static void MX_GPIO_Init(void) {
  */
 void Error_Handler(void) {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state
-   */
+  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
   while (1) {
   }
@@ -889,8 +882,8 @@ void Error_Handler(void) {
 void assert_failed(uint8_t *file, uint32_t line) {
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line
-     number, ex: printf("Wrong parameters value: file %s on line %d\r\n",
-     file, line) */
+     number, ex: printf("Wrong parameters value: file %s on line %d\r\n", file,
+     line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
