@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(arm-none-eabi-gcc --version)",
-      "Bash(arm-none-eabi-gcc -c embedDIP/device/camera/ov5640/stm32_ov5640.c -I embedDIP -I embedDIP/device/camera -I embedDIP/device/camera/ov5640 -I embedDIP/device/serial -I embedDIP/board/stm32f7 -I embedDIP/core -I Drivers/STM32F7xx_HAL_Driver/Inc -I Drivers/CMSIS/Device/ST/STM32F7xx/Include -I Drivers/CMSIS/Include -I Core/Inc -DSTM32F746xx -DTARGET_BOARD_STM32F7 -DUSE_HAL_DRIVER -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -fsyntax-only -Wall -Wextra)",
-      "Bash(arm-none-eabi-gcc -c embedDIP/device/camera/ov5640/ov5640_reg.c -I embedDIP/device/camera/ov5640 -I Drivers/CMSIS/Include -DSTM32F746xx -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -fsyntax-only -Wall -Wextra)"
-    ]
-  }
-}
