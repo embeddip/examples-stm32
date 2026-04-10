@@ -1,0 +1,84 @@
+name: Build All STM32 Apps
+
+on:
+  push:
+    branches: [ main, refactor/imgproc-split ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        token: ${{ secrets.SUBMODULE_PAT }}
+
+    - name: Install ARM GCC Toolchain
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi
+        arm-none-eabi-gcc --version
+
+    - name: Install CMake and Ninja
+      run: |
+        sudo apt-get install -y cmake ninja-build
+        cmake --version
+
+    - name: Make build script executable
+      run: chmod +x build_all_apps.sh
+
+    - name: Run build all apps
+      run: ./build_all_apps.sh
+      continue-on-error: false
+
+    - name: Display build summary
+      if: always()
+      run: |
+        echo "=== Build Summary ==="
+        if [ -f apps/build_outputs/BUILD_SUMMARY.txt ]; then
+          cat apps/build_outputs/BUILD_SUMMARY.txt
+        else
+          echo "Build summary not found"
+        fi
+
+    - name: Upload build artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: stm32-build-artifacts-${{ github.sha }}
+        path: |
+          apps/build_outputs/
+          !apps/build_outputs/**/*.log
+        retention-days: 30
+
+    - name: Upload build logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-logs-${{ github.sha }}
+        path: apps/build_outputs/**/*.log
+        retention-days: 7
+
+    - name: Check build status
+      if: always()
+      run: |
+        if [ -f apps/build_outputs/BUILD_SUMMARY.txt ]; then
+          if grep -q "Failed Builds: 0" apps/build_outputs/BUILD_SUMMARY.txt; then
+            echo "All builds succeeded!"
+            exit 0
+          else
+            echo "Some builds failed. Check the logs for details."
+            exit 1
+          fi
+        else
+          echo "Build summary not found"
+          exit 1
+        fi
