@@ -5,8 +5,9 @@
 
 set -e  # Exit on error
 
-# Configuration
-PROJECT_ROOT="/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c"
+# Configuration - dynamically determine project root
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="$SCRIPT_DIR"
 APPS_DIR="$PROJECT_ROOT/apps"
 MAIN_C_PATH="$PROJECT_ROOT/Core/Src/main.c"
 BUILD_DIR="$PROJECT_ROOT/build/Debug"
