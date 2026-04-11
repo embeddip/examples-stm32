@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(dip-vs LANGUAGES C ASM)
+project(dip-vs LANGUAGES C CXX ASM)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Debug)
 
 add_compile_definitions(
@@ -23,12 +24,13 @@ add_subdirectory(embedDIP)
 
 # Add sources to the executable
 target_sources(${PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/main.cpp
 )
 
 # Include CMSIS DSP headers
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/DSP/Include
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Inc
 )
 
 # Add Core/Inc to embedDIP (PRIVATE since it's internal to this project)

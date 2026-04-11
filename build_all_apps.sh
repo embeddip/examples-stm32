@@ -9,7 +9,7 @@ set -e  # Exit on error
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$SCRIPT_DIR"
 APPS_DIR="$PROJECT_ROOT/apps"
-MAIN_C_PATH="$PROJECT_ROOT/Core/Src/main.c"
+MAIN_CPP_PATH="$PROJECT_ROOT/CoreCPP/Src/main.cpp"
 BUILD_DIR="$PROJECT_ROOT/build/Debug"
 OUTPUT_BASE_DIR="$PROJECT_ROOT/apps/build_outputs"
 BUILD_PRESET="Debug"
@@ -33,10 +33,10 @@ if [ ! -d "$APPS_DIR" ]; then
     exit 1
 fi
 
-# Backup original main.c
-log_info "Backing up original main.c..."
-BACKUP_MAIN="$MAIN_C_PATH.backup.$(date +%Y%m%d_%H%M%S)"
-cp "$MAIN_C_PATH" "$BACKUP_MAIN"
+# Backup original main.cpp
+log_info "Backing up original main.cpp..."
+BACKUP_MAIN="$MAIN_CPP_PATH.backup.$(date +%Y%m%d_%H%M%S)"
+cp "$MAIN_CPP_PATH" "$BACKUP_MAIN"
 log_success "Backup created: $BACKUP_MAIN"
 
 # Create output directory
@@ -54,7 +54,7 @@ total_apps=${#app_files[@]}
 
 if [ $total_apps -eq 0 ]; then
     log_error "No app files found in $APPS_DIR"
-    cp "$BACKUP_MAIN" "$MAIN_C_PATH"
+    cp "$BACKUP_MAIN" "$MAIN_CPP_PATH"
     exit 1
 fi
 
@@ -74,9 +74,9 @@ for app_path in "${app_files[@]}"; do
     # Create output directory for this app
     mkdir -p "$app_output_dir"
 
-    # Copy app to main.c
-    log_info "Replacing main.c with $app_name..."
-    cp "$app_path" "$MAIN_C_PATH"
+    # Copy app to main.cpp
+    log_info "Replacing main.cpp with $app_name..."
+    cp "$app_path" "$MAIN_CPP_PATH"
 
     # Clean previous build
     log_info "Cleaning previous build..."
@@ -176,10 +176,10 @@ EOF
     echo ""
 done
 
-# Restore original main.c
-log_info "Restoring original main.c..."
-cp "$BACKUP_MAIN" "$MAIN_C_PATH"
-log_success "Original main.c restored"
+# Restore original main.cpp
+log_info "Restoring original main.cpp..."
+cp "$BACKUP_MAIN" "$MAIN_CPP_PATH"
+log_success "Original main.cpp restored"
 
 # Generate summary report
 SUMMARY_REPORT="$OUTPUT_BASE_DIR/BUILD_SUMMARY.txt"
@@ -214,7 +214,7 @@ cat >> "$SUMMARY_REPORT" <<EOF
 
 -------------------------------------------
 Build Output Location: $OUTPUT_BASE_DIR
-Original main.c Backup: $BACKUP_MAIN
+Original main.cpp Backup: $BACKUP_MAIN
 -------------------------------------------
 EOF
 
@@ -238,7 +238,7 @@ fi
 echo ""
 log_info "Build outputs: $OUTPUT_BASE_DIR"
 log_info "Build summary: $SUMMARY_REPORT"
-log_info "Original main.c backup: $BACKUP_MAIN"
+log_info "Original main.cpp backup: $BACKUP_MAIN"
 echo "========================================"
 
 # Exit with appropriate code

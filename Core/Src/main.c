@@ -71,7 +71,7 @@ static void MX_LTDC_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_I2C3_Init(void);
 /* USER CODE BEGIN PFP */
-
+extern int application(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -128,12 +128,13 @@ int main(void)
   MX_I2C3_Init();
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
-
+  application();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1) {
+  while (1)
+  {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -495,10 +496,7 @@ static void MX_FMC_Init(void)
   Command.AutoRefreshNumber = 8;
   Command.ModeRegisterDefinition = 0;
   HAL_SDRAM_SendCommand(&hsdram1, &Command, (uint32_t)0xFFFF);
-  tmpmrd = (uint32_t)SDRAM_MODEREG_BURST_LENGTH_1 |
-           SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2 |
-           SDRAM_MODEREG_OPERATING_MODE_STANDARD |
-           SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+  tmpmrd = (uint32_t)SDRAM_MODEREG_BURST_LENGTH_1 | SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2 | SDRAM_MODEREG_OPERATING_MODE_STANDARD | SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
 
   Command.CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
   Command.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
@@ -945,10 +943,10 @@ void MPU_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state
-   */
+  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1) {
+  while (1)
+  {
   }
   /* USER CODE END Error_Handler_Debug */
 }
@@ -963,9 +961,8 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line
-     number, ex: printf("Wrong parameters value: file %s on line %d\r\n",
-     file, line) */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
