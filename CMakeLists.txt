@@ -24,7 +24,6 @@ add_subdirectory(embedDIP)
 # Add sources to the executable
 target_sources(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/compress.c
 )
 
 # Include CMSIS DSP headers
