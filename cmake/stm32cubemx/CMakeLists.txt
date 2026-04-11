@@ -32,9 +32,24 @@ set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f7xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/sysmem.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/syscalls.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/nn_mnist_data.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/nn_mnist.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/nn_mnist_data_params.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/cnn_mnist_data.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/cnn_mnist.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/cnn_mnist_data_params.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/camvid_int8_data.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/camvid_int8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/camvid_int8_data_params.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/mobilenet_horse_fp32_data.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/mobilenet_horse_fp32.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/mobilenet_horse_fp32_data_params.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/mobilenetv2_fp32_data.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/mobilenetv2_fp32.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/mobilenetv2_fp32_data_params.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/unet_fp32_data.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/unet_fp32_data_params.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/unet_fp32.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../X-CUBE-AI/App/unet_fp32_data_params.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../startup_stm32f746xx.s
 )
 
