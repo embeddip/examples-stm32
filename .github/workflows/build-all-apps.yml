@@ -2,7 +2,7 @@ name: Build All STM32 Apps
 
 on:
   push:
-    branches: [ main, refactor/imgproc-split ]
+    branches: [ main-c-apps, main-c-ai-apps, main-cpp-apps, main-cpp-ai-apps]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
