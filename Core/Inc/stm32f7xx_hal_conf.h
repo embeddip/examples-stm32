@@ -343,9 +343,9 @@
   #include "stm32f7xx_hal_nand.h"
 #endif /* HAL_NAND_MODULE_ENABLED */
 
-#ifdef HAL_SDRAM_MODULE_ENABLED
+#define HAL_SDRAM_MODULE_ENABLED
   #include "stm32f7xx_hal_sdram.h"
-#endif /* HAL_SDRAM_MODULE_ENABLED */
+#define HAL_SDRAM_MODULE_ENABLED
 
 #ifdef HAL_HASH_MODULE_ENABLED
  #include "stm32f7xx_hal_hash.h"
