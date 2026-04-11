@@ -1,0 +1,159 @@
+#include "main.h"
+#include "camvid_int8.h"
+#include "camvid_int8_data.h"
+#include "string.h"
+#include <embedDIP.hpp>
+
+using namespace embedDIP;
+
+#define IMG_W (AI_CAMVID_INT8_IN_1_WIDTH)
+#define IMG_H (AI_CAMVID_INT8_IN_1_HEIGHT)
+#define IMG_PIXELS (IMG_W * IMG_H)
+#define IN_CHANNELS (AI_CAMVID_INT8_IN_1_CHANNEL)
+#define OUT_CHANNELS (AI_CAMVID_INT8_OUT_1_CHANNEL)
+#define BACKGROUND_CLASS_ID (3)
+
+AI_ALIGNED(4)
+static ai_u8 *activations = (ai_u8 *)(0xC0000000);
+
+AI_ALIGNED(4)
+static ai_i8 *output_data = (ai_i8 *)(0xC0800000 - AI_CAMVID_INT8_OUT_1_SIZE);
+
+AI_ALIGNED(4)
+static ai_i8 *input_data =
+    (ai_i8 *)(0xC0800000 - AI_CAMVID_INT8_OUT_1_SIZE - AI_CAMVID_INT8_IN_1_SIZE);
+
+AI_ALIGNED(4)
+static uint8_t class_id_map[IMG_PIXELS];
+
+AI_ALIGNED(4)
+static uint8_t class_index_map[IMG_PIXELS];
+
+AI_ALIGNED(4)
+static uint8_t confidence_map[IMG_PIXELS];
+
+static ai_handle network = AI_HANDLE_NULL;
+static ai_buffer *ai_input;
+static ai_buffer *ai_output;
+
+static const uint8_t class_colors[OUT_CHANNELS][3] = {
+    {255, 0, 0},   // class 0: red (road)
+    {0, 255, 0},   // class 1: green (vehicles)
+    {255, 255, 0}, // class 2: yellow (pedestrians)
+    {0, 0, 0}      // class 3: black (background)
+};
+
+void model_init(void) {
+  ai_error err;
+
+  activations = (ai_u8 *)memory_alloc(323600);
+  const ai_handle acts[] = {activations};
+
+  err = ai_camvid_int8_create_and_init(&network, acts, NULL);
+  if (err.type != AI_ERROR_NONE)
+    Error_Handler();
+
+  ai_input = ai_camvid_int8_inputs_get(network, NULL);
+  ai_output = ai_camvid_int8_outputs_get(network, NULL);
+}
+
+void model_inference(void) {
+  ai_input[0].data = AI_HANDLE_PTR(input_data);
+  ai_output[0].data = AI_HANDLE_PTR(output_data);
+
+  if (ai_camvid_int8_run(network, ai_input, ai_output) != 1)
+    Error_Handler();
+
+  for (int i = 0; i < IMG_PIXELS; ++i) {
+    int base = i * OUT_CHANNELS;
+    int best_class = 0;
+    ai_i8 best_score = output_data[base];
+
+    for (int c = 1; c < OUT_CHANNELS; ++c) {
+      ai_i8 score = output_data[base + c];
+      if (score > best_score) {
+        best_score = score;
+        best_class = c;
+      }
+    }
+
+    class_id_map[i] = (uint8_t)best_class;
+    class_index_map[i] =
+        (OUT_CHANNELS > 1) ? (uint8_t)((best_class * 255) / (OUT_CHANNELS - 1))
+                           : 0;
+    confidence_map[i] =
+        (uint8_t)((int16_t)best_score + 128);
+  }
+}
+
+int application() {
+  embedDIP::Serial serial(&stm32_uart);
+
+  embedDIP::Image inImg(IMG_W, IMG_H, IMAGE_FORMAT_RGB888);
+  embedDIP::Image classImg(IMG_W, IMG_H, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image visImg(IMG_W, IMG_H, IMAGE_FORMAT_RGB888);
+  embedDIP::Image overlayImg(IMG_W, IMG_H, IMAGE_FORMAT_RGB888);
+
+  serial.init();
+  model_init();
+
+  serial.capture(inImg);
+
+  uint8_t *in_pixels = (uint8_t *)inImg.pixels();
+  for (int i = 0; i < IMG_PIXELS * IN_CHANNELS; ++i) {
+    input_data[i] = (ai_i8)((int16_t)in_pixels[i] - 128);
+  }
+
+  model_inference();
+
+  serial.send(inImg);
+
+  memcpy(classImg.pixels(), class_index_map, IMG_PIXELS);
+  serial.send(classImg);
+
+  memcpy(classImg.pixels(), confidence_map, IMG_PIXELS);
+  serial.send(classImg);
+
+  uint8_t *vis_pixels = (uint8_t *)visImg.pixels();
+  for (int i = 0; i < IMG_PIXELS; ++i) {
+    uint8_t cls = class_id_map[i];
+    vis_pixels[3 * i + 0] = class_colors[cls][0];
+    vis_pixels[3 * i + 1] = class_colors[cls][1];
+    vis_pixels[3 * i + 2] = class_colors[cls][2];
+  }
+  serial.send(visImg);
+
+  uint8_t *overlay_pixels = (uint8_t *)overlayImg.pixels();
+  for (int i = 0; i < IMG_PIXELS; ++i) {
+    uint8_t cls = class_id_map[i];
+    uint8_t src_r = in_pixels[3 * i + 0];
+    uint8_t src_g = in_pixels[3 * i + 1];
+    uint8_t src_b = in_pixels[3 * i + 2];
+
+    if (cls == BACKGROUND_CLASS_ID) {
+      overlay_pixels[3 * i + 0] = src_r;
+      overlay_pixels[3 * i + 1] = src_g;
+      overlay_pixels[3 * i + 2] = src_b;
+    } else {
+      uint8_t mask_r = class_colors[cls][0];
+      uint8_t mask_g = class_colors[cls][1];
+      uint8_t mask_b = class_colors[cls][2];
+
+      // 55% source + 45% mask for clear visibility
+      overlay_pixels[3 * i + 0] =
+          (uint8_t)(((uint16_t)src_r * 55U + (uint16_t)mask_r * 45U) / 100U);
+      overlay_pixels[3 * i + 1] =
+          (uint8_t)(((uint16_t)src_g * 55U + (uint16_t)mask_g * 45U) / 100U);
+      overlay_pixels[3 * i + 2] =
+          (uint8_t)(((uint16_t)src_b * 55U + (uint16_t)mask_b * 45U) / 100U);
+    }
+  }
+
+  serial.send(overlayImg);
+
+  HAL_Delay(10);
+
+  while (1) {
+    ;
+  }
+}

@@ -1,15 +1,17 @@
 #include "main.h"
-#include "mobilenetv2_fp32.h"
-#include "mobilenetv2_fp32_data.h"
+#include "unet_fp32.h"
+#include "unet_fp32_data.h"
 #include "string.h"
 #include <embedDIP.hpp>
 
 using namespace embedDIP;
 
-#define IMG_SIZE 128
+/* AI model buffers */
+#define IMG_SIZE (128)
 #define IMG_PIXELS (IMG_SIZE * IMG_SIZE)
-#define OUT_CHANNELS 2
+#define OUT_CHANNELS (2)
 
+// External SDRAM: 8MB starting at 0xC0000000
 AI_ALIGNED(4)
 static ai_u8 *activations = (ai_u8 *)(0xC0000000);
 
@@ -32,24 +34,25 @@ void model_init(void) {
   activations = (ai_u8 *)memory_alloc(323600);
   const ai_handle acts[] = {activations};
 
-  err = ai_mobilenetv2_fp32_create_and_init(&network, acts, NULL);
+  err = ai_unet_fp32_create_and_init(&network, acts, NULL);
   if (err.type != AI_ERROR_NONE)
     Error_Handler();
 
-  ai_input = ai_mobilenetv2_fp32_inputs_get(network, NULL);
-  ai_output = ai_mobilenetv2_fp32_outputs_get(network, NULL);
+  ai_input = ai_unet_fp32_inputs_get(network, NULL);
+  ai_output = ai_unet_fp32_outputs_get(network, NULL);
 }
 
 void model_inference(void) {
   ai_input[0].data = AI_HANDLE_PTR(input_data);
   ai_output[0].data = AI_HANDLE_PTR(output_data);
 
-  if (ai_mobilenetv2_fp32_run(network, ai_input, ai_output) != 1)
+  if (ai_unet_fp32_run(network, ai_input, ai_output) != 1)
     Error_Handler();
 
+  /* Post-process: threshold for binary segmentation */
   for (int i = 0; i < IMG_PIXELS; ++i) {
-    float horse_score = output_data[i * OUT_CHANNELS + 1];
-    binary_mask[i] = (horse_score > 0.5f) ? 255 : 0;
+    float pet_score = output_data[i * OUT_CHANNELS + 1];
+    binary_mask[i] = (pet_score > 0.5f) ? 255 : 0;
   }
 }
 
