@@ -18,13 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "libjpeg.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "mobilenetv2_fp32.h"
 #include "mobilenetv2_fp32_data.h"
 #include <embedDIP.h>
-#include "libjpeg.h"
 
 #define IMG_SIZE (128)
 #define IMG_PIXELS (IMG_SIZE * IMG_SIZE)
