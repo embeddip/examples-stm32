@@ -1,77 +1,43 @@
 #include "main.h"
-#include "mobilenetv2_fp32.h"
-#include "mobilenetv2_fp32_data.h"
-#include "string.h"
+#include "mnist_inference.h"
 #include <embedDIP.hpp>
 
 using namespace embedDIP;
 
-#define IMG_SIZE 128
-#define IMG_PIXELS (IMG_SIZE * IMG_SIZE)
-#define OUT_CHANNELS 2
-
-AI_ALIGNED(4)
-static ai_u8 *activations = (ai_u8 *)(0xC0000000);
-
-AI_ALIGNED(4)
-static ai_float input_data[IMG_PIXELS];
-
-AI_ALIGNED(4)
-static ai_float output_data[IMG_PIXELS * OUT_CHANNELS];
-
-AI_ALIGNED(4)
-static uint8_t binary_mask[IMG_PIXELS];
-
-static ai_handle network = AI_HANDLE_NULL;
-static ai_buffer *ai_input;
-static ai_buffer *ai_output;
-
-void model_init(void) {
-  ai_error err;
-
-  activations = (ai_u8 *)memory_alloc(323600);
-  const ai_handle acts[] = {activations};
-
-  err = ai_mobilenetv2_fp32_create_and_init(&network, acts, NULL);
-  if (err.type != AI_ERROR_NONE)
-    Error_Handler();
-
-  ai_input = ai_mobilenetv2_fp32_inputs_get(network, NULL);
-  ai_output = ai_mobilenetv2_fp32_outputs_get(network, NULL);
-}
-
-void model_inference(void) {
-  ai_input[0].data = AI_HANDLE_PTR(input_data);
-  ai_output[0].data = AI_HANDLE_PTR(output_data);
-
-  if (ai_mobilenetv2_fp32_run(network, ai_input, ai_output) != 1)
-    Error_Handler();
-
-  for (int i = 0; i < IMG_PIXELS; ++i) {
-    float horse_score = output_data[i * OUT_CHANNELS + 1];
-    binary_mask[i] = (horse_score > 0.5f) ? 255 : 0;
-  }
-}
+#define IMG_SIZE 28
+#define NUM_CLASSES 10
 
 int application() {
   embedDIP::Serial serial(&stm32_uart);
   embedDIP::Image inImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image maskImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
 
+  // Initialize serial
   serial.init();
-  model_init();
 
-  serial.capture(inImg);
-
-  uint8_t *pixels = (uint8_t *)inImg.pixels();
-  for (int i = 0; i < IMG_PIXELS; ++i) {
-    input_data[i] = ((float)pixels[i]) / 255.0f;
+  // Initialize MNIST model
+  if (mnist_init() != 0) {
+    // Initialization failed
+    while (1) {}
   }
 
-  model_inference();
+  // Capture image from serial
+  serial.capture(inImg);
 
-  memcpy(maskImg.pixels(), binary_mask, IMG_PIXELS);
-  serial.send(maskImg);
+  // Get pixel data
+  uint8_t *pixels = (uint8_t *)inImg.pixels();
+
+  // Run inference
+  float output[NUM_CLASSES];
+  if (mnist_infer(pixels, output) != 0) {
+    // Inference failed
+    while (1) {}
+  }
+
+  // Get predicted digit
+  uint8_t predicted_digit = mnist_get_prediction(output);
+
+  // Send result back
+  serial.send1D(&predicted_digit, sizeof(uint8_t), 1, SERIAL_DATA_OTHER);
 
   HAL_Delay(10);
 
@@ -79,3 +45,4 @@ int application() {
     ;
   }
 }
+
