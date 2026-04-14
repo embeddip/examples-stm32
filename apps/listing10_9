@@ -137,7 +137,7 @@ int main(void) {
   grayscaleThreshold(inImg, inImg, 128); // or another threshold value
   serial->send(inImg);
 
-  connectedComponents(inImg, outImg);
+  connectedComponents(inImg, outImg, NULL);
 
   normalize(outImg);
   serial->send(outImg);
