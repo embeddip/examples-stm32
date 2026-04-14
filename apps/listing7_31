@@ -1,0 +1,87 @@
+#include "main.hpp"
+#include <embedDIP.hpp>
+
+using namespace std;
+
+#define ENABLE_BUTTON_HANDLER
+
+// Define interrupt handler variables (declared as extern volatile in main.hpp)
+volatile int button_flag = 0;
+volatile int COMMAND = 0;
+volatile int current_mode = 0;
+volatile uint8_t button_press_count = 0;
+volatile uint32_t button_press_time = 0;
+
+int application() {
+  embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image filteredImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+
+  embedDIP::Serial serial(&stm32_uart);
+  embedDIP::Camera camera(&stm32_ov5640);
+  embedDIP::Display display(&stm32_ota5180a);
+
+  serial.init();
+  camera.init(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  display.init();
+
+  camera.capture(CONTINUOUS, inImg);
+  display.show(inImg);
+
+  vector<vector<float>> highPassFilter3x3 = {
+      {0, -1, 0}, {-1, 4, -1}, {0, -1, 0}};
+
+  while (1) {
+
+    // Button handling: wait 500ms to detect single vs double click
+    if (button_flag && button_press_count > 0) {
+      uint32_t now = HAL_GetTick();
+
+      if ((now - button_press_time) > 500) {
+        button_flag = 0;
+        uint8_t clicks = button_press_count;
+        button_press_count = 0;
+
+        if (clicks == 1) {
+          // Single click: cycle through modes (0->1->2->3->0)
+          current_mode = (current_mode + 1) % 4;
+
+        } else {
+          // Double click: capture and process image
+          camera.stop();
+
+          // Apply selected processing mode
+          switch (current_mode) {
+          case 0: // HistEq + Median filter
+            inImg.histEq(filteredImg);
+            filteredImg.medianFilter(outImg, 3);
+            outImg.convertTo();
+            break;
+
+          case 1: // Negative
+            inImg.negative(outImg);
+            outImg.convertTo();
+            break;
+
+          case 2: // Gamma correction (1.5)
+            inImg.powerTransform(outImg, 1.5f);
+            outImg.convertTo();
+            break;
+
+          case 3: // Sharpen (high-pass + add)
+            inImg.filter2D(highPassFilter3x3, filteredImg);
+            inImg.add(filteredImg, outImg);
+            outImg.convertTo();
+            break;
+          }
+
+          // Send processed image via UART
+          serial.send(outImg);
+
+          // Resume live camera feed
+          camera.capture(CONTINUOUS, inImg);
+        }
+      }
+    }
+  }
+}
