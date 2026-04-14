@@ -41,12 +41,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-#ifdef ENABLE_BUTTON_HANDLER
-extern volatile int COMMAND;
-extern volatile int button_flag;
-extern volatile uint32_t button_press_time;
-extern volatile uint8_t button_press_count;
-#endif
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -212,27 +206,6 @@ void SysTick_Handler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-#ifdef ENABLE_BUTTON_HANDLER
-  uint32_t now = HAL_GetTick();
-
-  // Simple debounce: ignore presses within 50ms
-  static uint32_t last_interrupt_time = 0;
-  if ((now - last_interrupt_time) < 50) {
-    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
-    return;
-  }
-  last_interrupt_time = now;
-
-  // Count presses within 500ms window
-  if (button_press_count > 0 && (now - button_press_time) <= 500) {
-    button_press_count++;
-  } else {
-    button_press_count = 1;
-    button_press_time = now;
-  }
-
-  button_flag = 1;
-#endif
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
