@@ -51,6 +51,12 @@ extern "C" {
 #define SDRAM_MODEREG_OPERATING_MODE_STANDARD    ((uint16_t)0x0000)
 #define SDRAM_MODEREG_WRITEBURST_MODE_PROGRAMMED ((uint16_t)0x0000)
 #define SDRAM_MODEREG_WRITEBURST_MODE_SINGLE     ((uint16_t)0x0200)
+
+/* Camera app button settings (PI11 on STM32F746G-Discovery). */
+#define APP_BUTTON_GPIO_PORT GPIOI
+#define APP_BUTTON_PIN GPIO_PIN_11
+#define APP_BUTTON_DEBOUNCE_MS 50U
+#define APP_BUTTON_MULTI_CLICK_MS 500U
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
