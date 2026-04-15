@@ -4,18 +4,19 @@
 using namespace std;
 
 int application() {
-  embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+
+  embedDIP::Image inImg(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB888);
+  embedDIP::Image compressedImg(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB888);
+
+  embedDIP::Camera camera(&stm32_ov5640);
   embedDIP::Serial serial(&stm32_uart);
 
-  vector<int> histogram(256, 0);
-
-  serial.init();
-  serial.capture(inImg);
-
-  inImg.histForm(histogram);
-  serial.send1D(histogram.data(), sizeof(int), 256, SERIAL_DATA_HISTOGRAM);
+  camera.init(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB888);
 
   while (1) {
-    ;
+    camera.capture(SINGLE, inImg);
+    compress(inImg.raw(), compressedImg.raw(), IMAGE_COMP_JPEG, 75);
+    serial.sendJPEG(compressedImg);
+    camera.stop();
   }
 }
