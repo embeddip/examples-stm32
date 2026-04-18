@@ -1,0 +1,24 @@
+# Command manifest for batch automation.
+#
+# One command per line.
+# Empty lines and lines starting with # are ignored.
+#
+# Format (recommended):
+#   --app <listing_name> [other test_app_flow.sh options]
+#
+# You can override shared defaults at runtime:
+#   TEST_FLOW_DEFAULT_ARGS='--port /dev/ttyACM0 --baud 2000000 --headless --image /abs/path/image.jpeg' ./run_app_commands.sh
+#
+# Per-listing expected outputs are set here.
+--app Listing4_4 --expected-outputs 2
+--app listing4_7 --expected-outputs 2
+--app listing4_9 --expected-outputs 2
+--app listing4_11 --expected-outputs 2
+
+--app listing5_5 --expected-outputs 1
+--app listing5_6 --expected-outputs 2
+
+--app listing7_1 --expected-outputs 1
+--app listing7_3 --expected-outputs 2
+--app listing7_5 --expected-outputs 2
+--app listing7_7 --expected-outputs 1
