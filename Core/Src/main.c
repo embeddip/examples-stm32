@@ -17,13 +17,16 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "common.h"
 #include "compress.h"
 #include "libjpeg.h"
-#include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "embedDIP.h"
+#include "image_data_rgb565.h"
+#include "pixel.h"
+#include <math.h>
 #include <string.h>
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
@@ -57,10 +60,12 @@ UART_HandleTypeDef huart1;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
+volatile int COMMAND = 0;
 volatile int button_flag = 0;
+volatile int current_mode = 0;
 volatile uint32_t button_press_time = 0;
 volatile uint8_t button_press_count = 0;
-volatile int current_mode = 0; // 0=LoG 1=GaussianGradients 2=Sobel
+float data[1000];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -82,30 +87,6 @@ static void MX_I2C3_Init(void);
 serial_t *serial = &stm32_uart;
 camera_t *camera = &stm32_ov5640;
 display_t *display = &stm32_ota5180a;
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-  if (GPIO_Pin != APP_BUTTON_PIN) {
-    return;
-  }
-
-  uint32_t now = HAL_GetTick();
-  static uint32_t last_interrupt_time = 0;
-
-  if ((now - last_interrupt_time) < APP_BUTTON_DEBOUNCE_MS) {
-    return;
-  }
-  last_interrupt_time = now;
-
-  if (button_press_count > 0 && (now - button_press_time) <= APP_BUTTON_MULTI_CLICK_MS) {
-    button_press_count++;
-  } else {
-    button_press_count = 1;
-    button_press_time = now;
-  }
-
-  button_flag = 1;
-}
-
 /**
  * @brief  The application entry point.
  * @retval int
@@ -144,93 +125,18 @@ int main(void) {
   MX_I2C3_Init();
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
-  Image *previewRgb = NULL, *gray = NULL, *edges = NULL, *clean = NULL;
-  Image *gradX = NULL, *gradY = NULL, *mag = NULL;
-  Image *overlay = NULL, *displayRgb = NULL;
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &previewRgb);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gray);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &edges);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &clean);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gradX);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gradY);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &mag);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &overlay);
-  createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &displayRgb);
 
-  camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
-  display->init();
-
-  camera->capture(CONTINUOUS, previewRgb);
-  display->show(previewRgb);
-
-  float kernelX[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
-  float kernelY[9] = {1, 2, 1, 0, 0, 0, -1, -2, -1};
-  uint32_t perf[2] = {0, 0}; // [mode, cycles]
-
+  /* USER CODE BEGIN 2 */
+  uint32_t executionCycles;
+  tic();
+  for (uint32_t i = 0; i < 1000; i++) {
+    data[i] = M_PI * M_E * i;
+  }
+  executionCycles = toc();
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN WHILE */
   while (1) {
-
-    if (button_flag && button_press_count > 0) {
-      uint32_t now = HAL_GetTick();
-
-      if ((now - button_press_time) > APP_BUTTON_MULTI_CLICK_MS) {
-        button_flag = 0;
-        uint8_t clicks = button_press_count;
-        button_press_count = 0;
-
-        if (clicks == 1) {
-          current_mode = (current_mode + 1) % 3;
-
-        } else {
-          camera->stop();
-          cvtColor(previewRgb, gray, CVT_RGB565_TO_GRAYSCALE);
-          tic();
-
-          Image *result = NULL;
-          switch (current_mode) {
-          case 0: // LoG-based edge mask (chapter 9).
-            logFilter(gray, edges, 1.4f);
-            convertTo(edges);
-            grayscaleOtsu(edges, clean);
-            negative(clean, clean);
-            result = clean;
-            break;
-
-          case 1: // Gaussian gradients + magnitude.
-            gaussianGradients(gray, gradX, gradY, 1.2f);
-            gradientMagnitude(gradX, gradY, mag);
-            convertTo(mag);
-            grayscaleOtsu(mag, clean);
-            result = clean;
-            break;
-
-          case 2: // Sobel + magnitude.
-            filter2D(gray, gradX, (const float *)kernelX, 3);
-            convertTo(gradX);
-            filter2D(gray, gradY, (const float *)kernelY, 3);
-            convertTo(gradY);
-            gradientMagnitude(gradX, gradY, mag);
-            convertTo(mag);
-            grayscaleOtsu(mag, clean);
-            result = clean;
-            break;
-          }
-
-          perf[0] = (uint32_t)current_mode;
-          perf[1] = toc();
-
-          cvtColor(result, displayRgb, CVT_GRAYSCALE_TO_RGB565);
-          display->show(displayRgb);
-          serial->send(result);
-          serial->send1D(perf, sizeof(uint32_t), 2, SERIAL_DATA_OTHER);
-
-          camera->capture(CONTINUOUS, previewRgb);
-          display->show(previewRgb);
-        }
-      }
-    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
