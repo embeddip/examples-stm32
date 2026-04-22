@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Build All Apps Script
-# This script builds each app from apps/ folder by replacing main.c
+# This script builds each app from apps/ by injecting USER CODE blocks
+# from listing files into the main.c template.
 
 set -e  # Exit on error
 
@@ -27,6 +28,74 @@ log_success() { echo -e "${GREEN}[SUCCESS]${NC} $1"; }
 log_warning() { echo -e "${YELLOW}[WARNING]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
+# Inject USER CODE blocks from a listing file into main.c template.
+# Arguments:
+#   1) listing file
+#   2) template main.c backup
+#   3) output main.c path
+inject_user_blocks() {
+    local listing_file="$1"
+    local template_file="$2"
+    local output_file="$3"
+
+    awk '
+    function extract_tag(line, begin_kw,   t) {
+        t = line
+        sub("^.*\\/\\* " begin_kw "[[:space:]]+", "", t)
+        sub("[[:space:]]*\\*\\/.*$", "", t)
+        gsub(/^[[:space:]]+|[[:space:]]+$/, "", t)
+        return t
+    }
+
+    # Pass 1: read listing and cache block contents by tag.
+    FNR == NR {
+        if ($0 ~ /\/\* USER CODE BEGIN[[:space:]]+/) {
+            in_src = 1
+            src_tag = extract_tag($0, "USER CODE BEGIN")
+            next
+        }
+        if (in_src && $0 ~ /\/\* USER CODE END[[:space:]]+/) {
+            in_src = 0
+            src_tag = ""
+            next
+        }
+        if (in_src) {
+            src_blocks[src_tag] = src_blocks[src_tag] $0 ORS
+        }
+        next
+    }
+
+    # Pass 2: print template, replacing only matching USER CODE blocks.
+    {
+        if (!skip_dst && $0 ~ /\/\* USER CODE BEGIN[[:space:]]+/) {
+            dst_tag = extract_tag($0, "USER CODE BEGIN")
+
+            if (dst_tag in src_blocks) {
+                print $0
+                printf "%s", src_blocks[dst_tag]
+                skip_dst = 1
+                skip_tag = dst_tag
+                next
+            }
+        }
+
+        if (skip_dst) {
+            if ($0 ~ /\/\* USER CODE END[[:space:]]+/) {
+                end_tag = extract_tag($0, "USER CODE END")
+                if (end_tag == skip_tag) {
+                    print $0
+                    skip_dst = 0
+                    skip_tag = ""
+                }
+            }
+            next
+        }
+
+        print
+    }
+    ' "$listing_file" "$template_file" > "$output_file"
+}
+
 # Check if apps directory exists
 if [ ! -d "$APPS_DIR" ]; then
     log_error "Apps directory not found: $APPS_DIR"
@@ -48,12 +117,12 @@ successful_builds=0
 failed_builds=0
 declare -a failed_app_list
 
-# Get list of all apps (excluding build_outputs directory)
-mapfile -t app_files < <(find "$APPS_DIR" -maxdepth 1 -type f | grep -v "build_outputs" | sort)
+# Get list of all C listing apps (excluding build_outputs directory)
+mapfile -t app_files < <(find "$APPS_DIR" -maxdepth 1 -type f -name "*.c" | grep -v "build_outputs" | sort)
 total_apps=${#app_files[@]}
 
 if [ $total_apps -eq 0 ]; then
-    log_error "No app files found in $APPS_DIR"
+    log_error "No .c app files found in $APPS_DIR"
     cp "$BACKUP_MAIN" "$MAIN_C_PATH"
     exit 1
 fi
@@ -74,9 +143,9 @@ for app_path in "${app_files[@]}"; do
     # Create output directory for this app
     mkdir -p "$app_output_dir"
 
-    # Copy app to main.c
-    log_info "Replacing main.c with $app_name..."
-    cp "$app_path" "$MAIN_C_PATH"
+    # Inject app USER CODE blocks into main.c
+    log_info "Injecting USER CODE blocks from $app_name into main.c..."
+    inject_user_blocks "$app_path" "$BACKUP_MAIN" "$MAIN_C_PATH"
 
     # Clean previous build
     log_info "Cleaning previous build..."
