@@ -20,12 +20,22 @@ add_executable(${PROJECT_NAME})
 add_subdirectory(cmake/stm32cubemx)
 
 # Add embedDIP module
+# Provide project defaults for embedDIP when caller/preset does not define them.
+if(NOT DEFINED EMBEDDIP_TARGET_BOARD OR EMBEDDIP_TARGET_BOARD STREQUAL "")
+    set(EMBEDDIP_TARGET_BOARD "STM32F7" CACHE STRING "Target board for embedDIP")
+endif()
+if(NOT DEFINED EMBEDDIP_ARCH OR EMBEDDIP_ARCH STREQUAL "")
+    set(EMBEDDIP_ARCH "ARM" CACHE STRING "Architecture family for embedDIP")
+endif()
+if(NOT DEFINED EMBEDDIP_CPU OR EMBEDDIP_CPU STREQUAL "")
+    set(EMBEDDIP_CPU "CORTEX_M7" CACHE STRING "CPU variant for embedDIP")
+endif()
+
 add_subdirectory(embedDIP)
 
 # Add sources to the executable
 target_sources(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/compress.c
 )
 
 # Include CMSIS DSP headers
