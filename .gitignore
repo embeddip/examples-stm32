@@ -26,3 +26,4 @@ Makefile
 embedDIP/build*/
 embedDIP/.cache/
 embedDIP/Testing/
+Middlewares/Third_Party/tflite-micro/
