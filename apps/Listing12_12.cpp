@@ -1,8 +1,7 @@
-#include "main.h"
-#include "cnn_mnist.h"
-#include "cnn_mnist_data.h"
-#include "string.h"
 #include <embedDIP.hpp>
+#include <main.hpp>
+#include "nn_mnist.h"
+#include "nn_mnist_data.h"
 
 using namespace embedDIP;
 
@@ -11,7 +10,7 @@ using namespace embedDIP;
 #define NUM_CLASSES 10
 
 AI_ALIGNED(4)
-static ai_u8 activations[AI_CNN_MNIST_DATA_ACTIVATIONS_SIZE];
+static ai_u8 activations[AI_NN_MNIST_DATA_ACTIVATIONS_SIZE];
 
 AI_ALIGNED(4)
 static ai_float input_data[IMG_PIXELS];
@@ -24,24 +23,19 @@ static ai_buffer *ai_input;
 static ai_buffer *ai_output;
 
 void model_init(void) {
-  ai_error err;
-
   const ai_handle acts[] = {activations};
 
-  err = ai_cnn_mnist_create_and_init(&network, acts, NULL);
-  if (err.type != AI_ERROR_NONE)
-    Error_Handler();
+  ai_nn_mnist_create_and_init(&network, acts, NULL);
 
-  ai_input = ai_cnn_mnist_inputs_get(network, NULL);
-  ai_output = ai_cnn_mnist_outputs_get(network, NULL);
+  ai_input = ai_nn_mnist_inputs_get(network, NULL);
+  ai_output = ai_nn_mnist_outputs_get(network, NULL);
 }
 
 void model_inference(void) {
   ai_input[0].data = AI_HANDLE_PTR(input_data);
   ai_output[0].data = AI_HANDLE_PTR(output_data);
 
-  if (ai_cnn_mnist_run(network, ai_input, ai_output) != 1)
-    Error_Handler();
+  ai_nn_mnist_run(network, ai_input, ai_output);
 }
 
 uint8_t get_predicted_digit(void) {
@@ -62,7 +56,12 @@ int application() {
   embedDIP::Image inImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
 
   serial.init();
-  model_init();
+
+  const ai_handle acts[] = {activations};
+
+  ai_nn_mnist_create_and_init(&network, acts, NULL);
+  ai_input = ai_nn_mnist_inputs_get(network, NULL);
+  ai_output = ai_nn_mnist_outputs_get(network, NULL);
 
   serial.capture(inImg);
 
@@ -71,12 +70,12 @@ int application() {
     input_data[i] = ((float)pixels[i]) / 255.0f;
   }
 
-  model_inference();
+  ai_input[0].data = AI_HANDLE_PTR(input_data);
+  ai_output[0].data = AI_HANDLE_PTR(output_data);
+  ai_nn_mnist_run(network, ai_input, ai_output);
 
   uint8_t predicted_digit = get_predicted_digit();
   serial.send1D(&predicted_digit, sizeof(uint8_t), 1, SERIAL_DATA_OTHER);
-
-  HAL_Delay(10);
 
   while (1) {
     ;

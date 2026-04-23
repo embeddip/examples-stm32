@@ -1,12 +1,10 @@
-#include "main.h"
+#include "main.hpp"
 #include "unet_fp32.h"
 #include "unet_fp32_data.h"
-#include "string.h"
 #include <embedDIP.hpp>
 
 using namespace embedDIP;
 
-/* AI model buffers */
 #define IMG_SIZE (128)
 #define IMG_PIXELS (IMG_SIZE * IMG_SIZE)
 #define OUT_CHANNELS (2)
@@ -30,8 +28,6 @@ static ai_buffer *ai_output;
 
 void model_init(void) {
   ai_error err;
-
-  activations = (ai_u8 *)memory_alloc(323600);
   const ai_handle acts[] = {activations};
 
   err = ai_unet_fp32_create_and_init(&network, acts, NULL);
@@ -49,19 +45,24 @@ void model_inference(void) {
   if (ai_unet_fp32_run(network, ai_input, ai_output) != 1)
     Error_Handler();
 
-  /* Post-process: threshold for binary segmentation */
   for (int i = 0; i < IMG_PIXELS; ++i) {
     float pet_score = output_data[i * OUT_CHANNELS + 1];
-    binary_mask[i] = (pet_score > 0.5f) ? 255 : 0;
+    binary_mask[i] = (pet_score > 0.8f) ? 255 : 0;
   }
 }
 
 int application() {
+
   embedDIP::Serial serial(&stm32_uart);
+  serial.init();
+
+  // Use offset from SDRAM base for allocator pool start.
+  // U-Net activations occupy 0x0013C000 bytes from 0xC0000000, so start pool
+  // after that.
+  memory_init(0x00140000);
   embedDIP::Image inImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image maskImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
 
-  serial.init();
   model_init();
 
   serial.capture(inImg);

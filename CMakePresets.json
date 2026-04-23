@@ -8,6 +8,9 @@
             "binaryDir": "${sourceDir}/build/${presetName}",
 		    "toolchainFile": "${sourceDir}/cmake/gcc-arm-none-eabi.cmake",
             "cacheVariables": {
+                "EMBEDDIP_TARGET_BOARD": "STM32F7",
+                "EMBEDDIP_ARCH": "ARM",
+                "EMBEDDIP_CPU": "CORTEX_M7"
             }
         },
         {
