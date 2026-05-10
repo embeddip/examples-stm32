@@ -1,0 +1,14 @@
+===========================================
+Build Information: Listing14_7.c
+===========================================
+
+Build Date: Sun 10 May 2026 11:59:01 AM CEST
+Build Preset: Debug
+Build Status: SUCCESS
+Artifacts Saved: 2
+
+Size Information:
+   text	   data	    bss	    dec	    hex	filename
+ 256340	  13296	 218464	 488100	  772a4	/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/Listing14_7.c/Listing14_7.c.elf
+
+Build Location: /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/Listing14_7.c

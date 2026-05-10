@@ -1,0 +1,50 @@
+      |         ^~~~~~~~~~~~~
+<command-line>: note: this is the location of the previous definition
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c: In function 'main':
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:201:1: error: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  201 | memcpy(pixels, binary_mask, IMG_PIXELS);
+      | ^~~~~~
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:28:1: note: include '<string.h>' or provide a declaration of 'memcpy'
+   27 | #include <embedDIP.h>
+  +++ |+#include <string.h>
+   28 | 
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:201:1: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+  201 | memcpy(pixels, binary_mask, IMG_PIXELS);
+      | ^~~~~~
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/main.c:201:1: note: include '<string.h>' or provide a declaration of 'memcpy'
+[8/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/nn_mnist.c.obj
+[9/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/mobilenet_horse_fp32_data.c.obj
+[10/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/cnn_mnist.c.obj
+[11/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/camvid_int8_data_params.c.obj
+[12/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/mobilenet_horse_fp32_data_params.c.obj
+[13/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/mobilenetv2_fp32_data.c.obj
+[14/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/camvid_int8.c.obj
+[15/399] Building C object CMakeFiles/dip-vs.dir/Core/Src/stm32f7xx_it.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/stm32f7xx_it.c:21:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170:9: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      |         ^~~~~~~~~~~~~
+<command-line>: note: this is the location of the previous definition
+[16/399] Building C object CMakeFiles/dip-vs.dir/Core/Src/stm32f7xx_hal_msp.c.obj
+In file included from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:127,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:27,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/stm32f7xx_hal_conf.h:271,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Core/Inc/main.h:30,
+                 from /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/Core/Src/stm32f7xx_hal_msp.c:21:
+/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h:170:9: warning: "__FPU_PRESENT" redefined
+  170 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      |         ^~~~~~~~~~~~~
+<command-line>: note: this is the location of the previous definition
+[17/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/mobilenet_horse_fp32.c.obj
+[18/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/mobilenetv2_fp32.c.obj
+[19/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/nn_mnist_data_params.c.obj
+[20/399] Building C object CMakeFiles/dip-vs.dir/X-CUBE-AI/App/cnn_mnist_data_params.c.obj
+ninja: build stopped: subcommand failed.

@@ -1,7 +1,8 @@
 /* USER CODE BEGIN Includes */
-#include "mobilenetv2_fp32.h"
-#include "mobilenetv2_fp32_data.h"
+#include "unet_fp32.h"
+#include "unet_fp32_data.h"
 #include <embedDIP.h>
+#include <string.h>
 
 #define IMG_SIZE (128)
 #define IMG_PIXELS (IMG_SIZE * IMG_SIZE)
@@ -30,31 +31,19 @@ static ai_buffer *ai_output;
 serial_t *serial = &stm32_uart;
 display_t *display = &stm32_ota5180a;
 
-void normalize_float_image(const ai_float *src, uint8_t *dst, int stride,
-                           float scale) {
-  for (int i = 0; i < stride; ++i) {
-    float v = src[i];
-    if (v < 0.0f)
-      v = 0.0f;
-    if (v > 1.0f)
-      v = 1.0f;
-    dst[i] = (uint8_t)(v * scale);
-  }
-}
-
 void model_init(void) {
   const ai_handle acts[] = {activations};
 
-  ai_mobilenetv2_fp32_create_and_init(&network, acts, NULL);
-  ai_input = ai_mobilenetv2_fp32_inputs_get(network, NULL);
-  ai_output = ai_mobilenetv2_fp32_outputs_get(network, NULL);
+  ai_unet_fp32_create_and_init(&network, acts, NULL);
+  ai_input = ai_unet_fp32_inputs_get(network, NULL);
+  ai_output = ai_unet_fp32_outputs_get(network, NULL);
 }
 
 void model_inference(void) {
   ai_input[0].data = AI_HANDLE_PTR(input_data);
   ai_output[0].data = AI_HANDLE_PTR(output_data);
 
-  ai_mobilenetv2_fp32_run(network, ai_input, ai_output);
+  ai_unet_fp32_run(network, ai_input, ai_output);
 
   for (int i = 0; i < IMG_PIXELS; ++i) {
     float pet_score = output_data[i * 2 + 1];
@@ -67,9 +56,6 @@ void model_inference(void) {
 serial->init();
 display->init();
 
-// Use offset from SDRAM base for allocator pool start.
-// U-Net activations occupy 0x0013C000 bytes from 0xC0000000, so start pool
-// after that.
 memory_init(0x00140000);
 
 Image *inImg = NULL;

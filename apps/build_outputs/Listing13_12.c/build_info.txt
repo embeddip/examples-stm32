@@ -1,0 +1,14 @@
+===========================================
+Build Information: Listing13_12.c
+===========================================
+
+Build Date: Sun 10 May 2026 11:58:48 AM CEST
+Build Preset: Debug
+Build Status: SUCCESS
+Artifacts Saved: 2
+
+Size Information:
+   text	   data	    bss	    dec	    hex	filename
+ 940596	   2648	  40000	 983244	  f00cc	/media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/Listing13_12.c/Listing13_12.c.elf
+
+Build Location: /media/odurgut/82a56851-6a27-45e3-afb0-3549236924ca/sda1/book/examples-stm32-c/apps/build_outputs/Listing13_12.c
