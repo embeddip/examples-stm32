@@ -7,6 +7,8 @@ serial_t *serial = &stm32_uart;
 /* USER CODE END 0 */
 
 /* USER CODE BEGIN 2 */
+serial->init();
+
 Image *inImg = NULL, *outImg_1 = NULL, *outImg_2 = NULL;
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &inImg);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &outImg_1);

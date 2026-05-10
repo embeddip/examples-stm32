@@ -40,6 +40,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 /* USER CODE END 0 */
 
 /* USER CODE BEGIN 2 */
+serial->init();
+
 Image *previewRgb = NULL, *gray = NULL, *denoised = NULL, *bin = NULL,
       *morph = NULL;
 Image *labels = NULL, *displayRgb = NULL;

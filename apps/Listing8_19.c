@@ -40,6 +40,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 /* USER CODE END 0 */
 
 /* USER CODE BEGIN 2 */
+serial->init();
+
 Image *previewRgb = NULL;
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &previewRgb);
 

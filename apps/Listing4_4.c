@@ -12,6 +12,7 @@ createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &rgbImg);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &grayImg);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_YUV, &yuvImg);
 
+serial->init();
 serial->capture(rgbImg);
 
 cvtColor(rgbImg, grayImg, CVT_RGB565_TO_GRAYSCALE);

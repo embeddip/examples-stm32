@@ -1,5 +1,7 @@
 /* USER CODE BEGIN Includes */
 #include "embedDIP.h"
+#include <string.h>
+// Contains the image data in RGB565 format.
 #include "image_data.h"
 /* USER CODE END Includes */
 

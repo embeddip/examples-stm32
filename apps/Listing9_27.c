@@ -40,15 +40,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 /* USER CODE END 0 */
 
 /* USER CODE BEGIN 2 */
+serial->init();
+
 Image *previewRgb = NULL, *gray = NULL, *edges = NULL, *clean = NULL;
-Image *gradX = NULL, *gradY = NULL, *mag = NULL;
+Image *gradH = NULL, *gradV = NULL, *mag = NULL;
 Image *overlay = NULL, *displayRgb = NULL;
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &previewRgb);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gray);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &edges);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &clean);
-createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gradX);
-createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gradY);
+createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gradH);
+createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gradV);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &mag);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &overlay);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &displayRgb);
@@ -92,19 +94,19 @@ while (1) {
           break;
 
         case 1: // Gaussian gradients + magnitude.
-          gaussianGradients(gray, gradX, gradY, 1.2f);
-          gradientMagnitude(gradX, gradY, mag);
+          gaussianGradients(gray, gradH, gradV, 1.2f);
+          gradientMagnitude(gradH, gradV, mag);
           convertTo(mag);
           grayscaleOtsu(mag, clean);
           result = clean;
           break;
 
         case 2: // Sobel + magnitude.
-          filter2D(gray, gradX, (const float *)kernelX, 3);
-          convertTo(gradX);
-          filter2D(gray, gradY, (const float *)kernelY, 3);
-          convertTo(gradY);
-          gradientMagnitude(gradX, gradY, mag);
+          filter2D(gray, gradH, (const float *)kernelX, 3);
+          convertTo(gradH);
+          filter2D(gray, gradV, (const float *)kernelY, 3);
+          convertTo(gradV);
+          gradientMagnitude(gradH, gradV, mag);
           convertTo(mag);
           grayscaleOtsu(mag, clean);
           result = clean;

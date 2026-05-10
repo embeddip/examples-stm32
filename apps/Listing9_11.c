@@ -22,8 +22,8 @@ roi.width = 400;
 roi.height = 200;
 
 // tic();
-grabCutLite(inImg, maskImg, roi, 5);
-// grabCut(inImg, maskImg, roi, 5);
+// grabCutLite(inImg, maskImg, roi, 5);
+grabCut(inImg, maskImg, roi, 5);
 // uint32_t cycleCount = toc();
 
 convertTo(maskImg);

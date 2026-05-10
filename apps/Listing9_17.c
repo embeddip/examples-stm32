@@ -7,11 +7,11 @@ serial_t *serial = &stm32_uart;
 /* USER CODE END 0 */
 
 /* USER CODE BEGIN 2 */
-Image *inImg = NULL, *gX = NULL, *gY = NULL, *magnitudeOut = NULL,
+Image *inImg = NULL, *gH = NULL, *gV = NULL, *magnitudeOut = NULL,
       *phaseOut = NULL;
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &inImg);
-createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gX);
-createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gY);
+createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gH);
+createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &gV);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &magnitudeOut);
 createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &phaseOut);
 
@@ -19,19 +19,19 @@ serial->init();
 
 serial->capture(inImg);
 
-gaussianGradients(inImg, gX, gY, 1.2f);
+gaussianGradients(inImg, gH, gV, 1.2f);
 
-gradientMagnitude(gX, gY, magnitudeOut);
+gradientMagnitude(gH, gV, magnitudeOut);
 
-gradientPhase(gX, gY, phaseOut);
+gradientPhase(gH, gV, phaseOut);
 
-convertTo(gX);
+convertTo(gH);
 
-serial->send(gX);
+serial->send(gH);
 
-convertTo(gY);
+convertTo(gV);
 
-serial->send(gY);
+serial->send(gV);
 
 convertTo(magnitudeOut);
 

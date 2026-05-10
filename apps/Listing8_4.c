@@ -7,6 +7,8 @@ serial_t *serial = &stm32_uart;
 /* USER CODE END 0 */
 
 /* USER CODE BEGIN 2 */
+serial->init();
+
 Image *inImg = NULL, *outImg = NULL, *KittenMagnitude = NULL,
       *KittenPhase = NULL, *TabbyCatMagnitude = NULL, *TabbyCatPhase = NULL;
 createImageWH(256, 256, IMAGE_FORMAT_GRAYSCALE, &inImg);
