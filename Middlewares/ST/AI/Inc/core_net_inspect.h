@@ -1,26 +1,25 @@
 /**
-  ******************************************************************************
-  * @file    core_net_inspect.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of core network inspection APIs
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    core_net_inspect.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of core network inspection APIs
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef CORE_NET_INSPECT_H
 #define CORE_NET_INSPECT_H
 
-#include "core_net_inspect_interface.h"
-
 #include "core_common.h"
+#include "core_net_inspect_interface.h"
 #include "layers_common.h"
 
 /*!
@@ -64,8 +63,7 @@ AI_API_DECLARE_BEGIN
  * @return true if execution of the API is fine, false otherwise
  */
 AI_API_ENTRY
-ai_bool ai_network_inspect_init(
-  ai_handle network, const ai_inspect_config* cfg);
+ai_bool ai_network_inspect_init(ai_handle network, const ai_inspect_config *cfg);
 
 /*!
  * @brief Get a summary report from the inspected network
@@ -75,8 +73,7 @@ ai_bool ai_network_inspect_init(
  * @return true if execution of the API is fine, false otherwise
  */
 AI_API_ENTRY
-ai_bool ai_network_inspect_get_report(
-  ai_handle network, ai_inspect_net_report* report);
+ai_bool ai_network_inspect_get_report(ai_handle network, ai_inspect_net_report *report);
 
 /*!
  * @brief Destroy the network inspection context on a given network
@@ -89,4 +86,4 @@ ai_bool ai_network_inspect_destroy(ai_handle network);
 
 AI_API_DECLARE_END
 
-#endif    /* CORE_NET_INSPECT_H */
+#endif /* CORE_NET_INSPECT_H */

@@ -1,18 +1,18 @@
 /**
-  ******************************************************************************
-  * @file    mobilenetv2_fp32_data.h
-  * @author  AST Embedded Analytics Research Platform
-  * @date    2026-04-11T13:25:10+0200
-  * @brief   AI Tool Automatic Code Generator for Embedded NN computing
-  ******************************************************************************
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    mobilenetv2_fp32_data.h
+ * @author  AST Embedded Analytics Research Platform
+ * @date    2026-04-11T13:25:10+0200
+ * @brief   AI Tool Automatic Code Generator for Embedded NN computing
+ ******************************************************************************
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ ******************************************************************************
+ */
 
 #ifndef MOBILENETV2_FP32_DATA_H
 #define MOBILENETV2_FP32_DATA_H
@@ -21,19 +21,18 @@
 #include "mobilenetv2_fp32_data_params.h"
 
 AI_DEPRECATED
-#define AI_MOBILENETV2_FP32_DATA_ACTIVATIONS(ptr_)  \
-  ai_mobilenetv2_fp32_data_activations_buffer_get(AI_HANDLE_PTR(ptr_))
+#define AI_MOBILENETV2_FP32_DATA_ACTIVATIONS(ptr_)                                                 \
+    ai_mobilenetv2_fp32_data_activations_buffer_get(AI_HANDLE_PTR(ptr_))
 
 AI_DEPRECATED
-#define AI_MOBILENETV2_FP32_DATA_WEIGHTS(ptr_)  \
-  ai_mobilenetv2_fp32_data_weights_buffer_get(AI_HANDLE_PTR(ptr_))
+#define AI_MOBILENETV2_FP32_DATA_WEIGHTS(ptr_)                                                     \
+    ai_mobilenetv2_fp32_data_weights_buffer_get(AI_HANDLE_PTR(ptr_))
 
 
 AI_API_DECLARE_BEGIN
 
 
 extern const ai_u64 s_mobilenetv2_fp32_weights_array_u64[10908];
-
 
 
 /*!
@@ -72,10 +71,9 @@ ai_handle ai_mobilenetv2_fp32_data_weights_get(void);
  * @return true if a valid configuration is present, false otherwise
  */
 AI_API_ENTRY
-ai_bool ai_mobilenetv2_fp32_data_params_get(ai_network_params* params);
+ai_bool ai_mobilenetv2_fp32_data_params_get(ai_network_params *params);
 
 
 AI_API_DECLARE_END
 
 #endif /* MOBILENETV2_FP32_DATA_H */
-

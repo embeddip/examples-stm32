@@ -4,8 +4,6 @@
 extern "C" {
 #endif
 
-#include "compress.h"
-
 // Global variables for interrupt handler (must match stm32f7xx_it.c declarations)
 extern volatile int button_flag;
 extern volatile int COMMAND;

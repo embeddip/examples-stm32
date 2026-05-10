@@ -1,22 +1,22 @@
 #ifndef LAYERS_CUSTOM_H
 #define LAYERS_CUSTOM_H
 /**
-  ******************************************************************************
-  * @file    layers_custom.h
-  * @author  STMicroelectronics
-  * @brief   header file of AI platform custom layers datatype
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_custom.h
+ * @author  STMicroelectronics
+ * @brief   header file of AI platform custom layers datatype
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2020 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #include "layers_common.h"
 
 /*!

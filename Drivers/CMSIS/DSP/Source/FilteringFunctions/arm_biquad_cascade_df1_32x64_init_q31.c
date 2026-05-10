@@ -40,11 +40,13 @@
 /**
  * @details
  *
- * @param[in,out] *S           	points to an instance of the high precision Q31 Biquad cascade filter structure.
+ * @param[in,out] *S           	points to an instance of the high precision Q31 Biquad cascade
+ * filter structure.
  * @param[in]     numStages     number of 2nd order stages in the filter.
  * @param[in]     *pCoeffs      points to the filter coefficients.
  * @param[in]     *pState       points to the state buffer.
- * @param[in]     postShift     Shift to be applied after the accumulator.  Varies according to the coefficients format.
+ * @param[in]     postShift     Shift to be applied after the accumulator.  Varies according to the
+ * coefficients format.
  * @return        none
  *
  * <b>Coefficient and State Ordering:</b>
@@ -59,38 +61,37 @@
  * and so on.  The <code>pCoeffs</code> array contains a total of <code>5*numStages</code> values.
  *
  * \par
- * The <code>pState</code> points to state variables array and size of each state variable is 1.63 format.
- * Each Biquad stage has 4 state variables <code>x[n-1], x[n-2], y[n-1],</code> and <code>y[n-2]</code>.
- * The state variables are arranged in the state array as:
- * <pre>
- *     {x[n-1], x[n-2], y[n-1], y[n-2]}
+ * The <code>pState</code> points to state variables array and size of each state variable is 1.63
+ * format. Each Biquad stage has 4 state variables <code>x[n-1], x[n-2], y[n-1],</code> and
+ * <code>y[n-2]</code>. The state variables are arranged in the state array as: <pre> {x[n-1],
+ * x[n-2], y[n-1], y[n-2]}
  * </pre>
  * The 4 state variables for stage 1 are first, then the 4 state variables for stage 2, and so on.
  * The state array has a total length of <code>4*numStages</code> values.
- * The state variables are updated after each block of data is processed; the coefficients are untouched.
+ * The state variables are updated after each block of data is processed; the coefficients are
+ * untouched.
  */
 
-void arm_biquad_cas_df1_32x64_init_q31(
-  arm_biquad_cas_df1_32x64_ins_q31 * S,
-  uint8_t numStages,
-  q31_t * pCoeffs,
-  q63_t * pState,
-  uint8_t postShift)
+void arm_biquad_cas_df1_32x64_init_q31(arm_biquad_cas_df1_32x64_ins_q31 *S,
+                                       uint8_t numStages,
+                                       q31_t *pCoeffs,
+                                       q63_t *pState,
+                                       uint8_t postShift)
 {
-  /* Assign filter stages */
-  S->numStages = numStages;
+    /* Assign filter stages */
+    S->numStages = numStages;
 
-  /* Assign postShift to be applied to the output */
-  S->postShift = postShift;
+    /* Assign postShift to be applied to the output */
+    S->postShift = postShift;
 
-  /* Assign coefficient pointer */
-  S->pCoeffs = pCoeffs;
+    /* Assign coefficient pointer */
+    S->pCoeffs = pCoeffs;
 
-  /* Clear state buffer and size is always 4 * numStages */
-  memset(pState, 0, (4U * (uint32_t) numStages) * sizeof(q63_t));
+    /* Clear state buffer and size is always 4 * numStages */
+    memset(pState, 0, (4U * (uint32_t)numStages) * sizeof(q63_t));
 
-  /* Assign state pointer */
-  S->pState = pState;
+    /* Assign state pointer */
+    S->pState = pState;
 }
 
 /**

@@ -8,6 +8,7 @@
             "executable": "${command:cmake.launchTargetPath}",
             "request": "launch",
             "servertype": "openocd",
+            "gdbPath": "gdb-multiarch",
             "device": "STM32F746NGHx",
             "configFiles": [
                 "interface/stlink.cfg",
@@ -26,7 +27,8 @@
             "device": "STM32F746NGHx",
             "interface": "swd",
             "runToEntryPoint": "main",
-            "v1": false
+            "v1": false,
+            "gdbPath": "gdb-multiarch"
         },
         {
             "name": "Attach (OpenOCD)",

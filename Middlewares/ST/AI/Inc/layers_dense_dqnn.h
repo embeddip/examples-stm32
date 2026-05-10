@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_dense_dqnn.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of deeply quantized dense layers.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_dense_dqnn.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of deeply quantized dense layers.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LAYERS_DENSE_DQNN_H
 #define LAYERS_DENSE_DQNN_H
 
@@ -46,7 +46,7 @@ typedef ai_layer_base ai_layer_dense_dqnn;
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os1ws1(ai_layer* layer);
+void forward_dense_is1os1ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -59,7 +59,7 @@ void forward_dense_is1os1ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os1ws1_bn(ai_layer* layer);
+void forward_dense_is1os1ws1_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -68,7 +68,7 @@ void forward_dense_is1os1ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os8ws1(ai_layer* layer);
+void forward_dense_is1os8ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -77,7 +77,7 @@ void forward_dense_is1os8ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os16ws1(ai_layer* layer);
+void forward_dense_is1os16ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -86,7 +86,7 @@ void forward_dense_is1os16ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1of32ws1(ai_layer* layer);
+void forward_dense_is1of32ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -99,7 +99,7 @@ void forward_dense_is1of32ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1of32ws1_bn(ai_layer* layer);
+void forward_dense_is1of32ws1_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -108,7 +108,7 @@ void forward_dense_is1of32ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1of32wf32(ai_layer* layer);
+void forward_dense_is1of32wf32(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -121,7 +121,7 @@ void forward_dense_is1of32wf32(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1of32wf32_bn(ai_layer* layer);
+void forward_dense_is1of32wf32_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -130,7 +130,7 @@ void forward_dense_is1of32wf32_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1of32ws8(ai_layer* layer);
+void forward_dense_is1of32ws8(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -143,7 +143,7 @@ void forward_dense_is1of32ws8(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1of32ws8_bn(ai_layer* layer);
+void forward_dense_is1of32ws8_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -152,7 +152,7 @@ void forward_dense_is1of32ws8_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os1ws8(ai_layer* layer);
+void forward_dense_is1os1ws8(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -165,7 +165,7 @@ void forward_dense_is1os1ws8(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os1ws8_bn(ai_layer* layer);
+void forward_dense_is1os1ws8_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -174,7 +174,7 @@ void forward_dense_is1os1ws8_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os8ws8(ai_layer* layer);
+void forward_dense_is1os8ws8(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed binary input,
@@ -183,7 +183,7 @@ void forward_dense_is1os8ws8(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is1os16ws8(ai_layer* layer);
+void forward_dense_is1os16ws8(ai_layer *layer);
 
 
 /*!
@@ -193,7 +193,7 @@ void forward_dense_is1os16ws8(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8of32ws1(ai_layer* layer);
+void forward_dense_is8of32ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 8-bit input,
@@ -206,7 +206,7 @@ void forward_dense_is8of32ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8of32ws1_bn(ai_layer* layer);
+void forward_dense_is8of32ws1_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 8-bit input,
@@ -215,7 +215,7 @@ void forward_dense_is8of32ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8os1ws1(ai_layer* layer);
+void forward_dense_is8os1ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 8-bit input,
@@ -228,7 +228,7 @@ void forward_dense_is8os1ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8os1ws1_bn(ai_layer* layer);
+void forward_dense_is8os1ws1_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 8-bit input,
@@ -241,7 +241,7 @@ void forward_dense_is8os1ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8os1ws1_bn_fxp(ai_layer* layer);
+void forward_dense_is8os1ws1_bn_fxp(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 8-bit input,
@@ -250,7 +250,7 @@ void forward_dense_is8os1ws1_bn_fxp(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8os8ws1(ai_layer* layer);
+void forward_dense_is8os8ws1(ai_layer *layer);
 
 
 /*!
@@ -260,7 +260,7 @@ void forward_dense_is8os8ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is8os16ws1(ai_layer* layer);
+void forward_dense_is8os16ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 16-bit input,
@@ -269,7 +269,7 @@ void forward_dense_is8os16ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is16os1ws1(ai_layer* layer);
+void forward_dense_is16os1ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 16-bit input,
@@ -282,7 +282,7 @@ void forward_dense_is16os1ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is16os1ws1_bn(ai_layer* layer);
+void forward_dense_is16os1ws1_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 16-bit input,
@@ -291,7 +291,7 @@ void forward_dense_is16os1ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is16os8ws1(ai_layer* layer);
+void forward_dense_is16os8ws1(ai_layer *layer);
 
 
 /*!
@@ -301,7 +301,7 @@ void forward_dense_is16os8ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is16os16ws1(ai_layer* layer);
+void forward_dense_is16os16ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed 16-bit input,
@@ -310,7 +310,7 @@ void forward_dense_is16os16ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is16of32ws1(ai_layer* layer);
+void forward_dense_is16of32ws1(ai_layer *layer);
 
 
 /*!
@@ -324,7 +324,7 @@ void forward_dense_is16of32ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_is16of32ws1_bn(ai_layer* layer);
+void forward_dense_is16of32ws1_bn(ai_layer *layer);
 
 
 /*!
@@ -334,7 +334,7 @@ void forward_dense_is16of32ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_if32os1ws1(ai_layer* layer);
+void forward_dense_if32os1ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed f32 input,
@@ -347,7 +347,7 @@ void forward_dense_if32os1ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_if32os1ws1_bn(ai_layer* layer);
+void forward_dense_if32os1ws1_bn(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed f32 input,
@@ -356,7 +356,7 @@ void forward_dense_if32os1ws1_bn(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_if32os8ws1(ai_layer* layer);
+void forward_dense_if32os8ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed f32 input,
@@ -365,7 +365,7 @@ void forward_dense_if32os8ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_if32os16ws1(ai_layer* layer);
+void forward_dense_if32os16ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed f32 input,
@@ -374,7 +374,7 @@ void forward_dense_if32os16ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_if32of32ws1(ai_layer* layer);
+void forward_dense_if32of32ws1(ai_layer *layer);
 
 /*!
  * @brief Forward function for a dense layer with signed f32 input,
@@ -387,8 +387,8 @@ void forward_dense_if32of32ws1(ai_layer* layer);
  * @param layer template layer as an opaque pointer
  */
 AI_INTERNAL_API
-void forward_dense_if32of32ws1_bn(ai_layer* layer);
+void forward_dense_if32of32ws1_bn(ai_layer *layer);
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_DENSE_DQNN_H*/
+#endif /*LAYERS_DENSE_DQNN_H*/

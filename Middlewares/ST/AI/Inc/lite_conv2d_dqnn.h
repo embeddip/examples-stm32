@@ -1,26 +1,26 @@
 /**
-  ******************************************************************************
-  * @file    lite_conv2d_dqnn.h
-  * @author  AIS
-  * @brief   header file of AI platform lite dqnn conv kernel datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    lite_conv2d_dqnn.h
+ * @author  AIS
+ * @brief   header file of AI platform lite dqnn conv kernel datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LITE_CONV2D_DQNN_H
 #define LITE_CONV2D_DQNN_H
 
 #include "ai_lite_interface.h"
 
-# define AI_16_OVERFLOW_CHECK(val_) (val_ <= 32767)
+#define AI_16_OVERFLOW_CHECK(val_) (val_ <= 32767)
 
 /******************************************************************************/
 /*  Forward Functions Section                                                 */
@@ -35,22 +35,22 @@ AI_API_DECLARE_BEGIN
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is1os1ws1_bn_pad0(const ai_u32 *pDataIn_init,
-                                          ai_u32 *pDataOut_init,
-                                          const ai_u32 *pWeights_init,
-                                          ai_float *pScratch_32,
-                                          const ai_u32 n_channel_in,
-                                          const ai_u32 n_channel_out,
-                                          const ai_i32 width_in,
-                                          const ai_i32 height_in,
-                                          const ai_i32 width_out,
-                                          const ai_i32 height_out,
-                                          const ai_i32 filt_width,
-                                          const ai_i32 filt_height,
-                                          const ai_i32 filt_pad_x,
-                                          const ai_i32 filt_pad_y,
-                                          const ai_i32 filt_stride_x,
-                                          const ai_i32 filt_stride_y,
-                                          const ai_i32 *pThreshold);
+                                           ai_u32 *pDataOut_init,
+                                           const ai_u32 *pWeights_init,
+                                           ai_float *pScratch_32,
+                                           const ai_u32 n_channel_in,
+                                           const ai_u32 n_channel_out,
+                                           const ai_i32 width_in,
+                                           const ai_i32 height_in,
+                                           const ai_i32 width_out,
+                                           const ai_i32 height_out,
+                                           const ai_i32 filt_width,
+                                           const ai_i32 filt_height,
+                                           const ai_i32 filt_pad_x,
+                                           const ai_i32 filt_pad_y,
+                                           const ai_i32 filt_stride_x,
+                                           const ai_i32 filt_stride_y,
+                                           const ai_i32 *pThreshold);
 
 /*!
  * @brief Handles 2D convolution with binary input, binary output and
@@ -84,23 +84,23 @@ void forward_lite_conv2d_is1os1ws1_bn_pad0_optim0(const ai_u32 *pDataIn_init,
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is1os8ws1_bn_pad0(const ai_u32 *pDataIn_init,
-                                          ai_i8 *pDataOut_init,
-                                          const ai_u32 *pWeights_init,
-                                          ai_float *pScratch_32,
-                                          const ai_u32 n_channel_in,
-                                          const ai_u32 n_channel_out,
-                                          const ai_i32 width_in,
-                                          const ai_i32 height_in,
-                                          const ai_i32 width_out,
-                                          const ai_i32 height_out,
-                                          const ai_i32 filt_width,
-                                          const ai_i32 filt_height,
-                                          const ai_i32 filt_pad_x,
-                                          const ai_i32 filt_pad_y,
-                                          const ai_i32 filt_stride_x,
-                                          const ai_i32 filt_stride_y,
-                                          const ai_float *pScale,
-                                          const ai_float *pOffset);
+                                           ai_i8 *pDataOut_init,
+                                           const ai_u32 *pWeights_init,
+                                           ai_float *pScratch_32,
+                                           const ai_u32 n_channel_in,
+                                           const ai_u32 n_channel_out,
+                                           const ai_i32 width_in,
+                                           const ai_i32 height_in,
+                                           const ai_i32 width_out,
+                                           const ai_i32 height_out,
+                                           const ai_i32 filt_width,
+                                           const ai_i32 filt_height,
+                                           const ai_i32 filt_pad_x,
+                                           const ai_i32 filt_pad_y,
+                                           const ai_i32 filt_stride_x,
+                                           const ai_i32 filt_stride_y,
+                                           const ai_float *pScale,
+                                           const ai_float *pOffset);
 
 /*!
  * @brief Handles 2D convolution with binary input, binary output and
@@ -109,23 +109,23 @@ void forward_lite_conv2d_is1os8ws1_bn_pad0(const ai_u32 *pDataIn_init,
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is1os1ws1_bn_pad1(const ai_u32 *pDataIn_init,
-                                        ai_u32 *pDataOut_init,
-                                        const ai_u32 *pWeights_init,
-                                        ai_float *pScratch_32,
-                                        const ai_u32 n_channel_in,
-                                        const ai_u32 n_channel_out,
-                                        const ai_i32 width_in,
-                                        const ai_i32 height_in,
-                                        const ai_i32 width_out,
-                                        const ai_i32 height_out,
-                                        const ai_i32 filt_width,
-                                        const ai_i32 filt_height,
-                                        const ai_i32 filt_pad_x,
-                                        const ai_i32 filt_pad_y,
-                                        const ai_i32 filt_stride_x,
-                                        const ai_i32 filt_stride_y,
-                                        const ai_i32 *pThreshold,
-                                        const ai_i32 pad_value);
+                                           ai_u32 *pDataOut_init,
+                                           const ai_u32 *pWeights_init,
+                                           ai_float *pScratch_32,
+                                           const ai_u32 n_channel_in,
+                                           const ai_u32 n_channel_out,
+                                           const ai_i32 width_in,
+                                           const ai_i32 height_in,
+                                           const ai_i32 width_out,
+                                           const ai_i32 height_out,
+                                           const ai_i32 filt_width,
+                                           const ai_i32 filt_height,
+                                           const ai_i32 filt_pad_x,
+                                           const ai_i32 filt_pad_y,
+                                           const ai_i32 filt_stride_x,
+                                           const ai_i32 filt_stride_y,
+                                           const ai_i32 *pThreshold,
+                                           const ai_i32 pad_value);
 
 /*!
  * @brief Handles 2D convolution with binary input, binary output and
@@ -160,23 +160,23 @@ void forward_lite_conv2d_is1os1ws1_bn_pad1_optim2(const ai_u32 *pDataIn_init,
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is1os1ws1_bn(const ai_u32 *pDataIn_init,
-                                        ai_u32 * pDataOut_init,
-                                        const ai_u32 *pWeights_init,
-                                        ai_float *pScratch_32,
-                                        const ai_u16 n_channel_in,
-                                        const ai_u16 n_channel_out,
-                                        const ai_u16 width_in,
-                                        const ai_u16 height_in,
-                                        const ai_u16 width_out,
-                                        const ai_u16 height_out,
-                                        const ai_u16 filt_width,
-                                        const ai_u16 filt_height,
-                                        const ai_u16 filt_pad_x,
-                                        const ai_u16 filt_pad_y,
-                                        const ai_u16 filt_stride_x,
-                                        const ai_u16 filt_stride_y,
-                                        const ai_i32 *pThreshold,
-                                        const ai_u8 flatten_output);
+                                      ai_u32 *pDataOut_init,
+                                      const ai_u32 *pWeights_init,
+                                      ai_float *pScratch_32,
+                                      const ai_u16 n_channel_in,
+                                      const ai_u16 n_channel_out,
+                                      const ai_u16 width_in,
+                                      const ai_u16 height_in,
+                                      const ai_u16 width_out,
+                                      const ai_u16 height_out,
+                                      const ai_u16 filt_width,
+                                      const ai_u16 filt_height,
+                                      const ai_u16 filt_pad_x,
+                                      const ai_u16 filt_pad_y,
+                                      const ai_u16 filt_stride_x,
+                                      const ai_u16 filt_stride_y,
+                                      const ai_i32 *pThreshold,
+                                      const ai_u8 flatten_output);
 
 /*!
  * @brief Handles 2D convolution with binary input, 8-bits output and
@@ -185,24 +185,24 @@ void forward_lite_conv2d_is1os1ws1_bn(const ai_u32 *pDataIn_init,
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is1os8ws1_bn_pad1(const ai_u32 *pDataIn_init,
-                                        ai_i8 *pDataOut_init,
-                                        const ai_u32 *pWeights_init,
-                                        ai_float *pScratch_32,
-                                        const ai_u32 n_channel_in,
-                                        const ai_u32 n_channel_out,
-                                        const ai_i32 width_in,
-                                        const ai_i32 height_in,
-                                        const ai_i32 width_out,
-                                        const ai_i32 height_out,
-                                        const ai_i32 filt_width,
-                                        const ai_i32 filt_height,
-                                        const ai_i32 filt_pad_x,
-                                        const ai_i32 filt_pad_y,
-                                        const ai_i32 filt_stride_x,
-                                        const ai_i32 filt_stride_y,
-                                        const ai_float *pScale,
-                                        const ai_float *pOffset,
-                                        const ai_i32 pad_value);
+                                           ai_i8 *pDataOut_init,
+                                           const ai_u32 *pWeights_init,
+                                           ai_float *pScratch_32,
+                                           const ai_u32 n_channel_in,
+                                           const ai_u32 n_channel_out,
+                                           const ai_i32 width_in,
+                                           const ai_i32 height_in,
+                                           const ai_i32 width_out,
+                                           const ai_i32 height_out,
+                                           const ai_i32 filt_width,
+                                           const ai_i32 filt_height,
+                                           const ai_i32 filt_pad_x,
+                                           const ai_i32 filt_pad_y,
+                                           const ai_i32 filt_stride_x,
+                                           const ai_i32 filt_stride_y,
+                                           const ai_float *pScale,
+                                           const ai_float *pOffset,
+                                           const ai_i32 pad_value);
 
 /*!
  * @brief Handles 2D convolution with binary input, 8-bits output and
@@ -322,24 +322,24 @@ void forward_lite_conv2d_is1os16ws1_bn_pad1_optim1_fxp(const ai_u32 *pDataIn_ini
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is1ou16ws1_bn_pad1_fxp(const ai_u32 *pDataIn_init,
-                                                       ai_u16 *pDataOut_init,
-                                                       const ai_u32 *pWeights_init,
-                                                       ai_float *pScratch_32,
-                                                       const ai_u32 n_channel_in,
-                                                       const ai_u32 n_channel_out,
-                                                       const ai_i32 width_in,
-                                                       const ai_i32 height_in,
-                                                       const ai_i32 width_out,
-                                                       const ai_i32 height_out,
-                                                       const ai_i32 filt_width,
-                                                       const ai_i32 filt_height,
-                                                       const ai_i32 filt_pad_x,
-                                                       const ai_i32 filt_pad_y,
-                                                       const ai_i32 filt_stride_x,
-                                                       const ai_i32 filt_stride_y,
-                                                       const ai_float *pScale_init,
-                                                       const ai_float *pOffset_init,
-                                                       const ai_i32 pad_value);
+                                                ai_u16 *pDataOut_init,
+                                                const ai_u32 *pWeights_init,
+                                                ai_float *pScratch_32,
+                                                const ai_u32 n_channel_in,
+                                                const ai_u32 n_channel_out,
+                                                const ai_i32 width_in,
+                                                const ai_i32 height_in,
+                                                const ai_i32 width_out,
+                                                const ai_i32 height_out,
+                                                const ai_i32 filt_width,
+                                                const ai_i32 filt_height,
+                                                const ai_i32 filt_pad_x,
+                                                const ai_i32 filt_pad_y,
+                                                const ai_i32 filt_stride_x,
+                                                const ai_i32 filt_stride_y,
+                                                const ai_float *pScale_init,
+                                                const ai_float *pOffset_init,
+                                                const ai_i32 pad_value);
 
 
 /*!
@@ -430,23 +430,23 @@ void forward_lite_conv2d_is8os1ws8(const ai_i8 *pDataIn_init,
  */
 LITE_API_ENTRY
 void forward_lite_conv2d_is8os1ws8_optim2(const ai_i8 *pDataIn_init,
-                                         ai_u32 *pDataOut_init,
-                                         const ai_i8 *pWeights_init,
-                                         ai_float *pScratch_32,
-                                         const ai_u32 n_channel_in,
-                                         const ai_u32 n_channel_out,
-                                         const ai_i32 width_in,
-                                         const ai_i32 height_in,
-                                         const ai_i32 width_out,
-                                         const ai_i32 height_out,
-                                         const ai_i32 filt_width,
-                                         const ai_i32 filt_height,
-                                         const ai_i32 filt_pad_x,
-                                         const ai_i32 filt_pad_y,
-                                         const ai_i32 filt_stride_x,
-                                         const ai_i32 filt_stride_y,
-                                         const ai_i32 *pThreshold,
-                                         const ai_i8 in_zeropoint);
+                                          ai_u32 *pDataOut_init,
+                                          const ai_i8 *pWeights_init,
+                                          ai_float *pScratch_32,
+                                          const ai_u32 n_channel_in,
+                                          const ai_u32 n_channel_out,
+                                          const ai_i32 width_in,
+                                          const ai_i32 height_in,
+                                          const ai_i32 width_out,
+                                          const ai_i32 height_out,
+                                          const ai_i32 filt_width,
+                                          const ai_i32 filt_height,
+                                          const ai_i32 filt_pad_x,
+                                          const ai_i32 filt_pad_y,
+                                          const ai_i32 filt_stride_x,
+                                          const ai_i32 filt_stride_y,
+                                          const ai_i32 *pThreshold,
+                                          const ai_i8 in_zeropoint);
 
 /*!
  * @brief Handles 2D convolution with 8-bits quantized Input and weights and
@@ -507,8 +507,8 @@ void forward_lite_conv2d_is8os8ws8_sssa_ch(const ai_i8 *pData_in,
                                            const ai_i32 scratch_size);
 
 /*!
- * @brief Handles 2D convolution with 16-bits quantized inputs, binary outputs and binary weights - Lite I/F.
- * Vanilla version.
+ * @brief Handles 2D convolution with 16-bits quantized inputs, binary outputs and binary weights -
+ * Lite I/F. Vanilla version.
  * @ingroup lite_conv2d_dqnn
  * @param layer conv2d_dqnn layer
  */
@@ -537,7 +537,8 @@ void forward_lite_conv2d_is16os1ws1_bn_fxp(const ai_i16 *pIn,
 
 
 /**
- * @brief Handles 2D convolution with 16-bits quantized inputs, 16-bits quantized outputs and binary weights - Lite I/F
+ * @brief Handles 2D convolution with 16-bits quantized inputs, 16-bits quantized outputs and binary
+ * weights - Lite I/F
  *
  * @ingroup lite_conv2d_dqnn
  */
@@ -565,4 +566,4 @@ void forward_lite_conv2d_is16os16ws1_fxp(const ai_i16 *pIn,
 
 AI_API_DECLARE_END
 
-#endif    /*LITE_CONV2D_DQNN_H*/
+#endif /*LITE_CONV2D_DQNN_H*/

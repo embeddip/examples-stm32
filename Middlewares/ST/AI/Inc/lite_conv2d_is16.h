@@ -1,26 +1,26 @@
 /**
-  ******************************************************************************
-  * @file    lite_dense_is16.h
-  * @author  Giacomo Turati
-  * @brief   header file of AI platform lite conv2d kernel (with signed int16 input)
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    lite_dense_is16.h
+ * @author  Giacomo Turati
+ * @brief   header file of AI platform lite conv2d kernel (with signed int16 input)
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LITE_CONV2D_IS16_H
 #define LITE_CONV2D_IS16_H
 
 
-#include "stai.h"
 #include "ai_lite_interface.h"
+#include "stai.h"
 
 /*!
  * @brief Conv2d layer with fixed-point int16_t weights (e.g., Qkeras "auto_po2").
@@ -46,28 +46,26 @@
  * @param bias_shifts Array of fixed-point binary scales for the bias
  * @param signed_input Signed input flag
  * @param signed_output Signed output flag
-*/
+ */
 LITE_API_ENTRY
-void forward_lite_conv2d_is16os16ws16_fxp(
-                          int16_t*           output,
-                          const int16_t*     input,
-                          const int16_t*     weights,
-                          const int16_t*     bias,
-                          const ai_size      n_channel_in,
-                          const ai_size      n_channel_out,
-                          const ai_size      width_in,
-                          const ai_size      height_in,
-                          const ai_size      width_out,
-                          const ai_size      height_out,
-                          const ai_size      filt_width,
-                          const ai_size      filt_height,
-                          const ai_size      filt_pad_x,
-                          const ai_size      filt_pad_y,
-                          const uint16_t     stride_x,
-                          const uint16_t     stride_y,
-                          const uint8_t*     shifts,
-                          const uint8_t*     bias_shifts
-               );
+void forward_lite_conv2d_is16os16ws16_fxp(int16_t *output,
+                                          const int16_t *input,
+                                          const int16_t *weights,
+                                          const int16_t *bias,
+                                          const ai_size n_channel_in,
+                                          const ai_size n_channel_out,
+                                          const ai_size width_in,
+                                          const ai_size height_in,
+                                          const ai_size width_out,
+                                          const ai_size height_out,
+                                          const ai_size filt_width,
+                                          const ai_size filt_height,
+                                          const ai_size filt_pad_x,
+                                          const ai_size filt_pad_y,
+                                          const uint16_t stride_x,
+                                          const uint16_t stride_y,
+                                          const uint8_t *shifts,
+                                          const uint8_t *bias_shifts);
 
 /*!
  * @brief Conv2d layer with fixed-point int16_t weights (e.g., Qkeras "auto_po2").
@@ -93,28 +91,26 @@ void forward_lite_conv2d_is16os16ws16_fxp(
  * @param bias_shifts Array of fixed-point binary scales for the bias
  * @param signed_input Signed input flag
  * @param signed_output Signed output flag
-*/
+ */
 LITE_API_ENTRY
-void forward_lite_conv2d_is16ou16ws16_fxp(
-                          uint16_t*           output,
-                          const int16_t*     input,
-                          const int16_t*     weights,
-                          const int16_t*     bias,
-                          const ai_size      n_channel_in,
-                          const ai_size      n_channel_out,
-                          const ai_size      width_in,
-                          const ai_size      height_in,
-                          const ai_size      width_out,
-                          const ai_size      height_out,
-                          const ai_size      filt_width,
-                          const ai_size      filt_height,
-                          const ai_size      filt_pad_x,
-                          const ai_size      filt_pad_y,
-                          const uint16_t     stride_x,
-                          const uint16_t     stride_y,
-                          const uint8_t*     shifts,
-                          const uint8_t*     bias_shifts
-               );
+void forward_lite_conv2d_is16ou16ws16_fxp(uint16_t *output,
+                                          const int16_t *input,
+                                          const int16_t *weights,
+                                          const int16_t *bias,
+                                          const ai_size n_channel_in,
+                                          const ai_size n_channel_out,
+                                          const ai_size width_in,
+                                          const ai_size height_in,
+                                          const ai_size width_out,
+                                          const ai_size height_out,
+                                          const ai_size filt_width,
+                                          const ai_size filt_height,
+                                          const ai_size filt_pad_x,
+                                          const ai_size filt_pad_y,
+                                          const uint16_t stride_x,
+                                          const uint16_t stride_y,
+                                          const uint8_t *shifts,
+                                          const uint8_t *bias_shifts);
 
 /*!
  * @brief Conv2d layer with fixed-point int16_t weights (e.g., Qkeras "auto_po2").
@@ -140,28 +136,26 @@ void forward_lite_conv2d_is16ou16ws16_fxp(
  * @param bias_shifts Array of fixed-point binary scales for the bias
  * @param signed_input Signed input flag
  * @param signed_output Signed output flag
-*/
+ */
 LITE_API_ENTRY
-void forward_lite_conv2d_iu16os16ws16_fxp(
-                          int16_t*           output,
-                          const uint16_t*     input,
-                          const int16_t*     weights,
-                          const int16_t*     bias,
-                          const ai_size      n_channel_in,
-                          const ai_size      n_channel_out,
-                          const ai_size      width_in,
-                          const ai_size      height_in,
-                          const ai_size      width_out,
-                          const ai_size      height_out,
-                          const ai_size      filt_width,
-                          const ai_size      filt_height,
-                          const ai_size      filt_pad_x,
-                          const ai_size      filt_pad_y,
-                          const uint16_t     stride_x,
-                          const uint16_t     stride_y,
-                          const uint8_t*     shifts,
-                          const uint8_t*     bias_shifts
-               );
+void forward_lite_conv2d_iu16os16ws16_fxp(int16_t *output,
+                                          const uint16_t *input,
+                                          const int16_t *weights,
+                                          const int16_t *bias,
+                                          const ai_size n_channel_in,
+                                          const ai_size n_channel_out,
+                                          const ai_size width_in,
+                                          const ai_size height_in,
+                                          const ai_size width_out,
+                                          const ai_size height_out,
+                                          const ai_size filt_width,
+                                          const ai_size filt_height,
+                                          const ai_size filt_pad_x,
+                                          const ai_size filt_pad_y,
+                                          const uint16_t stride_x,
+                                          const uint16_t stride_y,
+                                          const uint8_t *shifts,
+                                          const uint8_t *bias_shifts);
 
 /*!
  * @brief Conv2d layer with fixed-point int16_t weights (e.g., Qkeras "auto_po2").
@@ -187,27 +181,25 @@ void forward_lite_conv2d_iu16os16ws16_fxp(
  * @param bias_shifts Array of fixed-point binary scales for the bias
  * @param signed_input Signed input flag
  * @param signed_output Signed output flag
-*/
+ */
 LITE_API_ENTRY
-void forward_lite_conv2d_iu16ou16ws16_fxp(
-                          uint16_t*           output,
-                          const uint16_t*     input,
-                          const int16_t*     weights,
-                          const int16_t*     bias,
-                          const ai_size      n_channel_in,
-                          const ai_size      n_channel_out,
-                          const ai_size      width_in,
-                          const ai_size      height_in,
-                          const ai_size      width_out,
-                          const ai_size      height_out,
-                          const ai_size      filt_width,
-                          const ai_size      filt_height,
-                          const ai_size      filt_pad_x,
-                          const ai_size      filt_pad_y,
-                          const uint16_t     stride_x,
-                          const uint16_t     stride_y,
-                          const uint8_t*     shifts,
-                          const uint8_t*     bias_shifts
-               );
+void forward_lite_conv2d_iu16ou16ws16_fxp(uint16_t *output,
+                                          const uint16_t *input,
+                                          const int16_t *weights,
+                                          const int16_t *bias,
+                                          const ai_size n_channel_in,
+                                          const ai_size n_channel_out,
+                                          const ai_size width_in,
+                                          const ai_size height_in,
+                                          const ai_size width_out,
+                                          const ai_size height_out,
+                                          const ai_size filt_width,
+                                          const ai_size filt_height,
+                                          const ai_size filt_pad_x,
+                                          const ai_size filt_pad_y,
+                                          const uint16_t stride_x,
+                                          const uint16_t stride_y,
+                                          const uint8_t *shifts,
+                                          const uint8_t *bias_shifts);
 
-#endif    /* LITE_CONV2D_IS16_H */
+#endif /* LITE_CONV2D_IS16_H */

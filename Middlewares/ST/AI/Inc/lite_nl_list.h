@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    lite_nl_list.h
-  * @author  STMicroelectronics
-  * @brief   header file of lite supported non-linearities routines
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    lite_nl_list.h
+ * @author  STMicroelectronics
+ * @brief   header file of lite supported non-linearities routines
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2022 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 // #define LITE_NL_ENTRY(nl_id_, nl_name_, nl_op_, nl_op_args_)
 

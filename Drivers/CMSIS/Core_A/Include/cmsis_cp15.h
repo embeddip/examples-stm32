@@ -1,9 +1,13 @@
-/**************************************************************************//**
- * @file     cmsis_cp15.h
- * @brief    CMSIS compiler specific macros, functions, instructions
- * @version  V1.0.1
- * @date     07. Sep 2017
- ******************************************************************************/
+/**************************************************************************/ /**
+                                                                              * @file cmsis_cp15.h
+                                                                              * @brief    CMSIS
+                                                                              *compiler specific
+                                                                              *macros, functions,
+                                                                              *instructions
+                                                                              * @version  V1.0.1
+                                                                              * @date     07. Sep
+                                                                              *2017
+                                                                              ******************************************************************************/
 /*
  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
  *
@@ -22,23 +26,23 @@
  * limitations under the License.
  */
 
-#if   defined ( __ICCARM__ )
-  #pragma system_include         /* treat file as system include file for MISRA check */
-#elif defined (__clang__)
-  #pragma clang system_header   /* treat file as system include file */
+#if defined(__ICCARM__)
+    #pragma system_include /* treat file as system include file for MISRA check */
+#elif defined(__clang__)
+    #pragma clang system_header /* treat file as system include file */
 #endif
 
 #ifndef __CMSIS_CP15_H
-#define __CMSIS_CP15_H
+    #define __CMSIS_CP15_H
 
 /** \brief  Get ACTLR
     \return               Auxiliary Control register value
  */
 __STATIC_FORCEINLINE uint32_t __get_ACTLR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 1, 0, 1);
-  return(result);
+    uint32_t result;
+    __get_CP(15, 0, result, 1, 0, 1);
+    return (result);
 }
 
 /** \brief  Set ACTLR
@@ -46,7 +50,7 @@ __STATIC_FORCEINLINE uint32_t __get_ACTLR(void)
  */
 __STATIC_FORCEINLINE void __set_ACTLR(uint32_t actlr)
 {
-  __set_CP(15, 0, actlr, 1, 0, 1);
+    __set_CP(15, 0, actlr, 1, 0, 1);
 }
 
 /** \brief  Get CPACR
@@ -54,9 +58,9 @@ __STATIC_FORCEINLINE void __set_ACTLR(uint32_t actlr)
  */
 __STATIC_FORCEINLINE uint32_t __get_CPACR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 1, 0, 2);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 1, 0, 2);
+    return result;
 }
 
 /** \brief  Set CPACR
@@ -64,7 +68,7 @@ __STATIC_FORCEINLINE uint32_t __get_CPACR(void)
  */
 __STATIC_FORCEINLINE void __set_CPACR(uint32_t cpacr)
 {
-  __set_CP(15, 0, cpacr, 1, 0, 2);
+    __set_CP(15, 0, cpacr, 1, 0, 2);
 }
 
 /** \brief  Get DFSR
@@ -72,9 +76,9 @@ __STATIC_FORCEINLINE void __set_CPACR(uint32_t cpacr)
  */
 __STATIC_FORCEINLINE uint32_t __get_DFSR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 5, 0, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 5, 0, 0);
+    return result;
 }
 
 /** \brief  Set DFSR
@@ -82,7 +86,7 @@ __STATIC_FORCEINLINE uint32_t __get_DFSR(void)
  */
 __STATIC_FORCEINLINE void __set_DFSR(uint32_t dfsr)
 {
-  __set_CP(15, 0, dfsr, 5, 0, 0);
+    __set_CP(15, 0, dfsr, 5, 0, 0);
 }
 
 /** \brief  Get IFSR
@@ -90,9 +94,9 @@ __STATIC_FORCEINLINE void __set_DFSR(uint32_t dfsr)
  */
 __STATIC_FORCEINLINE uint32_t __get_IFSR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 5, 0, 1);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 5, 0, 1);
+    return result;
 }
 
 /** \brief  Set IFSR
@@ -100,7 +104,7 @@ __STATIC_FORCEINLINE uint32_t __get_IFSR(void)
  */
 __STATIC_FORCEINLINE void __set_IFSR(uint32_t ifsr)
 {
-  __set_CP(15, 0, ifsr, 5, 0, 1);
+    __set_CP(15, 0, ifsr, 5, 0, 1);
 }
 
 /** \brief  Get ISR
@@ -108,9 +112,9 @@ __STATIC_FORCEINLINE void __set_IFSR(uint32_t ifsr)
  */
 __STATIC_FORCEINLINE uint32_t __get_ISR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 12, 1, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 12, 1, 0);
+    return result;
 }
 
 /** \brief  Get CBAR
@@ -118,9 +122,9 @@ __STATIC_FORCEINLINE uint32_t __get_ISR(void)
  */
 __STATIC_FORCEINLINE uint32_t __get_CBAR(void)
 {
-  uint32_t result;
-  __get_CP(15, 4, result, 15, 0, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 4, result, 15, 0, 0);
+    return result;
 }
 
 /** \brief  Get TTBR0
@@ -131,9 +135,9 @@ __STATIC_FORCEINLINE uint32_t __get_CBAR(void)
  */
 __STATIC_FORCEINLINE uint32_t __get_TTBR0(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 2, 0, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 2, 0, 0);
+    return result;
 }
 
 /** \brief  Set TTBR0
@@ -144,7 +148,7 @@ __STATIC_FORCEINLINE uint32_t __get_TTBR0(void)
  */
 __STATIC_FORCEINLINE void __set_TTBR0(uint32_t ttbr0)
 {
-  __set_CP(15, 0, ttbr0, 2, 0, 0);
+    __set_CP(15, 0, ttbr0, 2, 0, 0);
 }
 
 /** \brief  Get DACR
@@ -155,9 +159,9 @@ __STATIC_FORCEINLINE void __set_TTBR0(uint32_t ttbr0)
  */
 __STATIC_FORCEINLINE uint32_t __get_DACR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 3, 0, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 3, 0, 0);
+    return result;
 }
 
 /** \brief  Set DACR
@@ -168,7 +172,7 @@ __STATIC_FORCEINLINE uint32_t __get_DACR(void)
  */
 __STATIC_FORCEINLINE void __set_DACR(uint32_t dacr)
 {
-  __set_CP(15, 0, dacr, 3, 0, 0);
+    __set_CP(15, 0, dacr, 3, 0, 0);
 }
 
 /** \brief  Set SCTLR
@@ -179,7 +183,7 @@ __STATIC_FORCEINLINE void __set_DACR(uint32_t dacr)
  */
 __STATIC_FORCEINLINE void __set_SCTLR(uint32_t sctlr)
 {
-  __set_CP(15, 0, sctlr, 1, 0, 0);
+    __set_CP(15, 0, sctlr, 1, 0, 0);
 }
 
 /** \brief  Get SCTLR
@@ -187,9 +191,9 @@ __STATIC_FORCEINLINE void __set_SCTLR(uint32_t sctlr)
  */
 __STATIC_FORCEINLINE uint32_t __get_SCTLR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 1, 0, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 1, 0, 0);
+    return result;
 }
 
 /** \brief  Set ACTRL
@@ -197,7 +201,7 @@ __STATIC_FORCEINLINE uint32_t __get_SCTLR(void)
  */
 __STATIC_FORCEINLINE void __set_ACTRL(uint32_t actrl)
 {
-  __set_CP(15, 0, actrl, 1, 0, 1);
+    __set_CP(15, 0, actrl, 1, 0, 1);
 }
 
 /** \brief  Get ACTRL
@@ -205,9 +209,9 @@ __STATIC_FORCEINLINE void __set_ACTRL(uint32_t actrl)
  */
 __STATIC_FORCEINLINE uint32_t __get_ACTRL(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 1, 0, 1);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 1, 0, 1);
+    return result;
 }
 
 /** \brief  Get MPIDR
@@ -218,9 +222,9 @@ __STATIC_FORCEINLINE uint32_t __get_ACTRL(void)
  */
 __STATIC_FORCEINLINE uint32_t __get_MPIDR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 0, 0, 5);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 0, 0, 5);
+    return result;
 }
 
 /** \brief  Get VBAR
@@ -231,9 +235,9 @@ __STATIC_FORCEINLINE uint32_t __get_MPIDR(void)
  */
 __STATIC_FORCEINLINE uint32_t __get_VBAR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 12, 0, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 12, 0, 0);
+    return result;
 }
 
 /** \brief  Set VBAR
@@ -244,7 +248,7 @@ __STATIC_FORCEINLINE uint32_t __get_VBAR(void)
  */
 __STATIC_FORCEINLINE void __set_VBAR(uint32_t vbar)
 {
-  __set_CP(15, 0, vbar, 12, 0, 0);
+    __set_CP(15, 0, vbar, 12, 0, 0);
 }
 
 /** \brief  Get MVBAR
@@ -255,9 +259,9 @@ __STATIC_FORCEINLINE void __set_VBAR(uint32_t vbar)
  */
 __STATIC_FORCEINLINE uint32_t __get_MVBAR(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 12, 0, 1);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 12, 0, 1);
+    return result;
 }
 
 /** \brief  Set MVBAR
@@ -268,12 +272,12 @@ __STATIC_FORCEINLINE uint32_t __get_MVBAR(void)
  */
 __STATIC_FORCEINLINE void __set_MVBAR(uint32_t mvbar)
 {
-  __set_CP(15, 0, mvbar, 12, 0, 1);
+    __set_CP(15, 0, mvbar, 12, 0, 1);
 }
 
-#if (defined(__CORTEX_A) && (__CORTEX_A == 7U) && \
-    defined(__TIM_PRESENT) && (__TIM_PRESENT == 1U)) || \
-    defined(DOXYGEN)
+    #if (defined(__CORTEX_A) && (__CORTEX_A == 7U) && defined(__TIM_PRESENT) &&                    \
+         (__TIM_PRESENT == 1U)) ||                                                                 \
+        defined(DOXYGEN)
 
 /** \brief  Set CNTFRQ
 
@@ -283,7 +287,7 @@ __STATIC_FORCEINLINE void __set_MVBAR(uint32_t mvbar)
 */
 __STATIC_FORCEINLINE void __set_CNTFRQ(uint32_t value)
 {
-  __set_CP(15, 0, value, 14, 0, 0);
+    __set_CP(15, 0, value, 14, 0, 0);
 }
 
 /** \brief  Get CNTFRQ
@@ -294,9 +298,9 @@ __STATIC_FORCEINLINE void __set_CNTFRQ(uint32_t value)
  */
 __STATIC_FORCEINLINE uint32_t __get_CNTFRQ(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 14, 0 , 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 14, 0, 0);
+    return result;
 }
 
 /** \brief  Set CNTP_TVAL
@@ -307,7 +311,7 @@ __STATIC_FORCEINLINE uint32_t __get_CNTFRQ(void)
 */
 __STATIC_FORCEINLINE void __set_CNTP_TVAL(uint32_t value)
 {
-  __set_CP(15, 0, value, 14, 2, 0);
+    __set_CP(15, 0, value, 14, 2, 0);
 }
 
 /** \brief  Get CNTP_TVAL
@@ -318,9 +322,9 @@ __STATIC_FORCEINLINE void __set_CNTP_TVAL(uint32_t value)
  */
 __STATIC_FORCEINLINE uint32_t __get_CNTP_TVAL(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 14, 2, 0);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 14, 2, 0);
+    return result;
 }
 
 /** \brief  Get CNTPCT
@@ -331,33 +335,35 @@ __STATIC_FORCEINLINE uint32_t __get_CNTP_TVAL(void)
  */
 __STATIC_FORCEINLINE uint64_t __get_CNTPCT(void)
 {
-  uint64_t result;
-  __get_CP64(15, 0, result, 14);
-  return result;
+    uint64_t result;
+    __get_CP64(15, 0, result, 14);
+    return result;
 }
 
 /** \brief  Set CNTP_CVAL
 
-  This function assigns the given value to 64bits PL1 Physical Timer CompareValue Register (CNTP_CVAL).
+  This function assigns the given value to 64bits PL1 Physical Timer CompareValue Register
+  (CNTP_CVAL).
 
   \param [in]    value  CNTP_CVAL Register value to set
 */
 __STATIC_FORCEINLINE void __set_CNTP_CVAL(uint64_t value)
 {
-  __set_CP64(15, 2, value, 14);
+    __set_CP64(15, 2, value, 14);
 }
 
 /** \brief  Get CNTP_CVAL
 
-    This function returns the value of the 64 bits PL1 Physical Timer CompareValue Register (CNTP_CVAL).
+    This function returns the value of the 64 bits PL1 Physical Timer CompareValue Register
+   (CNTP_CVAL).
 
     \return               CNTP_CVAL Register value
  */
 __STATIC_FORCEINLINE uint64_t __get_CNTP_CVAL(void)
 {
-  uint64_t result;
-  __get_CP64(15, 2, result, 14);
-  return result;
+    uint64_t result;
+    __get_CP64(15, 2, result, 14);
+    return result;
 }
 
 /** \brief  Set CNTP_CTL
@@ -368,7 +374,7 @@ __STATIC_FORCEINLINE uint64_t __get_CNTP_CVAL(void)
 */
 __STATIC_FORCEINLINE void __set_CNTP_CTL(uint32_t value)
 {
-  __set_CP(15, 0, value, 14, 2, 1);
+    __set_CP(15, 0, value, 14, 2, 1);
 }
 
 /** \brief  Get CNTP_CTL register
@@ -376,12 +382,12 @@ __STATIC_FORCEINLINE void __set_CNTP_CTL(uint32_t value)
  */
 __STATIC_FORCEINLINE uint32_t __get_CNTP_CTL(void)
 {
-  uint32_t result;
-  __get_CP(15, 0, result, 14, 2, 1);
-  return result;
+    uint32_t result;
+    __get_CP(15, 0, result, 14, 2, 1);
+    return result;
 }
 
-#endif
+    #endif
 
 /** \brief  Set TLBIALL
 
@@ -389,7 +395,7 @@ __STATIC_FORCEINLINE uint32_t __get_CNTP_CTL(void)
  */
 __STATIC_FORCEINLINE void __set_TLBIALL(uint32_t value)
 {
-  __set_CP(15, 0, value, 8, 7, 0);
+    __set_CP(15, 0, value, 8, 7, 0);
 }
 
 /** \brief  Set BPIALL.
@@ -398,7 +404,7 @@ __STATIC_FORCEINLINE void __set_TLBIALL(uint32_t value)
  */
 __STATIC_FORCEINLINE void __set_BPIALL(uint32_t value)
 {
-  __set_CP(15, 0, value, 7, 5, 6);
+    __set_CP(15, 0, value, 7, 5, 6);
 }
 
 /** \brief  Set ICIALLU
@@ -407,7 +413,7 @@ __STATIC_FORCEINLINE void __set_BPIALL(uint32_t value)
  */
 __STATIC_FORCEINLINE void __set_ICIALLU(uint32_t value)
 {
-  __set_CP(15, 0, value, 7, 5, 0);
+    __set_CP(15, 0, value, 7, 5, 0);
 }
 
 /** \brief  Set DCCMVAC
@@ -416,7 +422,7 @@ __STATIC_FORCEINLINE void __set_ICIALLU(uint32_t value)
  */
 __STATIC_FORCEINLINE void __set_DCCMVAC(uint32_t value)
 {
-  __set_CP(15, 0, value, 7, 10, 1);
+    __set_CP(15, 0, value, 7, 10, 1);
 }
 
 /** \brief  Set DCIMVAC
@@ -425,7 +431,7 @@ __STATIC_FORCEINLINE void __set_DCCMVAC(uint32_t value)
  */
 __STATIC_FORCEINLINE void __set_DCIMVAC(uint32_t value)
 {
-  __set_CP(15, 0, value, 7, 6, 1);
+    __set_CP(15, 0, value, 7, 6, 1);
 }
 
 /** \brief  Set DCCIMVAC
@@ -434,15 +440,15 @@ __STATIC_FORCEINLINE void __set_DCIMVAC(uint32_t value)
  */
 __STATIC_FORCEINLINE void __set_DCCIMVAC(uint32_t value)
 {
-  __set_CP(15, 0, value, 7, 14, 1);
+    __set_CP(15, 0, value, 7, 14, 1);
 }
 
 /** \brief  Set CSSELR
  */
 __STATIC_FORCEINLINE void __set_CSSELR(uint32_t value)
 {
-//  __ASM volatile("MCR p15, 2, %0, c0, c0, 0" : : "r"(value) : "memory");
-  __set_CP(15, 2, value, 0, 0, 0);
+    //  __ASM volatile("MCR p15, 2, %0, c0, c0, 0" : : "r"(value) : "memory");
+    __set_CP(15, 2, value, 0, 0, 0);
 }
 
 /** \brief  Get CSSELR
@@ -450,10 +456,10 @@ __STATIC_FORCEINLINE void __set_CSSELR(uint32_t value)
  */
 __STATIC_FORCEINLINE uint32_t __get_CSSELR(void)
 {
-  uint32_t result;
-//  __ASM volatile("MRC p15, 2, %0, c0, c0, 0" : "=r"(result) : : "memory");
-  __get_CP(15, 2, result, 0, 0, 0);
-  return result;
+    uint32_t result;
+    //  __ASM volatile("MRC p15, 2, %0, c0, c0, 0" : "=r"(result) : : "memory");
+    __get_CP(15, 2, result, 0, 0, 0);
+    return result;
 }
 
 /** \brief  Set CCSIDR
@@ -462,7 +468,7 @@ __STATIC_FORCEINLINE uint32_t __get_CSSELR(void)
 CMSIS_DEPRECATED
 __STATIC_FORCEINLINE void __set_CCSIDR(uint32_t value)
 {
-  __set_CSSELR(value);
+    __set_CSSELR(value);
 }
 
 /** \brief  Get CCSIDR
@@ -470,10 +476,10 @@ __STATIC_FORCEINLINE void __set_CCSIDR(uint32_t value)
  */
 __STATIC_FORCEINLINE uint32_t __get_CCSIDR(void)
 {
-  uint32_t result;
-//  __ASM volatile("MRC p15, 1, %0, c0, c0, 0" : "=r"(result) : : "memory");
-  __get_CP(15, 1, result, 0, 0, 0);
-  return result;
+    uint32_t result;
+    //  __ASM volatile("MRC p15, 1, %0, c0, c0, 0" : "=r"(result) : : "memory");
+    __get_CP(15, 1, result, 0, 0, 0);
+    return result;
 }
 
 /** \brief  Get CLIDR
@@ -481,34 +487,34 @@ __STATIC_FORCEINLINE uint32_t __get_CCSIDR(void)
  */
 __STATIC_FORCEINLINE uint32_t __get_CLIDR(void)
 {
-  uint32_t result;
-//  __ASM volatile("MRC p15, 1, %0, c0, c0, 1" : "=r"(result) : : "memory");
-  __get_CP(15, 1, result, 0, 0, 1);
-  return result;
+    uint32_t result;
+    //  __ASM volatile("MRC p15, 1, %0, c0, c0, 1" : "=r"(result) : : "memory");
+    __get_CP(15, 1, result, 0, 0, 1);
+    return result;
 }
 
 /** \brief  Set DCISW
  */
 __STATIC_FORCEINLINE void __set_DCISW(uint32_t value)
 {
-//  __ASM volatile("MCR p15, 0, %0, c7, c6, 2" : : "r"(value) : "memory")
-  __set_CP(15, 0, value, 7, 6, 2);
+    //  __ASM volatile("MCR p15, 0, %0, c7, c6, 2" : : "r"(value) : "memory")
+    __set_CP(15, 0, value, 7, 6, 2);
 }
 
 /** \brief  Set DCCSW
  */
 __STATIC_FORCEINLINE void __set_DCCSW(uint32_t value)
 {
-//  __ASM volatile("MCR p15, 0, %0, c7, c10, 2" : : "r"(value) : "memory")
-  __set_CP(15, 0, value, 7, 10, 2);
+    //  __ASM volatile("MCR p15, 0, %0, c7, c10, 2" : : "r"(value) : "memory")
+    __set_CP(15, 0, value, 7, 10, 2);
 }
 
 /** \brief  Set DCCISW
  */
 __STATIC_FORCEINLINE void __set_DCCISW(uint32_t value)
 {
-//  __ASM volatile("MCR p15, 0, %0, c7, c14, 2" : : "r"(value) : "memory")
-  __set_CP(15, 0, value, 7, 14, 2);
+    //  __ASM volatile("MCR p15, 0, %0, c7, c14, 2" : : "r"(value) : "memory")
+    __set_CP(15, 0, value, 7, 14, 2);
 }
 
 #endif

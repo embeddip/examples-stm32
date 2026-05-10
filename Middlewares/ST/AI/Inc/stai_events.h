@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    stai_events.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   Definitions of ST.AI registered events
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stai_events.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   Definitions of ST.AI registered events
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef STAI_EVENTS_H
 #define STAI_EVENTS_H
 #include "stai.h"
@@ -32,8 +32,8 @@ STAI_API_DECLARE_BEGIN
  *    2) Add a new datastruct definition fpr the new event that specified its payload
  *    3) Add a pointer to this payload into stai_event union to make it public
  **/
-#define STAI_EVENT_NODE_START               (0x01)
-#define STAI_EVENT_NODE_STOP                (0x02)
+#define STAI_EVENT_NODE_START (0x01)
+#define STAI_EVENT_NODE_STOP (0x02)
 
 
 /*****************************************************************************/
@@ -41,11 +41,11 @@ STAI_API_DECLARE_BEGIN
  * ADD YOUR EVENT HERE AND ADD TO STAI_EVENT if public
  **/
 typedef struct {
-  int32_t                   node_id;
-  stai_array_const_ptr            buffers;
+    int32_t node_id;
+    stai_array_const_ptr buffers;
 } stai_event_node_start_stop;
 
 
 STAI_API_DECLARE_END
 
-#endif    /* STAI_EVENTS_H */
+#endif /* STAI_EVENTS_H */

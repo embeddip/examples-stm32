@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_conv2d_dqnn.h
-  * @author  AIS
-  * @brief   header file of AI platform DQNN conv datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_conv2d_dqnn.h
+ * @author  AIS
+ * @brief   header file of AI platform DQNN conv datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LAYERS_CONV2D_DQNN_H
 #define LAYERS_CONV2D_DQNN_H
 
@@ -30,12 +30,12 @@
 AI_API_DECLARE_BEGIN
 
 
-#define AI_DQNN_PAD_1_KEY     (1)
-#define AI_DQNN_PAD_M1_KEY    (-1)
-#define AI_DQNN_PAD_0_KEY     (0)
-#define AI_DQNN_PAD_1_VALUE   (0x0)
-#define AI_DQNN_PAD_M1_VALUE  (0xFFFFFFFF)
-#define AI_DQNN_PAD_0_VALUE   (0x2)
+#define AI_DQNN_PAD_1_KEY (1)
+#define AI_DQNN_PAD_M1_KEY (-1)
+#define AI_DQNN_PAD_0_KEY (0)
+#define AI_DQNN_PAD_1_VALUE (0x0)
+#define AI_DQNN_PAD_M1_VALUE (0xFFFFFFFF)
+#define AI_DQNN_PAD_0_VALUE (0x2)
 
 
 /*!
@@ -45,10 +45,12 @@ AI_API_DECLARE_BEGIN
  *
  * @ref forward_conv2d_is1os1ws1
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_conv2d_dqnn_ {
-  AI_LAYER_CONV2D_FIELDS_DECLARE
-  ai_i32  pad_value;
-} ai_layer_conv2d_dqnn;
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_conv2d_dqnn_
+{
+    AI_LAYER_CONV2D_FIELDS_DECLARE
+    ai_i32 pad_value;
+}
+ai_layer_conv2d_dqnn;
 
 
 /******************************************************************************/
@@ -446,7 +448,7 @@ void forward_pw_is8os8ws8_sssa_ch(const ai_i8 *pData_in,
                                   ai_i32 AI_PWOverlay,
                                   ai_i16 *bufferA,
                                   ai_i32 scratch_size);
-                                  // st_nn_context_t context);
+// st_nn_context_t context);
 
 /*!
  * @brief Computes the activations of a depth-wise integer quantized convolution
@@ -485,4 +487,4 @@ void forward_dw_is8os8ws8_sssa_ch(const ai_i8 *pData_in,
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_CONV2D_DQNN_H*/
+#endif /*LAYERS_CONV2D_DQNN_H*/

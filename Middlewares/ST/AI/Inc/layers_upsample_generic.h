@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_upsample_generic.h
-  * @author  STMicroelectronics
-  * @brief   header file of AI platform padding generic datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_upsample_generic.h
+ * @author  STMicroelectronics
+ * @brief   header file of AI platform padding generic datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2022 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LAYERS_UPSAMPLE_GENERIC_H
 #define LAYERS_UPSAMPLE_GENERIC_H
 
@@ -58,4 +58,4 @@ void forward_upsample_bilinear(ai_layer *pLayer);
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_UPSAMPLE_GENERIC_H*/
+#endif /*LAYERS_UPSAMPLE_GENERIC_H*/

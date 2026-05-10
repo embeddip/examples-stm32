@@ -1,22 +1,22 @@
 #ifndef LAYERS_DENSE_H
 #define LAYERS_DENSE_H
 /**
-  ******************************************************************************
-  * @file    layers_dense.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of AI platform dense layers datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_dense.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of AI platform dense layers datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 #include "layers_common.h"
 
@@ -101,5 +101,4 @@ void forward_dense_integer_UAUA_ch(ai_layer *pLayer);
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_DENSE_H*/
-
+#endif /*LAYERS_DENSE_H*/

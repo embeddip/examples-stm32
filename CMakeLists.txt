@@ -80,9 +80,16 @@ set(TFLM_CC_SOURCES
 
 # Add sources to the executable
 target_sources(${PROJECT_NAME} PRIVATE
+    # For segmentation entrypoint, replace main.cpp with:
+    # ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/main_segmentation.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/mnist_inference.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/mnist_model_data.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/tlfm_camvid.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/tlfm_segmentation.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/tlfm_classification.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/camvid_model_data.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/unet_model_data.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/nn_mnist_model_data.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/CoreCPP/Src/cnn_mnist_model_data.cc
     ${TFLM_CC_SOURCES}
 )
 

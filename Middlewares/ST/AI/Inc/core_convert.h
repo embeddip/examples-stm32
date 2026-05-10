@@ -1,26 +1,25 @@
 /**
-  ******************************************************************************
-  * @file    core_convert.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of core utils routines
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    core_convert.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of core utils routines
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef CORE_CONVERT_H
 #define CORE_CONVERT_H
 
 #include "ai_platform.h"
 #include "ai_platform_interface.h"
-
 #include "core_common.h"
 
 AI_API_DECLARE_BEGIN
@@ -153,7 +152,7 @@ void node_convert_is16ou16(ai_node *pNode);
  * @return a condverted stride datastruct
  */
 AI_INTERNAL_API
-void core_shape_to_stride(ai_stride* out, const ai_shape* in);
+void core_shape_to_stride(ai_stride *out, const ai_shape *in);
 
 
-#endif    /*CORE_CONVERT_H*/
+#endif /*CORE_CONVERT_H*/

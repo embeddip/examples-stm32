@@ -1,19 +1,19 @@
 /**
-  ******************************************************************************
-  * @file    lite_pool_is8os8.h
-  * @author  AIS
-  * @brief   header file of AI platform lite integer pooling function
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
+ ******************************************************************************
+ * @file    lite_pool_is8os8.h
+ * @author  AIS
+ * @brief   header file of AI platform lite integer pooling function
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2022 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
  */
 #ifndef LITE_POOL_IS8OS8
 #define LITE_POOL_IS8OS8
@@ -41,22 +41,21 @@
  * @param[in] out_scale output scale
  * @param[in] out_zeropoint output zero point
  */
-void forward_lite_avepool_is8os8( const ai_i8 *pData_in,
-                                  ai_i8* pData_out,
-                                  const ai_u16 dim_im_in_x,
-                                  const ai_u16 dim_im_in_y,
-                                  const ai_u16 ch_im_in,
-                                  const ai_u16 dim_kernel_x,
-                                  const ai_u16 dim_kernel_y,
-                                  const ai_u16 padding_x,
-                                  const ai_u16 padding_y,
-                                  const ai_u16 stride_x,
-                                  const ai_u16 stride_y,
-                                  const ai_u16 dim_im_out_x,
-                                  const ai_u16 dim_im_out_y,
-                                  const ai_float in_scale,
-                                  const ai_i8 in_zeropoint,
-                                  const ai_float out_scale,
-                                  const ai_i8 out_zeropoint);
+void forward_lite_avepool_is8os8(const ai_i8 *pData_in,
+                                 ai_i8 *pData_out,
+                                 const ai_u16 dim_im_in_x,
+                                 const ai_u16 dim_im_in_y,
+                                 const ai_u16 ch_im_in,
+                                 const ai_u16 dim_kernel_x,
+                                 const ai_u16 dim_kernel_y,
+                                 const ai_u16 padding_x,
+                                 const ai_u16 padding_y,
+                                 const ai_u16 stride_x,
+                                 const ai_u16 stride_y,
+                                 const ai_u16 dim_im_out_x,
+                                 const ai_u16 dim_im_out_y,
+                                 const ai_float in_scale,
+                                 const ai_i8 in_zeropoint,
+                                 const ai_float out_scale,
+                                 const ai_i8 out_zeropoint);
 #endif /* LITE_POOL_IS8OS8 */
-

@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Build All Apps Script
-# This script builds each app from apps/ folder by replacing main.c
+# This script builds each C++ app from apps/ folder by replacing CoreCPP/Src/main.cpp.
+# C listings in apps/ are CubeMX USER CODE fragments and are not standalone
+# translation units for this C++ entrypoint build.
 
 set -e  # Exit on error
 
@@ -48,9 +50,18 @@ successful_builds=0
 failed_builds=0
 declare -a failed_app_list
 
-# Get list of all apps (excluding build_outputs directory)
-mapfile -t app_files < <(find "$APPS_DIR" -maxdepth 1 -type f | grep -v "build_outputs" | sort)
+# Get list of standalone C++ apps (excluding build_outputs directory).
+mapfile -t app_files < <(find "$APPS_DIR" -maxdepth 1 -type f -name "*.cpp" | grep -v "build_outputs" | sort)
 total_apps=${#app_files[@]}
+
+mapfile -t skipped_c_apps < <(find "$APPS_DIR" -maxdepth 1 -type f -name "*.c" | grep -v "build_outputs" | sort)
+if [ ${#skipped_c_apps[@]} -gt 0 ]; then
+    log_warning "Skipping ${#skipped_c_apps[@]} C listing fragment(s); this script builds C++ application() files only:"
+    for skipped_app in "${skipped_c_apps[@]}"; do
+        echo "  - $(basename "$skipped_app")"
+    done
+    echo ""
+fi
 
 if [ $total_apps -eq 0 ]; then
     log_error "No app files found in $APPS_DIR"

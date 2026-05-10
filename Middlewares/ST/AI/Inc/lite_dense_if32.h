@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    lite_dense_if32.h
-  * @author  STMicroelectronics
-  * @brief   Definitions of runtime-lite dense core kernels (with float f32 input)
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    lite_dense_if32.h
+ * @author  STMicroelectronics
+ * @brief   Definitions of runtime-lite dense core kernels (with float f32 input)
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2022 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LITE_DENSE_IF32_H
 #define LITE_DENSE_IF32_H
 
@@ -31,30 +31,34 @@
  * @param n_out: number of elements to be decompressed
  */
 LITE_API_ENTRY
-const uint8_t* lite_decompress_ilutof32(
-  float* out, const uint8_t* data0,
-  const float* lut, const uint16_t lut_bits,
-  const ai_size n_in, const ai_size n_out);
+const uint8_t *lite_decompress_ilutof32(float *out,
+                                        const uint8_t *data0,
+                                        const float *lut,
+                                        const uint16_t lut_bits,
+                                        const ai_size n_in,
+                                        const ai_size n_out);
 
 
 /*!
- * @brief C struct for a dense layer with signed float input, signed float output, and float weights.
+ * @brief C struct for a dense layer with signed float input, signed float output, and float
+ * weights.
  * @ingroup lite_dense_if32
  * @param output The pointer to output buffer.
  * @param input The pointer to input buffer.
  * @param weights The pointer to weights.
  * @param bias The pointer to bias (NULL if not available).
  * @param n_channel_in The number of channels of the input.
- * @param n_channel_out The number of channels of the output, i.e., the number of dense hidden neurons.
+ * @param n_channel_out The number of channels of the output, i.e., the number of dense hidden
+ * neurons.
  */
 typedef struct {
-  ai_float*           output;
-  const ai_float*     input;
-  const ai_float*     weights;
-  const ai_float*     bias;
-  const ai_size       n_channel_in;
-  const ai_size       n_channel_out;
-  const ai_size       n_elements;
+    ai_float *output;
+    const ai_float *input;
+    const ai_float *weights;
+    const ai_float *bias;
+    const ai_size n_channel_in;
+    const ai_size n_channel_out;
+    const ai_size n_elements;
 } forward_lite_dense_if32of32wf32_args;
 
 
@@ -65,8 +69,7 @@ typedef struct {
  * @param args pointer to @ref forward_lite_dense_if32of32wf32_args structure
  */
 LITE_API_ENTRY
-void forward_lite_dense_if32of32wf32(
-  forward_lite_dense_if32of32wf32_args* args);
+void forward_lite_dense_if32of32wf32(forward_lite_dense_if32of32wf32_args *args);
 
 
 /*!
@@ -80,16 +83,20 @@ void forward_lite_dense_if32of32wf32(
  * @param scratch_lut The pointer to cache buffer where to prefetch weights_lut values. (optional)
  * @param bias The pointer to bias (NULL if not available).
  * @param n_channel_in The number of channels of the input.
- * @param n_channel_out The number of channels of the output, i.e., the number of dense hidden neurons.
+ * @param n_channel_out The number of channels of the output, i.e., the number of dense hidden
+ * neurons.
  * @param n_elements The number of elements to process
  */
 LITE_API_ENTRY
-void forward_lite_dense_if32of32wf32_lut4(
-  ai_float* output, const ai_float* input,
-  const ai_u8* weights_indeces, const ai_float* weights_lut, ai_float* scratch_lut,
-  const ai_float* bias,
-  const ai_size n_channel_in, const ai_size n_channel_out,
-  const ai_size n_elements);
+void forward_lite_dense_if32of32wf32_lut4(ai_float *output,
+                                          const ai_float *input,
+                                          const ai_u8 *weights_indeces,
+                                          const ai_float *weights_lut,
+                                          ai_float *scratch_lut,
+                                          const ai_float *bias,
+                                          const ai_size n_channel_in,
+                                          const ai_size n_channel_out,
+                                          const ai_size n_elements);
 
 
 /*!
@@ -103,16 +110,20 @@ void forward_lite_dense_if32of32wf32_lut4(
  * @param scratch_lut The pointer to cache buffer where to prefetch weights_lut values. (optional)
  * @param bias The pointer to bias (NULL if not available).
  * @param n_channel_in The number of channels of the input.
- * @param n_channel_out The number of channels of the output, i.e., the number of dense hidden neurons.
+ * @param n_channel_out The number of channels of the output, i.e., the number of dense hidden
+ * neurons.
  * @param n_elements The number of elements to process
  */
 LITE_API_ENTRY
-void forward_lite_dense_if32of32wf32_lut8(
-  ai_float* output, const ai_float* input,
-  const ai_u8* weights_indeces, const ai_float* weights_lut, ai_float* scratch_lut,
-  const ai_float* bias,
-  const ai_size n_channel_in, const ai_size n_channel_out,
-  const ai_size n_elements);
+void forward_lite_dense_if32of32wf32_lut8(ai_float *output,
+                                          const ai_float *input,
+                                          const ai_u8 *weights_indeces,
+                                          const ai_float *weights_lut,
+                                          ai_float *scratch_lut,
+                                          const ai_float *bias,
+                                          const ai_size n_channel_in,
+                                          const ai_size n_channel_out,
+                                          const ai_size n_elements);
 
 
-#endif    /* LITE_DENSE_IF32_H */
+#endif /* LITE_DENSE_IF32_H */

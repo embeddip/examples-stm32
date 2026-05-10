@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    format_list.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   Definitions of AI platform public APIs types
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    format_list.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   Definitions of AI platform public APIs types
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2019 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 /* FMT_ENTRY( exp_(0/1 only), name_, type_id_,
  *            sign_bit_, complex_bit_, pmask_, bits_, fbits_, ldiv_bits_)
@@ -44,43 +44,43 @@
 FMT_ENTRY(1, NONE, AI_FMT_NONE, 0, 0, 0x0, 0, 0, 0)
 
 /* Floating point formats */
-FMT_ENTRY(1, FLOAT,   AI_FMT_FLOAT, 1, 0, 0x0, 32,  0, 0)
-FMT_ENTRY(0, FLOAT64, AI_FMT_FLOAT, 1, 0, 0x0, 64,  0, 0)
-FMT_ENTRY(0, FLOAT16, AI_FMT_FLOAT, 1, 0, 0x0, 16,  0, 0)
+FMT_ENTRY(1, FLOAT, AI_FMT_FLOAT, 1, 0, 0x0, 32, 0, 0)
+FMT_ENTRY(0, FLOAT64, AI_FMT_FLOAT, 1, 0, 0x0, 64, 0, 0)
+FMT_ENTRY(0, FLOAT16, AI_FMT_FLOAT, 1, 0, 0x0, 16, 0, 0)
 
 /* Integer formats (i.e. fractional bits = 0!) */
-FMT_ENTRY(1, U8,  AI_FMT_Q, 0, 0, 0x0, 8,  0, 0)
+FMT_ENTRY(1, U8, AI_FMT_Q, 0, 0, 0x0, 8, 0, 0)
 FMT_ENTRY(1, U16, AI_FMT_Q, 0, 0, 0x0, 16, 0, 0)
 FMT_ENTRY(1, U32, AI_FMT_Q, 0, 0, 0x0, 32, 0, 0)
 FMT_ENTRY(0, U64, AI_FMT_Q, 0, 0, 0x0, 64, 0, 0)
-FMT_ENTRY(1, U1,  AI_FMT_Q, 0, 0, 0x0, 1,  0, 0)
-FMT_ENTRY(0, U4,  AI_FMT_Q, 0, 0, 0x0, 4,  0, 0)
+FMT_ENTRY(1, U1, AI_FMT_Q, 0, 0, 0x0, 1, 0, 0)
+FMT_ENTRY(0, U4, AI_FMT_Q, 0, 0, 0x0, 4, 0, 0)
 
-FMT_ENTRY(1, S8,  AI_FMT_Q, 1, 0, 0x0, 8,  0, 0)
+FMT_ENTRY(1, S8, AI_FMT_Q, 1, 0, 0x0, 8, 0, 0)
 FMT_ENTRY(1, S16, AI_FMT_Q, 1, 0, 0x0, 16, 0, 0)
 FMT_ENTRY(1, S32, AI_FMT_Q, 1, 0, 0x0, 32, 0, 0)
 FMT_ENTRY(0, S64, AI_FMT_Q, 1, 0, 0x0, 64, 0, 0)
-FMT_ENTRY(1, S1,  AI_FMT_Q, 1, 0, 0x0, 1,  0, 0)
-FMT_ENTRY(0, S4,  AI_FMT_Q, 1, 0, 0x0, 4,  0, 0)
+FMT_ENTRY(1, S1, AI_FMT_Q, 1, 0, 0x0, 1, 0, 0)
+FMT_ENTRY(0, S4, AI_FMT_Q, 1, 0, 0x0, 4, 0, 0)
 
 /* Fixed-point formats including ARM CMSIS Q7, Q15, Q31 ones */
-FMT_ENTRY(1, Q,    AI_FMT_Q, 1, 0, 0x0, 0,   0, 0)
-FMT_ENTRY(1, Q7,   AI_FMT_Q, 1, 0, 0x0, 8,   7, 0)
-FMT_ENTRY(1, Q15,  AI_FMT_Q, 1, 0, 0x0, 16, 15, 0)
-FMT_ENTRY(0, Q31,  AI_FMT_Q, 1, 0, 0x0, 32, 31, 0)
+FMT_ENTRY(1, Q, AI_FMT_Q, 1, 0, 0x0, 0, 0, 0)
+FMT_ENTRY(1, Q7, AI_FMT_Q, 1, 0, 0x0, 8, 7, 0)
+FMT_ENTRY(1, Q15, AI_FMT_Q, 1, 0, 0x0, 16, 15, 0)
+FMT_ENTRY(0, Q31, AI_FMT_Q, 1, 0, 0x0, 32, 31, 0)
 
-FMT_ENTRY(1, UQ,   AI_FMT_Q, 0, 0, 0x0, 0,   0, 0)
-FMT_ENTRY(1, UQ7,  AI_FMT_Q, 0, 0, 0x0, 8,   7, 0)
+FMT_ENTRY(1, UQ, AI_FMT_Q, 0, 0, 0x0, 0, 0, 0)
+FMT_ENTRY(1, UQ7, AI_FMT_Q, 0, 0, 0x0, 8, 7, 0)
 FMT_ENTRY(1, UQ15, AI_FMT_Q, 0, 0, 0x0, 16, 15, 0)
 FMT_ENTRY(0, UQ31, AI_FMT_Q, 0, 0, 0x0, 32, 31, 0)
 
 /* Compressed formats */
 FMT_ENTRY(0, LUT4_FLOAT, AI_FMT_LUT_FLOAT, 1, 0, 0x0, 32, 0, 3)
 FMT_ENTRY(0, LUT8_FLOAT, AI_FMT_LUT_FLOAT, 1, 0, 0x0, 32, 0, 2)
-FMT_ENTRY(0, LUT4_Q15,   AI_FMT_LUT_Q, 1, 0, 0x0, 16, 15, 2)
-FMT_ENTRY(0, LUT8_Q15,   AI_FMT_LUT_Q, 1, 0, 0x0, 16, 15, 1)
-FMT_ENTRY(0, LUT4_UQ15,  AI_FMT_LUT_Q, 0, 0, 0x0, 16, 15, 2)
-FMT_ENTRY(0, LUT8_UQ15,  AI_FMT_LUT_Q, 0, 0, 0x0, 16, 15, 1)
+FMT_ENTRY(0, LUT4_Q15, AI_FMT_LUT_Q, 1, 0, 0x0, 16, 15, 2)
+FMT_ENTRY(0, LUT8_Q15, AI_FMT_LUT_Q, 1, 0, 0x0, 16, 15, 1)
+FMT_ENTRY(0, LUT4_UQ15, AI_FMT_LUT_Q, 0, 0, 0x0, 16, 15, 2)
+FMT_ENTRY(0, LUT8_UQ15, AI_FMT_LUT_Q, 0, 0, 0x0, 16, 15, 1)
 
 /* Boolean format */
 FMT_ENTRY(1, BOOL, AI_FMT_BOOL, 0, 0, 0x0, 8, 0, 0)

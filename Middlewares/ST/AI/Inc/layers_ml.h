@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_ml.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of AI platform ml layers datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_ml.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of AI platform ml layers datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LAYERS_ML_H
 #define LAYERS_ML_H
 
@@ -33,13 +33,15 @@ AI_API_DECLARE_BEGIN
  * @ingroup layers_ml
  * @brief ai_layer_ArrayFeatureExtractor layer definition
  *
- * This layer select elements of the input tensor based on the indices passed. It is intended to be used
- * by his associated forward function @ref forward_arrayfeatureextractor
+ * This layer select elements of the input tensor based on the indices passed. It is intended to be
+ * used by his associated forward function @ref forward_arrayfeatureextractor
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_arrayfeatureextractor_ {
-  AI_LAYER_COMMON_FIELDS_DECLARE
-  ai_tensor* indices;  /*!< Indices of corrisponding axis in axes*/
-} ai_layer_arrayfeatureextractor;
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_arrayfeatureextractor_
+{
+    AI_LAYER_COMMON_FIELDS_DECLARE
+    ai_tensor *indices; /*!< Indices of corrisponding axis in axes*/
+}
+ai_layer_arrayfeatureextractor;
 
 
 /*!
@@ -54,10 +56,12 @@ typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_arrayfeatureextractor_ {
  * There must be as many columns as keys.
  * It is intended to be used by his associated forward function @ref forward_zipmap.
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_zipmap_ {
-  AI_LAYER_COMMON_FIELDS_DECLARE
-  ai_bool has_classlabels_int;
-} ai_layer_zipmap;
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_zipmap_
+{
+    AI_LAYER_COMMON_FIELDS_DECLARE
+    ai_bool has_classlabels_int;
+}
+ai_layer_zipmap;
 
 
 /******************************************************************************/
@@ -71,7 +75,7 @@ typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_zipmap_ {
  * @param layer array feture extractor
  */
 AI_INTERNAL_API
-void forward_arrayfeatureextractor(ai_layer* layer);
+void forward_arrayfeatureextractor(ai_layer *layer);
 
 
 /*!
@@ -80,10 +84,9 @@ void forward_arrayfeatureextractor(ai_layer* layer);
  * @param layer zipmap
  */
 AI_INTERNAL_API
-void forward_zipmap(ai_layer* layer);
-
+void forward_zipmap(ai_layer *layer);
 
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_ML_H*/
+#endif /*LAYERS_ML_H*/

@@ -77,7 +77,5 @@ int application() {
   uint8_t predicted_digit = get_predicted_digit();
   serial.send1D(&predicted_digit, sizeof(uint8_t), 1, SERIAL_DATA_OTHER);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

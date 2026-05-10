@@ -46,8 +46,9 @@
  * @param[in]     *pCoeffs  points to the filter coefficient buffer.
  * @param[in]     *pState   points to the state buffer.
  * @param[in]     blockSize number of input samples to process per call.
- * @return        The function returns ARM_MATH_SUCCESS if initialization was successful or ARM_MATH_LENGTH_ERROR if
- * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
+ * @return        The function returns ARM_MATH_SUCCESS if initialization was successful or
+ * ARM_MATH_LENGTH_ERROR if the filter length <code>numTaps</code> is not a multiple of the
+ * interpolation factor <code>L</code>.
  *
  * <b>Description:</b>
  * \par
@@ -55,55 +56,48 @@
  * <pre>
  *    {b[numTaps-1], b[numTaps-2], b[numTaps-2], ..., b[1], b[0]}
  * </pre>
- * The length of the filter <code>numTaps</code> must be a multiple of the interpolation factor <code>L</code>.
- * \par
- * <code>pState</code> points to the array of state variables.
+ * The length of the filter <code>numTaps</code> must be a multiple of the interpolation factor
+ * <code>L</code>. \par <code>pState</code> points to the array of state variables.
  * <code>pState</code> is of length <code>(numTaps/L)+blockSize-1</code> words
- * where <code>blockSize</code> is the number of input samples processed by each call to <code>arm_fir_interpolate_q31()</code>.
+ * where <code>blockSize</code> is the number of input samples processed by each call to
+ * <code>arm_fir_interpolate_q31()</code>.
  */
 
-arm_status arm_fir_interpolate_init_q31(
-  arm_fir_interpolate_instance_q31 * S,
-  uint8_t L,
-  uint16_t numTaps,
-  q31_t * pCoeffs,
-  q31_t * pState,
-  uint32_t blockSize)
+arm_status arm_fir_interpolate_init_q31(arm_fir_interpolate_instance_q31 *S,
+                                        uint8_t L,
+                                        uint16_t numTaps,
+                                        q31_t *pCoeffs,
+                                        q31_t *pState,
+                                        uint32_t blockSize)
 {
-  arm_status status;
+    arm_status status;
 
-  /* The filter length must be a multiple of the interpolation factor */
-  if ((numTaps % L) != 0U)
-  {
-    /* Set status as ARM_MATH_LENGTH_ERROR */
-    status = ARM_MATH_LENGTH_ERROR;
-  }
-  else
-  {
+    /* The filter length must be a multiple of the interpolation factor */
+    if ((numTaps % L) != 0U) {
+        /* Set status as ARM_MATH_LENGTH_ERROR */
+        status = ARM_MATH_LENGTH_ERROR;
+    } else {
+        /* Assign coefficient pointer */
+        S->pCoeffs = pCoeffs;
 
-    /* Assign coefficient pointer */
-    S->pCoeffs = pCoeffs;
+        /* Assign Interpolation factor */
+        S->L = L;
 
-    /* Assign Interpolation factor */
-    S->L = L;
+        /* Assign polyPhaseLength */
+        S->phaseLength = numTaps / L;
 
-    /* Assign polyPhaseLength */
-    S->phaseLength = numTaps / L;
+        /* Clear state buffer and size of buffer is always phaseLength + blockSize - 1 */
+        memset(pState, 0, (blockSize + ((uint32_t)S->phaseLength - 1U)) * sizeof(q31_t));
 
-    /* Clear state buffer and size of buffer is always phaseLength + blockSize - 1 */
-    memset(pState, 0,
-           (blockSize + ((uint32_t) S->phaseLength - 1U)) * sizeof(q31_t));
+        /* Assign state pointer */
+        S->pState = pState;
 
-    /* Assign state pointer */
-    S->pState = pState;
+        status = ARM_MATH_SUCCESS;
+    }
 
-    status = ARM_MATH_SUCCESS;
-  }
-
-  return (status);
-
+    return (status);
 }
 
- /**
-  * @} end of FIR_Interpolate group
-  */
+/**
+ * @} end of FIR_Interpolate group
+ */

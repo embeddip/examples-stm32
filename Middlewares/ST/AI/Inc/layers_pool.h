@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_pool.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of AI platform pooling layers datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_pool.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of AI platform pooling layers datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LAYERS_POOL_H
 #define LAYERS_POOL_H
 
@@ -38,14 +38,15 @@ AI_API_DECLARE_BEGIN
  * The type of pooling function is handled by the specific forward function
  * @ref forward_pool
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_pool_ {
-  AI_LAYER_COMMON_FIELDS_DECLARE
-  ai_shape_2d pool_size;            /*!< pooling size */
-  ai_shape_2d pool_stride;          /*!< pooling stride */
-  ai_shape    pool_pad;             /*!< pooling pad, y,x border sizes */
-  ai_u8       count_include_pad;    /*!< include pad flag */
-} ai_layer_pool;
-
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_pool_
+{
+    AI_LAYER_COMMON_FIELDS_DECLARE
+    ai_shape_2d pool_size;   /*!< pooling size */
+    ai_shape_2d pool_stride; /*!< pooling stride */
+    ai_shape pool_pad;       /*!< pooling pad, y,x border sizes */
+    ai_u8 count_include_pad; /*!< include pad flag */
+}
+ai_layer_pool;
 
 
 /*!
@@ -67,13 +68,18 @@ typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_pool_ {
  */
 AI_INTERNAL_API
 void pool_func_mp_array_fixed(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                              const ai_u16 dim_im_in_x,
+                              const ai_u16 dim_im_in_y,
+                              const ai_u16 ch_im_in,
+                              const ai_u16 dim_kernel_x,
+                              const ai_u16 dim_kernel_y,
+                              const ai_u16 padding_x,
+                              const ai_u16 padding_y,
+                              const ai_u16 stride_x,
+                              const ai_u16 stride_y,
+                              const ai_u16 dim_im_out_x,
+                              const ai_u16 dim_im_out_y,
+                              ai_handle out);
 
 /*!
  * @brief Max Pooling on a 8-bits integer quantized data array
@@ -94,13 +100,18 @@ void pool_func_mp_array_fixed(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_mp_array_integer(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                                const ai_u16 dim_im_in_x,
+                                const ai_u16 dim_im_in_y,
+                                const ai_u16 ch_im_in,
+                                const ai_u16 dim_kernel_x,
+                                const ai_u16 dim_kernel_y,
+                                const ai_u16 padding_x,
+                                const ai_u16 padding_y,
+                                const ai_u16 stride_x,
+                                const ai_u16 stride_y,
+                                const ai_u16 dim_im_out_x,
+                                const ai_u16 dim_im_out_y,
+                                ai_handle out);
 
 /*!
  * @brief Max Pooling on a signed 8-bits integer quantized data array
@@ -121,13 +132,18 @@ void pool_func_mp_array_integer(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_mp_array_integer_INT8(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                                     const ai_u16 dim_im_in_x,
+                                     const ai_u16 dim_im_in_y,
+                                     const ai_u16 ch_im_in,
+                                     const ai_u16 dim_kernel_x,
+                                     const ai_u16 dim_kernel_y,
+                                     const ai_u16 padding_x,
+                                     const ai_u16 padding_y,
+                                     const ai_u16 stride_x,
+                                     const ai_u16 stride_y,
+                                     const ai_u16 dim_im_out_x,
+                                     const ai_u16 dim_im_out_y,
+                                     ai_handle out);
 
 /*!
  * @brief Max Pooling on a unsigned 8-bits integer quantized data array
@@ -148,13 +164,18 @@ void pool_func_mp_array_integer_INT8(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_mp_array_integer_UINT8(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                                      const ai_u16 dim_im_in_x,
+                                      const ai_u16 dim_im_in_y,
+                                      const ai_u16 ch_im_in,
+                                      const ai_u16 dim_kernel_x,
+                                      const ai_u16 dim_kernel_y,
+                                      const ai_u16 padding_x,
+                                      const ai_u16 padding_y,
+                                      const ai_u16 stride_x,
+                                      const ai_u16 stride_y,
+                                      const ai_u16 dim_im_out_x,
+                                      const ai_u16 dim_im_out_y,
+                                      ai_handle out);
 
 /*!
  * @brief Average Pooling on a 8/16 bits fixed point data array
@@ -175,15 +196,20 @@ void pool_func_mp_array_integer_UINT8(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_ap_array_fixed(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                              const ai_u16 dim_im_in_x,
+                              const ai_u16 dim_im_in_y,
+                              const ai_u16 ch_im_in,
+                              const ai_u16 dim_kernel_x,
+                              const ai_u16 dim_kernel_y,
+                              const ai_u16 padding_x,
+                              const ai_u16 padding_y,
+                              const ai_u16 stride_x,
+                              const ai_u16 stride_y,
+                              const ai_u16 dim_im_out_x,
+                              const ai_u16 dim_im_out_y,
+                              ai_handle out);
 
- /*!
+/*!
  * @brief Average Pooling on a 8-bits integer quantized data array
  * @ingroup layers_pool
  * @param in  opaque handler to input data to process
@@ -202,15 +228,20 @@ void pool_func_ap_array_fixed(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_ap_array_integer(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                                const ai_u16 dim_im_in_x,
+                                const ai_u16 dim_im_in_y,
+                                const ai_u16 ch_im_in,
+                                const ai_u16 dim_kernel_x,
+                                const ai_u16 dim_kernel_y,
+                                const ai_u16 padding_x,
+                                const ai_u16 padding_y,
+                                const ai_u16 stride_x,
+                                const ai_u16 stride_y,
+                                const ai_u16 dim_im_out_x,
+                                const ai_u16 dim_im_out_y,
+                                ai_handle out);
 
- /*!
+/*!
  * @brief Average Pooling on a signed 8-bits integer quantized data array
  * @ingroup layers_pool
  * @param in  opaque handler to input data to process
@@ -229,15 +260,20 @@ void pool_func_ap_array_integer(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_ap_array_integer_INT8(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                                     const ai_u16 dim_im_in_x,
+                                     const ai_u16 dim_im_in_y,
+                                     const ai_u16 ch_im_in,
+                                     const ai_u16 dim_kernel_x,
+                                     const ai_u16 dim_kernel_y,
+                                     const ai_u16 padding_x,
+                                     const ai_u16 padding_y,
+                                     const ai_u16 stride_x,
+                                     const ai_u16 stride_y,
+                                     const ai_u16 dim_im_out_x,
+                                     const ai_u16 dim_im_out_y,
+                                     ai_handle out);
 
- /*!
+/*!
  * @brief Average Pooling on a unsigned 8-bits integer quantized data array
  * @ingroup layers_pool
  * @param in  opaque handler to input data to process
@@ -256,13 +292,18 @@ void pool_func_ap_array_integer_INT8(ai_handle in,
  */
 AI_INTERNAL_API
 void pool_func_ap_array_integer_UINT8(ai_handle in,
-                      const ai_u16 dim_im_in_x, const ai_u16 dim_im_in_y,
-                      const ai_u16 ch_im_in,
-                      const ai_u16 dim_kernel_x, const ai_u16 dim_kernel_y,
-                      const ai_u16 padding_x, const ai_u16 padding_y,
-                      const ai_u16 stride_x, const ai_u16 stride_y,
-                      const ai_u16 dim_im_out_x, const ai_u16 dim_im_out_y,
-                      ai_handle out);
+                                      const ai_u16 dim_im_in_x,
+                                      const ai_u16 dim_im_in_y,
+                                      const ai_u16 ch_im_in,
+                                      const ai_u16 dim_kernel_x,
+                                      const ai_u16 dim_kernel_y,
+                                      const ai_u16 padding_x,
+                                      const ai_u16 padding_y,
+                                      const ai_u16 stride_x,
+                                      const ai_u16 stride_y,
+                                      const ai_u16 dim_im_out_x,
+                                      const ai_u16 dim_im_out_y,
+                                      ai_handle out);
 
 /******************************************************************************/
 /*  Forward Functions Section                                                 */
@@ -274,7 +315,7 @@ void pool_func_ap_array_integer_UINT8(ai_handle in,
  * @param layer the pooling (pool) layer
  */
 AI_INTERNAL_API
-void forward_mp(ai_layer* layer);
+void forward_mp(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a fixed point max pooling layer.
@@ -354,7 +395,7 @@ void forward_mp_integer_UINT16(ai_layer *pLayer);
  * @param layer the pooling (pool) layer
  */
 AI_INTERNAL_API
-void forward_ap(ai_layer* layer);
+void forward_ap(ai_layer *layer);
 
 
 /*!
@@ -410,4 +451,4 @@ void forward_ap_integer_UINT8(ai_layer *pLayer);
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_POOL_H*/
+#endif /*LAYERS_POOL_H*/

@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    lite_dense_is8os1ws1.h
-  * @author  AIS
-  * @brief   header file of AI platform lite dense kernel datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    lite_dense_is8os1ws1.h
+ * @author  AIS
+ * @brief   header file of AI platform lite dense kernel datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LITE_DENSE_IS8OS1WS1_H
 #define LITE_DENSE_IS8OS1WS1_H
 
@@ -30,7 +30,7 @@
  *        binary weights and binary output.
  * @ingroup lite_dense_is8os1ws1
  * @param out_ptr The pointer to output buffer.
-  *@param data_in_init_ptr The pointer to input buffer.
+ *@param data_in_init_ptr The pointer to input buffer.
  * @param weights_ptr The pointer to weights.
  * @param scratch_ptr The pointer to scratch buffer.
  * @param scratch_size The value of scratch tensor size.
@@ -50,4 +50,4 @@ void forward_lite_dense_is8os1ws1_bn_fxp(ai_pbits *out_ptr,
                                          const ai_u32 n_channel_in,
                                          const ai_i32 *threshold_ptr);
 
-#endif    /*LITE_DENSE_IS8OS1WS1_H*/
+#endif /*LITE_DENSE_IS8OS1WS1_H*/

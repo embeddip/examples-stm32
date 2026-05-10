@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_list.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of AI platform layers datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018-2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_list.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of AI platform layers datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018-2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
 
 /* No sentry. This is deliberate!! */
@@ -35,17 +35,15 @@
  */
 
 /* Layer IDs for stateless layers (bit 8 set) */
-#define LAYER_ID(id_) \
-  (0x100 + (id_))
+#define LAYER_ID(id_) (0x100 + (id_))
 /* Layer IDs for stateful layers (bits 7 and 8 set) */
-#define LAYER_STATEFUL_ID(id_) \
-  (0x180 + (id_))
+#define LAYER_STATEFUL_ID(id_) (0x180 + (id_))
 
 /*!< Base layer */
 LAYER_ENTRY(BASE, LAYER_ID(0), base, NULL, NULL, NULL)
 /*!< Elementwise addition layer */
 LAYER_ENTRY(ADD, LAYER_ID(1), add, forward_add, NULL, NULL)
- /*!< Batch normalization layer */
+/*!< Batch normalization layer */
 LAYER_ENTRY(BN, LAYER_ID(2), bn, forward_bn, NULL, NULL)
 /*!< 2D Convolutional layer */
 LAYER_ENTRY(CONV2D, LAYER_ID(3), conv2d, forward_conv2d, NULL, NULL)
@@ -78,19 +76,24 @@ LAYER_ENTRY(GEMM, LAYER_ID(17), gemm, forward_gemm, NULL, NULL)
 /*!< Upsample layer */
 LAYER_ENTRY(UPSAMPLE, LAYER_ID(18), upsample, forward_upsample, NULL, NULL)
 /*!< Container layer for eltwise operations */
-LAYER_ENTRY(ELTWISE, LAYER_ID(19), eltwise,  forward_eltwise, NULL, NULL)
+LAYER_ENTRY(ELTWISE, LAYER_ID(19), eltwise, forward_eltwise, NULL, NULL)
 /*!< Container layer for eltwise integer operations */
-LAYER_ENTRY(ELTWISE_INTEGER, LAYER_ID(20), eltwise_integer,  NULL, NULL, NULL)
+LAYER_ENTRY(ELTWISE_INTEGER, LAYER_ID(20), eltwise_integer, NULL, NULL, NULL)
 /*!< InstanceNormalization layer */
-LAYER_ENTRY(INSTANCENORMALIZATION, LAYER_ID(21), instanceNormalization, forward_instanceNormalization, NULL, NULL)
+LAYER_ENTRY(INSTANCENORMALIZATION,
+            LAYER_ID(21),
+            instanceNormalization,
+            forward_instanceNormalization,
+            NULL,
+            NULL)
 /*!< Pad layer */
-LAYER_ENTRY(PAD, LAYER_ID(22), pad,  forward_pad, NULL, NULL)
+LAYER_ENTRY(PAD, LAYER_ID(22), pad, forward_pad, NULL, NULL)
 /*!< Slice layer */
 LAYER_ENTRY(SLICE, LAYER_ID(23), slice, forward_slice, NULL, NULL)
 /*!< Tile layer */
 LAYER_ENTRY(TILE, LAYER_ID(24), tile, forward_tile, NULL, NULL)
 /*!< Container layer for reduce operations */
-LAYER_ENTRY(REDUCE, LAYER_ID(25), reduce,  forward_reduce, NULL, NULL)
+LAYER_ENTRY(REDUCE, LAYER_ID(25), reduce, forward_reduce, NULL, NULL)
 /*!< Recurrent Neural Network layer */
 LAYER_ENTRY(RNN, LAYER_ID(26), rnn, forward_rnn, NULL, NULL)
 /*!< Resize layer */
@@ -110,7 +113,12 @@ LAYER_ENTRY(IFOREST, LAYER_ID(34), iforest, forward_iforest, NULL, NULL)
 /*!< SVM Regressor layer */
 LAYER_ENTRY(SVMREG, LAYER_ID(35), svmreg, forward_svm_regressor, NULL, NULL)
 /*!< ArrayFeatureExtractor layer */
-LAYER_ENTRY(ARRAYFEATUREEXTRACTOR, LAYER_ID(36), arrayfeatureextractor, forward_arrayfeatureextractor, NULL, NULL)
+LAYER_ENTRY(ARRAYFEATUREEXTRACTOR,
+            LAYER_ID(36),
+            arrayfeatureextractor,
+            forward_arrayfeatureextractor,
+            NULL,
+            NULL)
 /*!< SVM Classifier (SVC) layer */
 LAYER_ENTRY(SVC, LAYER_ID(37), svc, forward_svc, NULL, NULL)
 /*!< ZipMap layer */
@@ -120,17 +128,32 @@ LAYER_ENTRY(WHERE, LAYER_ID(39), where, forward_where, NULL, NULL)
 /*!< LinearClassifier layer */
 LAYER_ENTRY(LINEARCLASSIFIER, LAYER_ID(40), linearclassifier, forward_linearclassifier, NULL, NULL)
 /*!< TreeEnsembleClassifier layer */
-LAYER_ENTRY(TREE_ENSEMBLE_CLASSIFIER, LAYER_ID(41), tree_ensemble_classifier, forward_tree_ensemble_classifier, NULL, NULL)
+LAYER_ENTRY(TREE_ENSEMBLE_CLASSIFIER,
+            LAYER_ID(41),
+            tree_ensemble_classifier,
+            forward_tree_ensemble_classifier,
+            NULL,
+            NULL)
 /*!< TopK layer */
 LAYER_ENTRY(TOPK, LAYER_ID(42), topK, forward_topK, NULL, NULL)
 /*!< ReduceLogSumExp layer */
-LAYER_ENTRY(REDUCE_LOG_SUM_EXP, LAYER_ID(43), reduce_log_sum_exp, forward_reduce_log_sum_exp, NULL, NULL)
+LAYER_ENTRY(REDUCE_LOG_SUM_EXP,
+            LAYER_ID(43),
+            reduce_log_sum_exp,
+            forward_reduce_log_sum_exp,
+            NULL,
+            NULL)
 /*!< ReduceL1 layer */
 LAYER_ENTRY(REDUCE_L1, LAYER_ID(44), reduce_l1, forward_reduce_l1, NULL, NULL)
 /*!< Runtime Lite Graph Wrapper layer */
 LAYER_ENTRY(LITE_GRAPH, LAYER_ID(45), lite_graph, NULL, NULL, NULL)
 /*!< TreeEnsembleRegressor layer */
-LAYER_ENTRY(TREE_ENSEMBLE_REGRESSOR, LAYER_ID(46), tree_ensemble_regressor, forward_tree_ensemble_regressor, NULL, NULL)
+LAYER_ENTRY(TREE_ENSEMBLE_REGRESSOR,
+            LAYER_ID(46),
+            tree_ensemble_regressor,
+            forward_tree_ensemble_regressor,
+            NULL,
+            NULL)
 /*!< GatherND layer */
 LAYER_ENTRY(GATHER_ND, LAYER_ID(67), gather_nd, forward_gather_nd, NULL, NULL)
 /*!< MATMUL layer */
@@ -163,7 +186,8 @@ LAYER_ENTRY(GRU, LAYER_STATEFUL_ID(3), gru, forward_gru, init_gru, destroy_gru)
 /*!< Stateless Template layer declaration */
 /* LAYER_ENTRY(TEMPLATE, LAYER_ID(XX), template, forward_template, NULL, NULL) */
 /*!< Stateful Template layer declaration */
-/* LAYER_ENTRY(TEMPLATE, LAYER_STATEFUL_ID(XX), template, forward_template, init_template, destroy_template) */
+/* LAYER_ENTRY(TEMPLATE, LAYER_STATEFUL_ID(XX), template, forward_template, init_template,
+ * destroy_template) */
 
 #undef LAYER_ENTRY
 #undef LAYER_ID

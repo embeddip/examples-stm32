@@ -1,21 +1,21 @@
 
 /**
-  ******************************************************************************
-  * @file    camvid_int8_config.h
-  * @author  AST Embedded Analytics Research Platform
-  * @date    2026-04-11T13:50:16+0200
-  * @brief   AI Tool Automatic Code Generator for Custom Layers Implementation
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    camvid_int8_config.h
+ * @author  AST Embedded Analytics Research Platform
+ * @date    2026-04-11T13:50:16+0200
+ * @brief   AI Tool Automatic Code Generator for Custom Layers Implementation
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ ******************************************************************************
+ */
 
 #ifndef AI_CAMVID_INT8_CONFIG_H
 #define AI_CAMVID_INT8_CONFIG_H
@@ -32,9 +32,9 @@
 #undef AI_PLATFORM_API_MAJOR
 #undef AI_PLATFORM_API_MINOR
 #undef AI_PLATFORM_API_MICRO
-#define AI_PLATFORM_API_MAJOR       (1)
-#define AI_PLATFORM_API_MINOR       (1)
-#define AI_PLATFORM_API_MICRO       (0)
+#define AI_PLATFORM_API_MAJOR (1)
+#define AI_PLATFORM_API_MINOR (1)
+#define AI_PLATFORM_API_MICRO (0)
 
 #undef AI_TOOLS_API_VERSION_MAJOR
 #undef AI_TOOLS_API_VERSION_MINOR

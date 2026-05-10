@@ -1,21 +1,21 @@
 /**
-  ******************************************************************************
-  * @file    lite_bn_integer.h
-  * @author  AIS
-  * @brief   header file of AI platform lite integer batch normalization
-  *          normalization functions
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    lite_bn_integer.h
+ * @author  AIS
+ * @brief   header file of AI platform lite integer batch normalization
+ *          normalization functions
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LITE_BN_INTEGER_H
 #define LITE_BN_INTEGER_H
 
@@ -42,9 +42,6 @@ void forward_lite_bn_is16os1ws16(const ai_i16 *pIn,
                                  const ai_i16 channels_num);
 
 
-
-
-
 /**
  * @brief Batch Normalization with signed 8-bit input, output.
  *
@@ -68,23 +65,23 @@ void forward_lite_bn_is16os1ws16(const ai_i16 *pIn,
  *              out offset: nb channels * sizeof(ai_i32) +
  *              out shift: nb channels * sizeof(ai_i16)
  */
-void forward_lite_bn_is8os8( const ai_i8 *p_in,
-                        ai_i8 *p_out,
-                        ai_size n_channel_inout,
-                        ai_size n_elements,
-                        ai_float in_scale,
-                        const ai_i32 in_zeropoint,
-                        ai_float out_scale,
-                        const ai_i32 out_zeropoint,
-                        const ai_float *pSc_scale,
-                        const ai_i8 *pSc_zeropoint,
-                        const ai_i8 *pData_scale,
-                        const ai_float *pBias_scale,
-                        const ai_i8 *pBias_zeropoint,
-                        const ai_i8 *pData_bias,
-                        ai_i16 bnl_param_sign,
-                        ai_i32 scratch_size,
-                        ai_i16 *pBuffer_a);
+void forward_lite_bn_is8os8(const ai_i8 *p_in,
+                            ai_i8 *p_out,
+                            ai_size n_channel_inout,
+                            ai_size n_elements,
+                            ai_float in_scale,
+                            const ai_i32 in_zeropoint,
+                            ai_float out_scale,
+                            const ai_i32 out_zeropoint,
+                            const ai_float *pSc_scale,
+                            const ai_i8 *pSc_zeropoint,
+                            const ai_i8 *pData_scale,
+                            const ai_float *pBias_scale,
+                            const ai_i8 *pBias_zeropoint,
+                            const ai_i8 *pData_bias,
+                            ai_i16 bnl_param_sign,
+                            ai_i32 scratch_size,
+                            ai_i16 *pBuffer_a);
 
 /**
  * @brief Batch Normalization with signed 8-bit input, output
@@ -111,23 +108,23 @@ void forward_lite_bn_is8os8( const ai_i8 *p_in,
  *              out offset: nb channels * sizeof(ai_i32) +
  *              out shift: nb channels * sizeof(ai_i16)
  */
-void forward_lite_bn_is8os8_ch( const ai_i8 *p_in,
-                        ai_i8 *p_out,
-                        ai_size n_channel_inout,
-                        ai_size n_elements,
-                        ai_float in_scale,
-                        const ai_i32 in_zeropoint,
-                        ai_float out_scale,
-                        const ai_i32 out_zeropoint,
-                        const ai_float *pSc_scale,
-                        const ai_i8 *pSc_zeropoint,
-                        const ai_i8 *pData_scale,
-                        const ai_float *pBias_scale,
-                        const ai_i8 *pBias_zeropoint,
-                        const ai_i8 *pData_bias,
-                        ai_i16 bnl_param_sign,
-                        ai_i32 scratch_size,
-                        ai_i16 *pBuffer_a);
+void forward_lite_bn_is8os8_ch(const ai_i8 *p_in,
+                               ai_i8 *p_out,
+                               ai_size n_channel_inout,
+                               ai_size n_elements,
+                               ai_float in_scale,
+                               const ai_i32 in_zeropoint,
+                               ai_float out_scale,
+                               const ai_i32 out_zeropoint,
+                               const ai_float *pSc_scale,
+                               const ai_i8 *pSc_zeropoint,
+                               const ai_i8 *pData_scale,
+                               const ai_float *pBias_scale,
+                               const ai_i8 *pBias_zeropoint,
+                               const ai_i8 *pData_bias,
+                               ai_i16 bnl_param_sign,
+                               ai_i32 scratch_size,
+                               ai_i16 *pBuffer_a);
 
 /**
  * @brief Batch Normalization with unsigned 8-bit input, output
@@ -153,23 +150,23 @@ void forward_lite_bn_is8os8_ch( const ai_i8 *p_in,
  *              out offset: nb channels * sizeof(ai_i32) +
  *              out shift: nb channels * sizeof(ai_i16)
  */
-void forward_lite_bn_iu8ou8( const ai_u8 *p_in,
-                        ai_u8 *p_out,
-                        ai_size n_channel_inout,
-                        ai_size n_elements,
-                        ai_float in_scale,
-                        const ai_i32 in_zeropoint_32,
-                        ai_float out_scale,
-                        const ai_i32 out_zeropoint_32,
-                        const ai_float *pSc_scale,
-                        const ai_i8 *pSc_zeropoint,
-                        const ai_i8 *pData_scale,
-                        const ai_float *pBias_scale,
-                        const ai_i8 *pBias_zeropoint,
-                        const ai_i8 *pData_bias,
-                        ai_i16 bnl_param_sign,
-                        ai_i32 scratch_size,
-                        ai_i16 *pBuffer_a);
+void forward_lite_bn_iu8ou8(const ai_u8 *p_in,
+                            ai_u8 *p_out,
+                            ai_size n_channel_inout,
+                            ai_size n_elements,
+                            ai_float in_scale,
+                            const ai_i32 in_zeropoint_32,
+                            ai_float out_scale,
+                            const ai_i32 out_zeropoint_32,
+                            const ai_float *pSc_scale,
+                            const ai_i8 *pSc_zeropoint,
+                            const ai_i8 *pData_scale,
+                            const ai_float *pBias_scale,
+                            const ai_i8 *pBias_zeropoint,
+                            const ai_i8 *pData_bias,
+                            ai_i16 bnl_param_sign,
+                            ai_i32 scratch_size,
+                            ai_i16 *pBuffer_a);
 
 /**
  * @brief Batch Normalization with unsigned 8-bit input, output
@@ -196,21 +193,21 @@ void forward_lite_bn_iu8ou8( const ai_u8 *p_in,
  *              out offset: nb channels * sizeof(ai_i32) +
  *              out shift: nb channels * sizeof(ai_i16)
  */
-void forward_lite_bn_iu8ou8_ch( const ai_u8 *p_in,
-                        ai_u8 *p_out,
-                        ai_size n_channel_inout,
-                        ai_size n_elements,
-                        ai_float in_scale,
-                        const ai_i32 in_zeropoint,
-                        ai_float out_scale,
-                        const ai_i32 out_zeropoint,
-                        const ai_float *pSc_scale,
-                        const ai_i8 *pSc_zeropoint,
-                        const ai_i8 *pData_scale,
-                        const ai_float *pBias_scale,
-                        const ai_i8 *pBias_zeropoint,
-                        const ai_i8 *pData_bias,
-                        ai_i16 bnl_param_sign,
-                        ai_i32 scratch_size,
-                        ai_i16 *pBuffer_a);
-#endif    /* LITE_BN_INTEGER_H */
+void forward_lite_bn_iu8ou8_ch(const ai_u8 *p_in,
+                               ai_u8 *p_out,
+                               ai_size n_channel_inout,
+                               ai_size n_elements,
+                               ai_float in_scale,
+                               const ai_i32 in_zeropoint,
+                               ai_float out_scale,
+                               const ai_i32 out_zeropoint,
+                               const ai_float *pSc_scale,
+                               const ai_i8 *pSc_zeropoint,
+                               const ai_i8 *pData_scale,
+                               const ai_float *pBias_scale,
+                               const ai_i8 *pBias_zeropoint,
+                               const ai_i8 *pData_bias,
+                               ai_i16 bnl_param_sign,
+                               ai_i32 scratch_size,
+                               ai_i16 *pBuffer_a);
+#endif /* LITE_BN_INTEGER_H */

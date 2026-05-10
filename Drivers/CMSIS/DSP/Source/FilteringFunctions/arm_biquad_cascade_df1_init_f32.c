@@ -62,34 +62,33 @@
  *
  * \par
  * The <code>pState</code> is a pointer to state array.
- * Each Biquad stage has 4 state variables <code>x[n-1], x[n-2], y[n-1],</code> and <code>y[n-2]</code>.
- * The state variables are arranged in the <code>pState</code> array as:
- * <pre>
+ * Each Biquad stage has 4 state variables <code>x[n-1], x[n-2], y[n-1],</code> and
+ * <code>y[n-2]</code>. The state variables are arranged in the <code>pState</code> array as: <pre>
  *     {x[n-1], x[n-2], y[n-1], y[n-2]}
  * </pre>
  * The 4 state variables for stage 1 are first, then the 4 state variables for stage 2, and so on.
  * The state array has a total length of <code>4*numStages</code> values.
- * The state variables are updated after each block of data is processed; the coefficients are untouched.
+ * The state variables are updated after each block of data is processed; the coefficients are
+ * untouched.
  *
  */
 
-void arm_biquad_cascade_df1_init_f32(
-  arm_biquad_casd_df1_inst_f32 * S,
-  uint8_t numStages,
-  float32_t * pCoeffs,
-  float32_t * pState)
+void arm_biquad_cascade_df1_init_f32(arm_biquad_casd_df1_inst_f32 *S,
+                                     uint8_t numStages,
+                                     float32_t *pCoeffs,
+                                     float32_t *pState)
 {
-  /* Assign filter stages */
-  S->numStages = numStages;
+    /* Assign filter stages */
+    S->numStages = numStages;
 
-  /* Assign coefficient pointer */
-  S->pCoeffs = pCoeffs;
+    /* Assign coefficient pointer */
+    S->pCoeffs = pCoeffs;
 
-  /* Clear state buffer and size is always 4 * numStages */
-  memset(pState, 0, (4U * (uint32_t) numStages) * sizeof(float32_t));
+    /* Clear state buffer and size is always 4 * numStages */
+    memset(pState, 0, (4U * (uint32_t)numStages) * sizeof(float32_t));
 
-  /* Assign state pointer */
-  S->pState = pState;
+    /* Assign state pointer */
+    S->pState = pState;
 }
 
 /**

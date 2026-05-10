@@ -1,20 +1,20 @@
 /**
-  ******************************************************************************
-  * @file    layers_conv2d.h
-  * @author  AST Embedded Analytics Research Platform
-  * @brief   header file of AI platform conv2d layers datatypes
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2018 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    layers_conv2d.h
+ * @author  AST Embedded Analytics Research Platform
+ * @brief   header file of AI platform conv2d layers datatypes
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2018 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 #ifndef LAYERS_CONV2D_H
 #define LAYERS_CONV2D_H
 
@@ -22,19 +22,16 @@
 #include "layers_pool.h"
 
 
-
-
-#define AI_LAYER_CONV2D_FIELDS_DECLARE \
-  AI_LAYER_COMMON_FIELDS_DECLARE \
-  ai_u32      groups;                   /*!< groups for separable convolution */ \
-  AI_CONST ai_array*  nl_params;        /*!< array pointer to non linear parameters */ \
-  ai_handle   nl_func;                  /*!< function pointer to non linear transform */ \
-  ai_shape_2d filter_stride;            /*!< filter stride, how much the filter moves */ \
-  ai_shape_2d dilation;                 /*!< dilation value along axis of the filter */ \
-  ai_shape    filter_pad;               /*!< filter pad 4d */ \
-  ai_layer_format_type in_ch_format;    /*!< Input format  (Channel 1st vs Channel last */ \
-  ai_layer_format_type out_ch_format;   /*!< Output format (Channel 1st vs Channel last */
-
+#define AI_LAYER_CONV2D_FIELDS_DECLARE                                                             \
+    AI_LAYER_COMMON_FIELDS_DECLARE                                                                 \
+    ai_u32 groups;                      /*!< groups for separable convolution */                   \
+    AI_CONST ai_array *nl_params;       /*!< array pointer to non linear parameters */             \
+    ai_handle nl_func;                  /*!< function pointer to non linear transform */           \
+    ai_shape_2d filter_stride;          /*!< filter stride, how much the filter moves */           \
+    ai_shape_2d dilation;               /*!< dilation value along axis of the filter */            \
+    ai_shape filter_pad;                /*!< filter pad 4d */                                      \
+    ai_layer_format_type in_ch_format;  /*!< Input format  (Channel 1st vs Channel last */         \
+    ai_layer_format_type out_ch_format; /*!< Output format (Channel 1st vs Channel last */
 
 
 /*!
@@ -64,13 +61,15 @@ typedef ai_layer_base ai_layer_dense;
  * broadcast is applied on C if necessary.
  * This is a sequential layer (see @ref ai_layer).
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_gemm_ {
-  AI_LAYER_COMMON_FIELDS_DECLARE
-  ai_float alpha;    /*!< alpha coefficient */
-  ai_float beta;     /*!< beta coefficient */
-  ai_u8 tA;          /*!< transpose A flag */
-  ai_u8 tB;          /*!< transpose B flag */
-} ai_layer_gemm;
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_gemm_
+{
+    AI_LAYER_COMMON_FIELDS_DECLARE
+    ai_float alpha; /*!< alpha coefficient */
+    ai_float beta;  /*!< beta coefficient */
+    ai_u8 tA;       /*!< transpose A flag */
+    ai_u8 tB;       /*!< transpose B flag */
+}
+ai_layer_gemm;
 
 /*!
  * @struct ai_layer_matmul
@@ -78,37 +77,39 @@ typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_gemm_ {
  * @brief layer for General Matrix Multiplication
  *
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_matmul_ {
-  AI_LAYER_COMMON_FIELDS_DECLARE
-  ai_float alpha;    /*!< alpha coefficient */
-  ai_float beta;     /*!< beta coefficient */
-  ai_u8 tA;          /*!< transpose A flag */
-  ai_u8 tB;          /*!< transpose B flag */
-} ai_layer_matmul;
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_matmul_
+{
+    AI_LAYER_COMMON_FIELDS_DECLARE
+    ai_float alpha; /*!< alpha coefficient */
+    ai_float beta;  /*!< beta coefficient */
+    ai_u8 tA;       /*!< transpose A flag */
+    ai_u8 tB;       /*!< transpose B flag */
+}
+ai_layer_matmul;
 
 /*!
  * @struct ai_layer_conv2d
  * @ingroup layers_conv2d
  * @brief 2D convolutional layer with strides and pads
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_conv2d_ {
-  AI_LAYER_CONV2D_FIELDS_DECLARE
-} ai_layer_conv2d;
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_conv2d_{AI_LAYER_CONV2D_FIELDS_DECLARE} ai_layer_conv2d;
 
 /*!
  * @struct ai_layer_conv2d_nl_pool
  * @ingroup layers_conv2d
  * @brief 2D convolutional layer + nl + pooling with strides and pads
  */
-typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_conv2d_nl_pool_ {
-  AI_LAYER_CONV2D_FIELDS_DECLARE
+typedef AI_ALIGNED_TYPE(struct, 4) ai_layer_conv2d_nl_pool_
+{
+    AI_LAYER_CONV2D_FIELDS_DECLARE
 
-  ai_shape_2d pool_size;    /*!< pooling size */
-  ai_shape_2d pool_stride;  /*!< pooling stride */
-  ai_shape    pool_pad;     /*!< pooling pad */
+    ai_shape_2d pool_size;   /*!< pooling size */
+    ai_shape_2d pool_stride; /*!< pooling stride */
+    ai_shape pool_pad;       /*!< pooling pad */
 
-  ai_handle pool_func;      /*!< function pointer to pooling transform */
-} ai_layer_conv2d_nl_pool;
+    ai_handle pool_func; /*!< function pointer to pooling transform */
+}
+ai_layer_conv2d_nl_pool;
 
 
 /*
@@ -132,7 +133,7 @@ void ai_dict4_dot_array_f32(ai_handle out, ai_ptr_const data0, ai_ptr_const lut,
  * @param layer the convolutional (conv) layer
  */
 AI_INTERNAL_API
-void forward_conv2d_if32of32wf32(ai_layer* layer);
+void forward_conv2d_if32of32wf32(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a floating point 32 2D dw layer.
@@ -140,7 +141,7 @@ void forward_conv2d_if32of32wf32(ai_layer* layer);
  * @param layer the convolutional (conv) layer
  */
 AI_INTERNAL_API
-void forward_dw_if32of32wf32(ai_layer* layer);
+void forward_dw_if32of32wf32(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a floating point 32 2D convolutional group layer.
@@ -148,7 +149,7 @@ void forward_dw_if32of32wf32(ai_layer* layer);
  * @param layer the convolutional (conv) layer
  */
 AI_INTERNAL_API
-void forward_conv2d_if32of32wf32_group(ai_layer* layer);
+void forward_conv2d_if32of32wf32_group(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a 2D floating point 32 pool fused convolutional layer.
@@ -156,7 +157,7 @@ void forward_conv2d_if32of32wf32_group(ai_layer* layer);
  * @param layer the convolutional (conv) layer
  */
 AI_INTERNAL_API
-void forward_conv2d_if32of32wf32_nl_pool(ai_layer* layer);
+void forward_conv2d_if32of32wf32_nl_pool(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a 2D floating point 32 pool fused dw layer.
@@ -164,7 +165,7 @@ void forward_conv2d_if32of32wf32_nl_pool(ai_layer* layer);
  * @param layer the convolutional (conv) layer
  */
 AI_INTERNAL_API
-void forward_dw_if32of32wf32_nl_pool(ai_layer* layer);
+void forward_dw_if32of32wf32_nl_pool(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a 2D floating point 32 pool fused convolutional group layer.
@@ -172,7 +173,7 @@ void forward_dw_if32of32wf32_nl_pool(ai_layer* layer);
  * @param layer the convolutional (conv) layer
  */
 AI_INTERNAL_API
-void forward_conv2d_if32of32wf32_group_nl_pool(ai_layer* layer);
+void forward_conv2d_if32of32wf32_group_nl_pool(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a GEMM layer.
@@ -180,7 +181,7 @@ void forward_conv2d_if32of32wf32_group_nl_pool(ai_layer* layer);
  * @param layer the layer including output and input tensors
  */
 AI_INTERNAL_API
-void forward_gemm(ai_layer* layer);
+void forward_gemm(ai_layer *layer);
 
 /*!
  * @brief Computes matmul layer, intended as numpy.matmul(A,B).
@@ -188,7 +189,7 @@ void forward_gemm(ai_layer* layer);
  * @param layer the layer including output and input tensors
  */
 AI_INTERNAL_API
-void forward_matmul(ai_layer* layer);
+void forward_matmul(ai_layer *layer);
 
 /*!
  * @brief Computes the activations of a dense (fully connected) layer.
@@ -196,7 +197,7 @@ void forward_matmul(ai_layer* layer);
  * @param layer the dense layer
  */
 AI_INTERNAL_API
-void forward_dense(ai_layer* layer);
+void forward_dense(ai_layer *layer);
 
 
 /*!
@@ -297,7 +298,6 @@ void forward_dw_3x3_sssa8_ch(ai_layer *pLayer);
  */
 AI_INTERNAL_API
 void forward_dw_1xN_sssa8_ch(ai_layer *pLayer);
-
 
 
 /*!
@@ -663,7 +663,6 @@ AI_INTERNAL_API
 void forward_dense_integer(ai_layer *pLayer);
 
 
-
 /*!
  * @brief Computes the activations of a integer dense (fully connected) layer
  *        for SSSA per layer quantized scheme
@@ -738,4 +737,4 @@ void forward_dense_integer_UAUA_ch(ai_layer *pLayer);
 
 AI_API_DECLARE_END
 
-#endif    /*LAYERS_CONV2D_H*/
+#endif /*LAYERS_CONV2D_H*/
