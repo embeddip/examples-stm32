@@ -19,7 +19,5 @@ int application() {
   outImg.convertTo();
   serial.send(outImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

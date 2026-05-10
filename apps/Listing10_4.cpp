@@ -30,7 +30,5 @@ int application() {
   outImg.negative(outImg);
   serial.send(outImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

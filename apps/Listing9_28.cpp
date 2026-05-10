@@ -36,8 +36,8 @@ int application() {
   embedDIP::Image gray(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image edges(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image clean(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image gradX(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image gradY(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image gradH(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image gradV(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image mag(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image displayRgb(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
 
@@ -92,19 +92,19 @@ int application() {
             break;
 
           case 1: // Gaussian gradients + magnitude.
-            gray.gaussianGradients(gradX, gradY, 1.2f);
-            mag.gradientMagnitude(gradX, gradY);
+            gray.gaussianGradients(gradH, gradV, 1.2f);
+            mag.gradientMagnitude(gradH, gradV);
             mag.convertTo();
             mag.grayscaleOtsu(clean);
             result = &clean;
             break;
 
           case 2: // Sobel + magnitude.
-            gray.filter2D(kernelX, gradX);
-            gradX.convertTo();
-            gray.filter2D(kernelY, gradY);
-            gradY.convertTo();
-            mag.gradientMagnitude(gradX, gradY);
+            gray.filter2D(kernelX, gradH);
+            gradH.convertTo();
+            gray.filter2D(kernelY, gradV);
+            gradV.convertTo();
+            mag.gradientMagnitude(gradH, gradV);
             mag.convertTo();
             mag.grayscaleOtsu(clean);
             result = &clean;

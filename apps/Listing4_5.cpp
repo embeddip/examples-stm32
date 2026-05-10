@@ -20,8 +20,5 @@ int application()
     rgbImg.cvtColor(yuvImg, CVT_RGB565_TO_YUV);
     serial.send(yuvImg);
 
-    while (1)
-    {
-        ;
-    }
+    while (1);
 }

@@ -4,22 +4,20 @@
 using namespace std;
 
 int application() {
-  embedDIP::Image wqvgaImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
-  embedDIP::Image qqvgaImg(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB565);
+
+  embedDIP::Image inImg(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB888);
+  embedDIP::Image compressedImg(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB888);
 
   embedDIP::Camera camera(&stm32_ov5640);
   embedDIP::Serial serial(&stm32_uart);
 
-  camera.init(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
-  camera.capture(SINGLE, wqvgaImg);
-  serial.send(wqvgaImg);
-
-  camera.stop();
-  camera.setRes(IMAGE_RES_QQVGA);
-  camera.capture(SINGLE, qqvgaImg);
-  serial.send(qqvgaImg);
+  camera.init(IMAGE_RES_QQVGA, IMAGE_FORMAT_RGB888);
+  serial.init();
 
   while (1) {
-    ;
+    camera.capture(SINGLE, inImg);
+    inImg.compressJPEG(compressedImg, 75);
+    serial.sendJPEG(compressedImg);
+    camera.stop();
   }
 }

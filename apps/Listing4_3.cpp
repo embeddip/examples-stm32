@@ -14,7 +14,5 @@ int application() {
 
   serial.send(inImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

@@ -25,7 +25,5 @@ int application() {
   inImg.colorRegionGrowing(outImg, seeds3, 2, 0.30);
   serial.send(outImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

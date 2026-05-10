@@ -12,7 +12,5 @@ int application() {
 
   camera.capture(SINGLE, inImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

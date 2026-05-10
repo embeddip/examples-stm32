@@ -12,8 +12,8 @@ static const std::vector<std::vector<float>> SOBEL_Y_3x3 = {
 int application() {
   embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image sX(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image sY(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image sH(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image sV(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
   embedDIP::Serial serial(&stm32_uart);
 
@@ -21,21 +21,19 @@ int application() {
 
   serial.capture(inImg);
 
-  inImg.filter2D(SOBEL_X_3x3, sX);
-  inImg.filter2D(SOBEL_Y_3x3, sY);
+  inImg.filter2D(SOBEL_X_3x3, sH);
+  inImg.filter2D(SOBEL_Y_3x3, sV);
 
-  sX.convertTo();
-  serial.send(sX);
+  sH.convertTo();
+  serial.send(sH);
 
-  sY.convertTo();
-  serial.send(sY);
+  sV.convertTo();
+  serial.send(sV);
 
-  outImg.gradientMagnitude(sX, sY);
+  outImg.gradientMagnitude(sH, sV);
 
   outImg.convertTo();
   serial.send(outImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

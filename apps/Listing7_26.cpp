@@ -36,7 +36,5 @@ int application() {
   outImg.rgbMerge(rOutImg, gOutImg, bOutImg);
 
   serial.send(outImg);
-  while (1) {
-    ;
-  }
+  while (1);
 }

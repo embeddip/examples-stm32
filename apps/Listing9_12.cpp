@@ -31,7 +31,5 @@ int application() {
   inImg._and_(maskImg, outImg);
   serial.send(outImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

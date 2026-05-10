@@ -23,7 +23,5 @@ int application() {
     serial.send1D(histogram.data(), sizeof(int), 256, SERIAL_DATA_HISTOGRAM);
   }
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

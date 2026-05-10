@@ -26,8 +26,5 @@ int application()
     diffImg.convertTo();
     serial.send(diffImg);
 
-    while (1)
-    {
-        ;
-    }
+    while (1);
 }

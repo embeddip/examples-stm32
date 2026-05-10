@@ -9,13 +9,13 @@ int application() {
 
   embedDIP::Serial serial(&stm32_uart);
 
+  serial.init();
+
   serial.capture(inImg);
 
   inImg.grayscaleThreshold(outImg, 160);
 
   serial.send(outImg);
 
-  while (true) {
-    ;
-  }
+  while (1);
 }

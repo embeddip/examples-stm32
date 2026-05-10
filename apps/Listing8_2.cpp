@@ -30,7 +30,5 @@ int application() {
   phaseImg.convertTo();
   serial.send(phaseImg);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }

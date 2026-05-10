@@ -3,10 +3,11 @@
 
 using namespace std;
 
-int application() {
+int application()
+{
   embedDIP::Image inImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image gX(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-  embedDIP::Image gY(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image gH(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image gV(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image magnitudeOut(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image phaseOut(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
@@ -16,22 +17,20 @@ int application() {
 
   serial.capture(inImg);
 
-  inImg.gaussianGradients(gX, gY, 1.2f);
+  inImg.gaussianGradients(gH, gV, 1.2f);
 
-  gX.convertTo();
-  serial.send(gX);
-  gY.convertTo();
-  serial.send(gY);
+  gH.convertTo();
+  serial.send(gH);
+  gV.convertTo();
+  serial.send(gV);
 
-  magnitudeOut.gradientMagnitude(gX, gY);
+  magnitudeOut.gradientMagnitude(gH, gV);
   magnitudeOut.convertTo();
   serial.send(magnitudeOut);
 
-  phaseOut.gradientPhase(gX, gY);
+  phaseOut.gradientPhase(gH, gV);
   phaseOut.convertTo();
   serial.send(phaseOut);
 
-  while (1) {
-    ;
-  }
+  while (1);
 }
