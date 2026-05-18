@@ -1,27 +1,18 @@
-#include "main.hpp"
+#include "main.h"
+#include <cmath>
 #include <embedDIP.hpp>
 
 using namespace std;
 
-int application()
-{
-    embedDIP::Image rgbImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
-    embedDIP::Image grayImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
-    embedDIP::Image yuvImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_YUV);
+int application() {
 
-    embedDIP::Serial serial(&stm32_uart);
-    serial.init();
+  float data[1000];
 
-    serial.capture(rgbImg);
+  tic();
+  for (uint32_t i = 0; i < 1000; i++) {
+    data[i] = M_PI * M_E * i;
+  }
+  uint32_t elapsed = toc();
 
-    rgbImg.cvtColor(grayImg, CVT_RGB565_TO_GRAYSCALE);
-    serial.send(grayImg);
-
-    rgbImg.cvtColor(yuvImg, CVT_RGB565_TO_YUV);
-    serial.send(yuvImg);
-
-    while (1)
-    {
-        ;
-    }
+  while (1);
 }
