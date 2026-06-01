@@ -13,18 +13,19 @@ extern "C" int tlfm_seg_init(const unsigned char *model_data,
                              unsigned int model_data_len);
 extern "C" int tlfm_seg_infer(const uint8_t *pixels, uint8_t *mask);
 
-// Separate entrypoint for segmentation main flow.
 int application() {
-  // CMake switch note:
-  // For segmentation build entrypoint, use this file instead of main.cpp.
   embedDIP::Serial serial(&stm32_uart);
 
   memory_init(TFLM_ARENA_SIZE_BYTES);
 
   embedDIP::Image inImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image maskImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  // embedDIP::Image cameraImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  // embedDIP::Camera camera(&stm32_ov5640);
 
   serial.init();
+  // camera.init(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
   if (tlfm_seg_init(g_unet_model_data, g_unet_model_data_len) != 0) {
     // Model switch examples:
     // tlfm_seg_init(g_mobilenet_model_data, g_mobilenet_model_data_len);
@@ -33,6 +34,8 @@ int application() {
   }
 
   serial.capture(inImg);
+  // camera.capture(SINGLE, cameraImg);
+  // cameraImg.resize(inImg, IMG_SIZE, IMG_SIZE);
 
   const uint8_t *pixels = reinterpret_cast<const uint8_t *>(inImg.pixels());
   uint8_t *mask = reinterpret_cast<uint8_t *>(maskImg.pixels());
@@ -40,7 +43,8 @@ int application() {
     while (1);
   }
 
-  serial.send(maskImg);
+  maskImg.resize(outImg, outImg.width(), outImg.height());
+  serial.send(outImg);
 
   while (1);
 }

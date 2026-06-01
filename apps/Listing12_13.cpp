@@ -54,8 +54,11 @@ uint8_t get_predicted_digit(void) {
 int application() {
   embedDIP::Serial serial(&stm32_uart);
   embedDIP::Image inImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
+  // embedDIP::Image cameraImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  // embedDIP::Camera camera(&stm32_ov5640);
 
   serial.init();
+  // camera.init(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
   const ai_handle acts[] = {activations};
 
@@ -64,6 +67,8 @@ int application() {
   ai_output = ai_nn_mnist_outputs_get(network, NULL);
 
   serial.capture(inImg);
+  // camera.capture(SINGLE, cameraImg);
+  // cameraImg.resize(inImg, IMG_SIZE, IMG_SIZE);
 
   uint8_t *pixels = (uint8_t *)inImg.pixels();
   for (int i = 0; i < IMG_PIXELS; ++i) {

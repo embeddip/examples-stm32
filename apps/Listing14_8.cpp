@@ -1,6 +1,7 @@
 #include "main.hpp"
 #include "unet_fp32.h"
 #include "unet_fp32_data.h"
+#include <cstring>
 #include <embedDIP.hpp>
 
 using namespace embedDIP;
@@ -30,12 +31,12 @@ void model_init(void) {
   ai_error err;
   const ai_handle acts[] = {activations};
 
-  err = ai_unet_fp32_create_and_init(&network, acts, NULL);
+  err = ai_unet_fp32_create_and_init(&network, acts, nullptr);
   if (err.type != AI_ERROR_NONE)
     Error_Handler();
 
-  ai_input = ai_unet_fp32_inputs_get(network, NULL);
-  ai_output = ai_unet_fp32_outputs_get(network, NULL);
+  ai_input = ai_unet_fp32_inputs_get(network, nullptr);
+  ai_output = ai_unet_fp32_outputs_get(network, nullptr);
 }
 
 void model_inference(void) {
@@ -59,10 +60,16 @@ int application() {
   memory_init(0x00140000);
   embedDIP::Image inImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
   embedDIP::Image maskImg(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE);
+  embedDIP::Image outImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  // embedDIP::Image cameraImg(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
+  // embedDIP::Camera camera(&stm32_ov5640);
 
   model_init();
+  // camera.init(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
   serial.capture(inImg);
+  // camera.capture(SINGLE, cameraImg);
+  // cameraImg.resize(inImg, IMG_SIZE, IMG_SIZE);
 
   uint8_t *pixels = (uint8_t *)inImg.pixels();
   for (int i = 0; i < IMG_PIXELS; ++i) {
@@ -72,7 +79,8 @@ int application() {
   model_inference();
 
   memcpy(maskImg.pixels(), binary_mask, IMG_PIXELS);
-  serial.send(maskImg);
+  maskImg.resize(outImg, outImg.width(), outImg.height());
+  serial.send(outImg);
 
   HAL_Delay(10);
 
