@@ -25,6 +25,7 @@ static ai_buffer *ai_output;
 
 /* USER CODE BEGIN 0 */
 serial_t *serial = &stm32_uart;
+// camera_t *camera = &stm32_ov5640;
 
 void model_init(void) {
   ai_error err;
@@ -63,11 +64,16 @@ uint8_t get_predicted_digit(void) {
 /* USER CODE BEGIN 2 */
 Image *inImg = NULL;
 createImageWH(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE, &inImg);
+// Image *cameraImg = NULL;
+// createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &cameraImg);
 
 serial->init();
+// camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 model_init();
 
 serial->capture(inImg);
+// camera->capture(SINGLE, cameraImg);
+// resize(cameraImg, inImg, IMG_SIZE, IMG_SIZE);
 
 uint8_t *pixels = (uint8_t *)inImg->pixels;
 for (int i = 0; i < IMG_PIXELS; i++) {

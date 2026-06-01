@@ -30,6 +30,7 @@ static ai_buffer *ai_output;
 /* USER CODE BEGIN 0 */
 serial_t *serial = &stm32_uart;
 display_t *display = &stm32_ota5180a;
+// camera_t *camera = &stm32_ov5640;
 
 void model_init(void) {
   const ai_handle acts[] = {activations};
@@ -59,11 +60,18 @@ display->init();
 memory_init(0x00140000);
 
 Image *inImg = NULL;
+Image *outImg = NULL;
 createImageWH(IMG_SIZE, IMG_SIZE, IMAGE_FORMAT_GRAYSCALE, &inImg);
+createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &outImg);
+// Image *cameraImg = NULL;
+// createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE, &cameraImg);
 
 model_init();
+// camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_GRAYSCALE);
 
 serial->capture(inImg);
+// camera->capture(SINGLE, cameraImg);
+// resize(cameraImg, inImg, IMG_SIZE, IMG_SIZE);
 
 uint8_t *pixels = (uint8_t *)inImg->pixels;
 for (int i = 0; i < IMG_PIXELS; ++i) {
@@ -82,6 +90,7 @@ for (int i = 0; i < IMG_PIXELS; ++i) {
 }
 
 memcpy(pixels, binary_mask, IMG_PIXELS);
-serial->send(inImg);
+resize(inImg, outImg, outImg->width, outImg->height);
+serial->send(outImg);
 
 /* USER CODE END 2 */

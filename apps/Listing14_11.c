@@ -7,7 +7,7 @@
 #define IMG_PIXELS 128 * 128
 #define IN_CHANNELS 3
 #define OUT_CHANNELS 4
-#define BACKGROUND_CLASS_ID (3)
+#define BACKGROUND_CLASS_ID 3
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
@@ -26,12 +26,6 @@ static ai_i8 *input_data = (ai_i8 *)(0xC0800000 - AI_CAMVID_INT8_OUT_1_SIZE -
 AI_ALIGNED(4)
 static uint8_t class_id_map[IMG_PIXELS];
 
-AI_ALIGNED(4)
-static uint8_t class_index_map[IMG_PIXELS];
-
-AI_ALIGNED(4)
-static uint8_t confidence_map[IMG_PIXELS];
-
 static ai_handle network = AI_HANDLE_NULL;
 static ai_buffer *ai_input;
 static ai_buffer *ai_output;
@@ -40,6 +34,7 @@ static ai_buffer *ai_output;
 /* USER CODE BEGIN 0 */
 serial_t *serial = &stm32_uart;
 display_t *display = &stm32_ota5180a;
+// camera_t *camera = &stm32_ov5640;
 
 void model_init(void) {
   ai_error err;
@@ -74,11 +69,6 @@ void model_inference(void) {
     }
 
     class_id_map[i] = (uint8_t)best_class;
-    class_index_map[i] =
-        (OUT_CHANNELS > 1) ? (uint8_t)((best_class * 255) / (OUT_CHANNELS - 1))
-                           : 0;
-    confidence_map[i] =
-        (uint8_t)((int16_t)best_score + 128); // QLinear(1/256, -128)
   }
 }
 /* USER CODE END 0 */
@@ -93,19 +83,27 @@ memory_init(0x00140000);
 
 // Create images for RGB input and outputs
 Image *inImg = NULL;
-Image *classImg = NULL;
 Image *visImg = NULL;
 Image *overlayImg = NULL;
+Image *rgbWqvga = NULL;
 createImageWH(128, 128, IMAGE_FORMAT_RGB888, &inImg);
-createImageWH(128, 128, IMAGE_FORMAT_GRAYSCALE, &classImg);
+// Image *cameraImg = NULL;
+// Image *cameraRgbImg = NULL;
+// createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565, &cameraImg);
+// createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888, &cameraRgbImg);
 createImageWH(128, 128, IMAGE_FORMAT_RGB888, &visImg);
 createImageWH(128, 128, IMAGE_FORMAT_RGB888, &overlayImg);
+createImage(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB888, &rgbWqvga);
 
 // Initialize AI model
 model_init();
+// camera->init(IMAGE_RES_WQVGA, IMAGE_FORMAT_RGB565);
 
 // Receive RGB image via serial (128x128x3)
 serial->capture(inImg);
+// camera->capture(SINGLE, cameraImg);
+// cvtColor(cameraImg, cameraRgbImg, CVT_RGB565_TO_RGB888);
+// resize(cameraRgbImg, inImg, 128, 128);
 
 // Convert uint8 RGB [0..255] to int8 (QLinear scale=1/255, zero=-128)
 uint8_t *in_pixels = (uint8_t *)inImg->pixels;
@@ -125,17 +123,10 @@ static const uint8_t class_colors[OUT_CHANNELS][3] = {
 };
 
 // 1. Send original input
-serial->send(inImg);
+resize(inImg, rgbWqvga, rgbWqvga->width, rgbWqvga->height);
+serial->send(rgbWqvga);
 
-// 2. Send class index map (0..255 scaled from class IDs)
-memcpy(classImg->pixels, class_index_map, IMG_PIXELS);
-serial->send(classImg);
-
-// 3. Send confidence map (0..255)
-memcpy(classImg->pixels, confidence_map, IMG_PIXELS);
-serial->send(classImg);
-
-// 4. Send colorized segmentation map (RGB888)
+// 2. Send final colorized segmentation result (RGB888)
 uint8_t *vis_pixels = (uint8_t *)visImg->pixels;
 for (int i = 0; i < IMG_PIXELS; ++i) {
   uint8_t cls = class_id_map[i];
@@ -143,9 +134,10 @@ for (int i = 0; i < IMG_PIXELS; ++i) {
   vis_pixels[3 * i + 1] = class_colors[cls][1];
   vis_pixels[3 * i + 2] = class_colors[cls][2];
 }
-serial->send(visImg);
+resize(visImg, rgbWqvga, rgbWqvga->width, rgbWqvga->height);
+serial->send(rgbWqvga);
 
-// 5. Send overlay (original image + segmentation color mask)
+// 3. Send overlay (original image + segmentation color mask)
 uint8_t *overlay_pixels = (uint8_t *)overlayImg->pixels;
 for (int i = 0; i < IMG_PIXELS; ++i) {
   uint8_t cls = class_id_map[i];
@@ -172,5 +164,6 @@ for (int i = 0; i < IMG_PIXELS; ++i) {
         (uint8_t)(((uint16_t)src_b * 55U + (uint16_t)mask_b * 45U) / 100U);
   }
 }
-serial->send(overlayImg);
+resize(overlayImg, rgbWqvga, rgbWqvga->width, rgbWqvga->height);
+serial->send(rgbWqvga);
 /* USER CODE END 2 */
