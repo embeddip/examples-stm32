@@ -60,7 +60,6 @@ The STM32 examples are organized across branches:
 | [`main-cpp-apps`](https://github.com/embeddip/examples-stm32/tree/main-cpp-apps) | C++ listing applications. |
 | [`main-c-ai-apps`](https://github.com/embeddip/examples-stm32/tree/main-c-ai-apps) | C AI listing applications. |
 | [`main-cpp-ai-apps`](https://github.com/embeddip/examples-stm32/tree/main-cpp-ai-apps) | C++ AI listing applications. |
-| [`main-c-tfmicro-app`](https://github.com/embeddip/examples-stm32/tree/main-c-tfmicro-app) | TensorFlow Lite Micro C applications. |
 
 ## Related Repositories
 
